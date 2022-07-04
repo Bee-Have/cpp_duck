@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 13:36:32 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/04 19:44:43 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/04 20:00:12 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void	search(Phonebook phonebook)
 		check_size_str(phonebook.contacts[i].first_name);
 		check_size_str(phonebook.contacts[i].last_name);
 		check_size_str(phonebook.contacts[i].nickname);
-		std::cout << phonebook.contacts[i].get_oldest();
 		if (i < phonebook.get_nbr_contacts() - 1)
 			std::cout << '\n';
 	}
