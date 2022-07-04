@@ -1,5 +1,9 @@
 ../.vscode/
 ex00/megaphone
 !megaphone.cpp
+
+ex01/phonebook
+!phonebook.*
+
 **/objs/
 *.o
