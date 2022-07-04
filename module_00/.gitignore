@@ -3,7 +3,8 @@ ex00/megaphone
 !megaphone.cpp
 
 ex01/phonebook
-!phonebook.*
+!phonebook.cpp
+!phonebook.hpp
 
 **/objs/
 *.o
