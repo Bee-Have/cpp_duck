@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:13:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/04 20:15:35 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/04 21:23:47 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,22 +99,25 @@ void	Phonebook::search(void)
 	while (std::cin)
 	{
 		std::stringstream ss;
-		int	test = 10;
+		int	index = 0;
 		std::cout << "Search Index :";
 		std::getline(std::cin, line);
-		// for (int i = 0; i < line.size(); ++i)
-		// {
-		// 	int	nbr = 0;
-		// 	if (std::isdigit(line[i]) == 0)
-		// 	{
-		// 		std::cout << "Entry mut be a number\n";
-		// 		nbr = 1;
-		// 		break ;
-		// 	}
-		// }
 		ss << line;
-		ss >> test;
-		std::cout << '[' << line << "]-[" << test << "]\n";
+		ss >> index;
+		std::cout << "index-[" << index << "]\n";
+		if (index == 0 && line.compare("0") != 0)
+			std::cout << "Entry must be a number" << std::endl;
+		else if (index > get_nbr_contacts())
+			std::cout << "Entry must be an existing index" << std::endl;
+		else
+		{
+			std::cout << "FIRST NAME : " << contacts[index].first_name << '\n';
+			std::cout << "LAST NAME : " << contacts[index].last_name << '\n';
+			std::cout << "NICKNAME : " << contacts[index].nickname << '\n';
+			std::cout << "PHONE NUMBER : " << contacts[index].phone_number << '\n';
+			std::cout << "DARKEST SECRET : " << contacts[index].darkest_secret << std::endl;
+			break ;
+		}
 	}
 }
 
