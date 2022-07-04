@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 13:56:54 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/04 17:39:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/04 20:14:52 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	Contact::set_oldest(int value)
 	_oldest = value;
 }
 
-std::string	wait_for_input(std::string prefix)
+static std::string	wait_for_input(std::string prefix)
 {
 	std::string	line;
 

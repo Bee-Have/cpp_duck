@@ -6,12 +6,14 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:13:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/04 20:00:21 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/04 20:15:35 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 
 Phonebook::Phonebook(void)
 {
@@ -20,18 +22,6 @@ Phonebook::Phonebook(void)
 
 Phonebook::~Phonebook(void)
 {
-}
-
-int	Phonebook::get_oldest_contact(void)const
-{
-	int	i = 0;
-	while (i < get_nbr_contacts())
-	{
-		if (contacts[i].get_oldest() == 1)
-			return (i);
-		++i;
-	}
-	return (i);
 }
 
 void	Phonebook::add_contact(void)
@@ -51,6 +41,80 @@ void	Phonebook::add_contact(void)
 	{
 		contacts[get_nbr_contacts()].new_contact(get_nbr_contacts());
 		set_nbr_contacts(get_nbr_contacts() + 1);
+	}
+}
+
+int	Phonebook::get_oldest_contact(void)const
+{
+	int	i = 0;
+	while (i < get_nbr_contacts())
+	{
+		if (contacts[i].get_oldest() == 1)
+			return (i);
+		++i;
+	}
+	return (i);
+}
+
+static void	check_size_str(std::string str)
+{
+	if (str.size() <= 10)
+	{
+		std::cout << std::setw(10) << str << std::setw(3) << " | ";
+		return ;
+	}
+	std::string tmp;
+	tmp = str.substr(0, 10);
+	tmp[9] = '.';
+	std::cout << std::setw(10) << tmp << std::setw(3) << " | ";
+}
+
+void	Phonebook::print_phonebook(void)const
+{
+	std::cout << std::setw(10) << "INDEX" << std::setw(3) << " | "
+		<< std::setw(10) << "FIRST NAME" << std::setw(3) << " | "
+		<< std::setw(10) << "LAST NAME" << std::setw(3) << " | "
+		<< std::setw(10) << "NICKNAME" << '\n';
+	for (int i = 0; i < 49; ++i)
+		std::cout << "-";
+	std::cout << '\n';
+	for (int i = 0; i < get_nbr_contacts(); ++i)
+	{
+		std::cout << std::setw(10) << contacts[i].index
+			<< std::setw(3) << " | ";
+		check_size_str(contacts[i].first_name);
+		check_size_str(contacts[i].last_name);
+		check_size_str(contacts[i].nickname);
+		if (i < get_nbr_contacts() - 1)
+			std::cout << '\n';
+	}
+	std::cout << std::endl;
+}
+
+void	Phonebook::search(void)
+{
+	std::string line;
+
+	print_phonebook();
+	while (std::cin)
+	{
+		std::stringstream ss;
+		int	test = 10;
+		std::cout << "Search Index :";
+		std::getline(std::cin, line);
+		// for (int i = 0; i < line.size(); ++i)
+		// {
+		// 	int	nbr = 0;
+		// 	if (std::isdigit(line[i]) == 0)
+		// 	{
+		// 		std::cout << "Entry mut be a number\n";
+		// 		nbr = 1;
+		// 		break ;
+		// 	}
+		// }
+		ss << line;
+		ss >> test;
+		std::cout << '[' << line << "]-[" << test << "]\n";
 	}
 }
 
