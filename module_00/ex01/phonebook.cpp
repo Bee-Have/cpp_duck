@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:13:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/04 17:40:13 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/04 19:56:14 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,15 @@ void	Phonebook::add_contact(void)
 	if (get_nbr_contacts() == 0)
 		contacts->set_oldest(1);
 	if (get_nbr_contacts() == 8)
-		contacts[get_oldest_contact()].new_contact(get_oldest_contact());
+	{
+		int	oldest = get_oldest_contact();
+		contacts[oldest].new_contact(oldest);
+		contacts[oldest].set_oldest(0);
+		if (oldest >= 7)
+			oldest = -1;
+		std::cout << "oldest-[" << oldest << "]\n";
+		contacts[oldest + 1].set_oldest(1);
+	}
 	else
 	{
 		contacts[get_nbr_contacts()].new_contact(get_nbr_contacts());
