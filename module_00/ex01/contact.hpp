@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 22:10:19 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/04 15:31:29 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/04 16:50:59 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@ class	Contact
 		std::string	nickname;
 		int			phone_number;
 		std::string	darkest_secret;
-	// private ?
 		int			index;
+		int		get_oldest()const;
+		void	set_oldest(int value);
+	private:
+		int	_oldest;
 };
 
 #endif

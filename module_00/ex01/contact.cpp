@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 13:56:54 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/04 15:34:48 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:06:19 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,21 @@
 
 Contact::Contact(void)
 {
+	set_oldest(0);
 }
 
 Contact::~Contact(void)
 {
+}
+
+int		Contact::get_oldest()const
+{
+	return (_oldest);
+}
+
+void	Contact::set_oldest(int value)
+{
+	_oldest = value;
 }
 
 std::string	wait_for_input(std::string prefix)
@@ -31,7 +42,20 @@ std::string	wait_for_input(std::string prefix)
 	{
 		std::cout << prefix;
 		std::getline(std::cin, line);
-		if (line.compare("") == 0)
+		if (prefix.compare("Phone number : ") == 0)
+		{
+			int	nbr = 0;
+			for (int i = 0; line[i] != '\0'; ++i)
+				if (std::isdigit(line[i]) == 0)
+				{
+					std::cout << "Field has to be a number" << std::endl;
+					nbr = 1;
+					break ;
+				}
+			if (nbr == 0)
+				break ;
+		}
+		else if (line.compare("") == 0)
 			std::cout << "Field Cannot be empty" << std::endl;
 		else
 			break ;
@@ -41,7 +65,7 @@ std::string	wait_for_input(std::string prefix)
 
 void	Contact::new_contact(void)
 {
-	std::stringstream ss;
+	std::stringstream	ss;
 	first_name = wait_for_input("First name : ");
 	last_name = wait_for_input("Last name : ");
 	nickname = wait_for_input("Nickname : ");
