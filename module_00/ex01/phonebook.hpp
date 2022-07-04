@@ -6,20 +6,27 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 22:06:59 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/03 23:03:46 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/04 15:18:56 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
-class phonebook
+# include "contact.hpp"
+
+class Phonebook
 {
 	public:
-
-	contact	contacts[8];
+		Phonebook();
+		~Phonebook();
+		Contact	contacts[8];
 	// add contacts ?
-	// constructor
-	// destructor
+		void	add_contact();
+		int	get_nbr_contacts() const;
+		void	set_nbr_contacts(int value);
 	private:
-	// nbr of current contacts
+		int	_nbr_contacts;
 };
+
+#endif
