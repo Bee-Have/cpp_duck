@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 22:10:19 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/04 16:50:59 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:39:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class	Contact
 	public:
 		Contact();
 		~Contact();
-		void	new_contact();
+		void	new_contact(int nbr);
 		std::string	first_name;
 		std::string	last_name;
 		std::string	nickname;

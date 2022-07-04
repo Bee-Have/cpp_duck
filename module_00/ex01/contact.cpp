@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 13:56:54 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/04 17:06:19 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:39:45 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ std::string	wait_for_input(std::string prefix)
 	return (line);
 }
 
-void	Contact::new_contact(void)
+void	Contact::new_contact(int nbr)
 {
 	std::stringstream	ss;
 	first_name = wait_for_input("First name : ");
@@ -72,5 +72,5 @@ void	Contact::new_contact(void)
 	ss << wait_for_input("Phone number : ");
 	ss >> phone_number;
 	darkest_secret = wait_for_input("Darkest Secret : ");
-	index = 0;
+	index = nbr;
 }
