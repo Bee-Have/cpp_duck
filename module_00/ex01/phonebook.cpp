@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:13:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/05 13:42:37 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/05 13:53:00 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	Phonebook::search(void)
 		}
 		if (index == 0 && line.compare("0") != 0)
 			std::cout << "Entry must be a number" << std::endl;
-		else if (index > get_nbr_contacts())
+		else if (index >= get_nbr_contacts())
 			std::cout << "Entry must be an existing index" << std::endl;
 		else
 		{
