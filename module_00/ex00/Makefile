@@ -8,7 +8,7 @@ OBJ_DIR = objs
 
 SRC = megaphone.cpp
 
-OBJ = $(addprefix $(OBJ_DIR)/,$(SRC:.cpp=.o))
+OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
 all: $(NAME)
 
