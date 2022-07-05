@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:25:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/05 14:22:11 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:54:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char *av[])
 			std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 		else
 			for (int icpy = 0; cpy[icpy] != '\0'; ++icpy)
-				std::cout << (char)toupper(cpy[icpy]);
+				std::cout << (char)std::toupper(cpy[icpy]);
 	}
 	std::cout << std::endl;
 }
