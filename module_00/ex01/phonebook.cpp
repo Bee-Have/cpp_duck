@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:13:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/05 13:36:31 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/05 13:42:37 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ void	Phonebook::search(void)
 		ss >> index;
 		if (get_nbr_contacts() == 0)
 		{
-			std::cout << "You have not contacts\n";
+			std::cout << "You have not contacts" << std::endl;
 			break ;
 		}
 		if (index == 0 && line.compare("0") != 0)
@@ -115,11 +115,12 @@ void	Phonebook::search(void)
 			std::cout << "Entry must be an existing index" << std::endl;
 		else
 		{
-			std::cout << "FIRST NAME : " << contacts[index].first_name << '\n';
-			std::cout << "LAST NAME : " << contacts[index].last_name << '\n';
-			std::cout << "NICKNAME : " << contacts[index].nickname << '\n';
-			std::cout << "PHONE NUMBER : " << contacts[index].phone_number << '\n';
-			std::cout << "DARKEST SECRET : " << contacts[index].darkest_secret << std::endl;
+			std::cout << "FIRST NAME : " << contacts[index].first_name
+			<< "\nLAST NAME : " << contacts[index].last_name
+			<< "\nNICKNAME : " << contacts[index].nickname
+			<< "\nPHONE NUMBER : " << contacts[index].phone_number
+			<< "\nDARKEST SECRET : " << contacts[index].darkest_secret
+			<< std::endl;
 			break ;
 		}
 	}
