@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 13:36:32 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/05 19:21:22 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/05 19:36:45 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(void)
 		else if (line.compare("ADD") == 0)
 		{
 			std::cout << "add contact" << std::endl;
-			phonebook.add_contact();
+			phonebook.set_contact();
 		}
 		else if (line.compare("SEARCH") == 0)
 			phonebook.search();

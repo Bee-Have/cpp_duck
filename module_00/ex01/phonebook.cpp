@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:13:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/05 19:14:25 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/05 19:35:31 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,32 +24,12 @@ Phonebook::~Phonebook(void)
 {
 }
 
-void	Phonebook::add_contact(void)
-{
-	if (get_nbr_contacts() == 0)
-		contacts->set_oldest(1);
-	if (get_nbr_contacts() == 8)
-	{
-		int	oldest = get_oldest_contact();
-		contacts[oldest].new_contact(oldest);
-		contacts[oldest].set_oldest(0);
-		if (oldest >= 7)
-			oldest = -1;
-		contacts[oldest + 1].set_oldest(1);
-	}
-	else
-	{
-		contacts[get_nbr_contacts()].new_contact(get_nbr_contacts());
-		set_nbr_contacts(get_nbr_contacts() + 1);
-	}
-}
-
 int	Phonebook::get_oldest_contact(void)const
 {
 	int	i = 0;
 	while (i < get_nbr_contacts())
 	{
-		if (contacts[i].get_oldest() == 1)
+		if (get_contact(i).get_oldest() == 1)
 			return (i);
 		++i;
 	}
@@ -80,11 +60,11 @@ void	Phonebook::print_phonebook(void)const
 	std::cout << '\n';
 	for (int i = 0; i < get_nbr_contacts(); ++i)
 	{
-		std::cout << std::setw(10) << contacts[i].get_index()
+		std::cout << std::setw(10) << get_contact(i).get_index()
 			<< std::setw(3) << " | ";
-		check_size_str(contacts[i].get_first_name());
-		check_size_str(contacts[i].get_last_name());
-		check_size_str(contacts[i].get_nickname());
+		check_size_str(get_contact(i).get_first_name());
+		check_size_str(get_contact(i).get_last_name());
+		check_size_str(get_contact(i).get_nickname());
 		if (i < get_nbr_contacts() - 1)
 			std::cout << '\n';
 	}
@@ -115,14 +95,43 @@ void	Phonebook::search(void)
 			std::cout << "Entry must be an existing index" << std::endl;
 		else
 		{
-			std::cout << "FIRST NAME : " << contacts[index].get_first_name()
-			<< "\nLAST NAME : " << contacts[index].get_last_name()
-			<< "\nNICKNAME : " << contacts[index].get_nickname()
-			<< "\nPHONE NUMBER : " << contacts[index].get_phone_number()
-			<< "\nDARKEST SECRET : " << contacts[index].get_darkest_secret()
+			std::cout << "FIRST NAME : " << get_contact(index).get_first_name()
+			<< "\nLAST NAME : " << get_contact(index).get_last_name()
+			<< "\nNICKNAME : " << get_contact(index).get_nickname()
+			<< "\nPHONE NUMBER : " << get_contact(index).get_phone_number()
+			<< "\nDARKEST SECRET : " << get_contact(index).get_darkest_secret()
 			<< std::endl;
 			break ;
 		}
+	}
+}
+
+Contact	Phonebook::get_contact(int index)const
+{
+	if (index > get_nbr_contacts())
+		return (_contacts[get_nbr_contacts()]);
+	else if (index < 0)
+		return (_contacts[0]);
+	return (_contacts[index]);
+}
+
+void	Phonebook::set_contact(void)
+{
+	if (get_nbr_contacts() == 0)
+		_contacts->set_oldest(1);
+	if (get_nbr_contacts() == 8)
+	{
+		int	oldest = get_oldest_contact();
+		_contacts[oldest].new_contact(oldest);
+		_contacts[oldest].set_oldest(0);
+		if (oldest >= 7)
+			oldest = -1;
+		_contacts[oldest + 1].set_oldest(1);
+	}
+	else
+	{
+		_contacts[get_nbr_contacts()].new_contact(get_nbr_contacts());
+		set_nbr_contacts(get_nbr_contacts() + 1);
 	}
 }
 
