@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:25:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/03 23:03:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/05 14:09:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int ac, char *av[])
 	for(int i = 1; i < ac; ++i)
 	{
 		std::string cpy(av[i]);
-		for (int icpy = 0; icpy < cpy.size(); ++icpy)
+		for (int icpy = 0; cpy[icpy] != '\0'; ++icpy)
 			std::cout << (char)toupper(cpy[icpy]);
 	}
 	std::cout << std::endl;
