@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 13:56:54 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/04 20:14:52 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/05 14:01:59 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,38 @@ static std::string	wait_for_input(std::string prefix)
 
 	while(std::cin)
 	{
+		int		bad = 0;
 		std::cout << prefix;
 		std::getline(std::cin, line);
-		if (prefix.compare("Phone number : ") == 0)
+		for (int i = 0; line[i] != '\0'; ++i)
 		{
-			int	nbr = 0;
-			for (int i = 0; line[i] != '\0'; ++i)
-				if (std::isdigit(line[i]) == 0)
-				{
-					std::cout << "Field has to be a number" << std::endl;
-					nbr = 1;
+			if (isprint(line[i]) == 0)
+			{
+				std::cout << "Field can only contain printable characters" << std::endl;
+				bad = 1;
+				break ;
+			}
+		}
+		if (bad == 0)
+		{
+			if (prefix.compare("Phone number : ") == 0)
+			{
+				int	nbr = 0;
+				for (int i = 0; line[i] != '\0'; ++i)
+					if (std::isdigit(line[i]) == 0)
+					{
+						std::cout << "Field has to be a number" << std::endl;
+						nbr = 1;
+						break ;
+					}
+				if (nbr == 0)
 					break ;
-				}
-			if (nbr == 0)
+			}
+			else if (line.compare("") == 0)
+				std::cout << "Field Cannot be empty" << std::endl;
+			else
 				break ;
 		}
-		else if (line.compare("") == 0)
-			std::cout << "Field Cannot be empty" << std::endl;
-		else
-			break ;
 	}
 	return (line);
 }
