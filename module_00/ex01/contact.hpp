@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 22:10:19 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/05 19:03:58 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/05 19:37:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,20 @@ class	Contact
 
 	// encapsulation of private var
 		// contact infos
-		std::string	get_first_name()const;
+		std::string	get_first_name() const;
 		void		set_first_name(std::string value);
-		std::string	get_last_name()const;
+		std::string	get_last_name() const;
 		void		set_last_name(std::string value);
-		std::string	get_nickname()const;
+		std::string	get_nickname() const;
 		void		set_nickname(std::string value);
-		int			get_phone_number()const;
+		int			get_phone_number() const;
 		void		set_phone_number(int value);
-		std::string	get_darkest_secret()const;
+		std::string	get_darkest_secret() const;
 		void		set_darkest_secret(std::string value);
 		// indexing
-		int			get_index()const;
+		int			get_index() const;
 		void		set_index(int value);
-		int			get_oldest()const;
+		int			get_oldest() const;
 		void		set_oldest(int value);
 
 	private:
