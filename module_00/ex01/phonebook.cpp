@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 14:13:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/05 13:53:00 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/05 19:14:25 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,11 @@ void	Phonebook::print_phonebook(void)const
 	std::cout << '\n';
 	for (int i = 0; i < get_nbr_contacts(); ++i)
 	{
-		std::cout << std::setw(10) << contacts[i].index
+		std::cout << std::setw(10) << contacts[i].get_index()
 			<< std::setw(3) << " | ";
-		check_size_str(contacts[i].first_name);
-		check_size_str(contacts[i].last_name);
-		check_size_str(contacts[i].nickname);
+		check_size_str(contacts[i].get_first_name());
+		check_size_str(contacts[i].get_last_name());
+		check_size_str(contacts[i].get_nickname());
 		if (i < get_nbr_contacts() - 1)
 			std::cout << '\n';
 	}
@@ -115,11 +115,11 @@ void	Phonebook::search(void)
 			std::cout << "Entry must be an existing index" << std::endl;
 		else
 		{
-			std::cout << "FIRST NAME : " << contacts[index].first_name
-			<< "\nLAST NAME : " << contacts[index].last_name
-			<< "\nNICKNAME : " << contacts[index].nickname
-			<< "\nPHONE NUMBER : " << contacts[index].phone_number
-			<< "\nDARKEST SECRET : " << contacts[index].darkest_secret
+			std::cout << "FIRST NAME : " << contacts[index].get_first_name()
+			<< "\nLAST NAME : " << contacts[index].get_last_name()
+			<< "\nNICKNAME : " << contacts[index].get_nickname()
+			<< "\nPHONE NUMBER : " << contacts[index].get_phone_number()
+			<< "\nDARKEST SECRET : " << contacts[index].get_darkest_secret()
 			<< std::endl;
 			break ;
 		}

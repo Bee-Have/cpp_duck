@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 13:36:32 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/05 14:13:02 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/05 19:21:22 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int	main(void)
 		else if (std::cin)
 			std::cout << "ADD: Add a contact | SEARCH: Search existing contacts | EXIT: Exits phonebook" << std::endl;
 	}
+	if (!std::cin)
+		std::cout << '\n';
 	std::cout << "Your Phonebook has been deleted" << std::endl;
 	return (0);
 }

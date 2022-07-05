@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 22:10:19 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/04 20:07:56 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/05 19:03:58 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,23 +22,38 @@ class	Contact
 		Contact();
 		~Contact();
 
-	// attributes
-		std::string	first_name;
-		std::string	last_name;
-		std::string	nickname;
-		int			phone_number;
-		std::string	darkest_secret;
-		int			index;
-
 	// methodes 
 		void	new_contact(int nbr);
 
 	// encapsulation of private var
-		int		get_oldest()const;
-		void	set_oldest(int value);
+		// contact infos
+		std::string	get_first_name()const;
+		void		set_first_name(std::string value);
+		std::string	get_last_name()const;
+		void		set_last_name(std::string value);
+		std::string	get_nickname()const;
+		void		set_nickname(std::string value);
+		int			get_phone_number()const;
+		void		set_phone_number(int value);
+		std::string	get_darkest_secret()const;
+		void		set_darkest_secret(std::string value);
+		// indexing
+		int			get_index()const;
+		void		set_index(int value);
+		int			get_oldest()const;
+		void		set_oldest(int value);
 
 	private:
-		int	_oldest;
+	// attributes
+		// contact infos
+		std::string	_first_name;
+		std::string	_last_name;
+		std::string	_nickname;
+		int			_phone_number;
+		std::string	_darkest_secret;
+		// indexing
+		int			_index;
+		int			_oldest;
 };
 
 #endif

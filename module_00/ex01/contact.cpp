@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 13:56:54 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/05 14:01:59 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/05 19:08:04 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,6 @@ Contact::Contact(void)
 
 Contact::~Contact(void)
 {
-}
-
-int		Contact::get_oldest()const
-{
-	return (_oldest);
-}
-
-void	Contact::set_oldest(int value)
-{
-	_oldest = value;
 }
 
 static std::string	wait_for_input(std::string prefix)
@@ -76,14 +66,87 @@ static std::string	wait_for_input(std::string prefix)
 	return (line);
 }
 
+std::string	Contact::get_first_name(void)const
+{
+	return (_first_name);
+}
+
+void	Contact::set_first_name(std::string value)
+{
+	_first_name.assign(value);
+}
+
+std::string	Contact::get_last_name(void)const
+{
+	return (_last_name);
+}
+
+void	Contact::set_last_name(std::string value)
+{
+	_last_name.assign(value);
+}
+
+std::string	Contact::get_nickname(void)const
+{
+	return (_nickname);
+}
+
+void	Contact::set_nickname(std::string value)
+{
+	_nickname.assign(value);
+}
+
+int	Contact::get_phone_number(void)const
+{
+	return (_phone_number);
+}
+
+void	Contact::set_phone_number(int value)
+{
+	_phone_number = value;
+}
+
+std::string	Contact::get_darkest_secret(void)const
+{
+	return (_darkest_secret);
+}
+
+void	Contact::set_darkest_secret(std::string value)
+{
+	_darkest_secret.assign(value);
+}
+
+int	Contact::get_index(void)const
+{
+	return (_index);
+}
+
+void	Contact::set_index(int value)
+{
+	_index = value;
+}
+
+int		Contact::get_oldest()const
+{
+	return (_oldest);
+}
+
+void	Contact::set_oldest(int value)
+{
+	_oldest = value;
+}
+
+
 void	Contact::new_contact(int nbr)
 {
 	std::stringstream	ss;
-	first_name = wait_for_input("First name : ");
-	last_name = wait_for_input("Last name : ");
-	nickname = wait_for_input("Nickname : ");
+	int					tmp_pn;
+	set_first_name(wait_for_input("First name : "));
+	set_last_name(wait_for_input("Last name : "));
+	set_nickname(wait_for_input("Nickname : "));
 	ss << wait_for_input("Phone number : ");
-	ss >> phone_number;
-	darkest_secret = wait_for_input("Darkest Secret : ");
-	index = nbr;
+	ss >> tmp_pn;
+	set_phone_number(tmp_pn);
+	set_darkest_secret(wait_for_input("Darkest Secret : "));
+	set_index(nbr);
 }
