@@ -9,7 +9,7 @@ INC = -IZombie.hpp
 OBJ_DIR = objs
 
 SRC = main.cpp \
-	zombie.cpp \
+	Zombie.cpp \
 	newZombie.cpp randomChump.cpp
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
