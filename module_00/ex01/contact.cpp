@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/04 13:56:54 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/05 19:08:04 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/07 19:35:33 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,14 @@ static std::string	wait_for_input(std::string prefix)
 			{
 				int	nbr = 0;
 				for (int i = 0; line[i] != '\0'; ++i)
+				{
 					if (std::isdigit(line[i]) == 0)
 					{
 						std::cout << "Field has to be a number" << std::endl;
 						nbr = 1;
 						break ;
 					}
+				}
 				if (nbr == 0)
 					break ;
 			}
@@ -96,12 +98,12 @@ void	Contact::set_nickname(std::string value)
 	_nickname.assign(value);
 }
 
-int	Contact::get_phone_number(void)const
+std::string	Contact::get_phone_number(void)const
 {
 	return (_phone_number);
 }
 
-void	Contact::set_phone_number(int value)
+void	Contact::set_phone_number(std::string value)
 {
 	_phone_number = value;
 }
@@ -139,14 +141,10 @@ void	Contact::set_oldest(int value)
 
 void	Contact::new_contact(int nbr)
 {
-	std::stringstream	ss;
-	int					tmp_pn;
 	set_first_name(wait_for_input("First name : "));
 	set_last_name(wait_for_input("Last name : "));
 	set_nickname(wait_for_input("Nickname : "));
-	ss << wait_for_input("Phone number : ");
-	ss >> tmp_pn;
-	set_phone_number(tmp_pn);
+	set_phone_number(wait_for_input("Phone number : "));
 	set_darkest_secret(wait_for_input("Darkest Secret : "));
 	set_index(nbr);
 }

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 22:10:19 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/05 19:37:11 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/07 19:35:31 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class	Contact
 		void		set_last_name(std::string value);
 		std::string	get_nickname() const;
 		void		set_nickname(std::string value);
-		int			get_phone_number() const;
-		void		set_phone_number(int value);
+		std::string	get_phone_number() const;
+		void		set_phone_number(std::string value);
 		std::string	get_darkest_secret() const;
 		void		set_darkest_secret(std::string value);
 		// indexing
@@ -49,7 +49,7 @@ class	Contact
 		std::string	_first_name;
 		std::string	_last_name;
 		std::string	_nickname;
-		int			_phone_number;
+		std::string	_phone_number;
 		std::string	_darkest_secret;
 		// indexing
 		int			_index;
