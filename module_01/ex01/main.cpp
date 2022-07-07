@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:16:08 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/07 12:49:36 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/07 13:49:15 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,57 @@ Zombie	* zombieHorde(int N, std::string name);
 int	main(void)
 {
 	Zombie		*Horde;
-	std::string	name;
 
-	std::cout << RED <<" BZZZ.. START EXPERIMENT BZZZZZZZZ.\n\n" << END;
-	
-	std::cout << YELLOW << "CR-CREATTTING STACK OF BZZZZZ BZ" << END << RED << " ZERO :\n";
-	name.copy("Alpha", 5, 0);
-	Horde = zombieHorde(0, "Alpha");
-	
-	// create stack of 0
-	// create stack of 1
-	// create stack of 5
+	std::cout << RED <<" BZZZ.. START EXPERIMENT BZZZZZZZZ.\n" << END;
+
 	// create stack of 10
-	// create stack of max int + 1
-	
-	// dont forget to delete all the allocated memory
-	
-	std::cout << RED << "\n EXPERIMENT RESULT BZZZZ :\n" << END;
+	std::cout << YELLOW << "\n CR-CREATTTING HORDE OF BZZZZZ" << END << CYAN
+		<< "T-TEN" << END << YELLOW << " : \n" << END;
+	Horde = zombieHorde(10, "Alpha");
+	std::cout << YELLOW << " SP-SPEEEEAAAK\n" << END;
+	for(int i = 0; i < 10; ++i)
+	{
+		std::cout << GREEN << "INDEX [" << Horde[i].get_index() << "] " << END;
+		Horde[i].announce();
+	}
+	std::cout << YELLOW << " DE-DELETING HORDE OF " << END << CYAN << "T-TEN"
+		<< END << YELLOW << " :\n" << END;
+	delete[] Horde;
+	std::cout  << GREEN << " BZZZZZZZZZ... SUCCESSSSSSSSSSS\n" << END;
+
+	// create stack of max 20
+	std::cout << YELLOW << "\n CR-CREATTTING HORDE OF BZZZZZ" << END << CYAN
+		<< " TWENNNTY" << END << YELLOW << " : \n" << END;
+	Horde = zombieHorde(20, "Beta");
+	std::cout << YELLOW << " SP-SPEEEEAAAK\n" << END;
+	for(int i = 0; i < 20; ++i)
+	{
+		std::cout << GREEN << "INDEX [" << Horde[i].get_index() << "] " << END;
+		Horde[i].announce();
+	}
+	std::cout << YELLOW << " DE-DELETING HORDE OF " << END << CYAN << "TWENNNTY"
+		<< END << YELLOW << " :\n" << END;
+	delete[] Horde;
+	std::cout  << GREEN << " BZZZZZZZZZ... SUCCESSSSSSSSSSS\n" << END;
+
+	// create stack of 0
+	std::cout << YELLOW << "\n CR-CREATTTING HORDE OF BZZZZZ" << END << CYAN
+		<< " ZERO " << END << YELLOW << ":\n" << END;
+	Horde = zombieHorde(0, "Gamma");
+	std::cout << RED << "BZZ FORBIDDEN... BZZZZZ FAILUUUUURE\n" << END;
+
+	// create stack of 1
+	std::cout << YELLOW << "\n CR-CREATTTING HORDE OF BZZZZZ" << END << CYAN
+		<< " ONE" << END << YELLOW << " :\n";
+	Horde = zombieHorde(1, "Delta");
+	std::cout << YELLOW << " SP-SPEEEEAAAK\n" << END;
+	Horde[0].announce();
+	std::cout << YELLOW << "\n DE-DELETING HORDE OF " << END << CYAN << "ONE"
+		<< END << YELLOW << " :\n" << END;
+	delete[] Horde;
+	std::cout  << GREEN << " BZZZZZZZZZ... SUCCESSSSSSSSSSS\n" << END;
+
+	std::cout << RED << "\n EXPERIMENT RESULT BZZZZ :\n" << END << std::endl;
 	
 	return (0);
 }
