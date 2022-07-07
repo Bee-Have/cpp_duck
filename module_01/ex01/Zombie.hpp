@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 12:27:17 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/06 13:46:07 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/07 12:29:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,17 @@ class Zombie
 {
 	private:
 		std::string	name;
+		int			_index;
 
 	public:
 		Zombie();
 		~Zombie();
 
+		// Zombie	* zombieHorde(int N, std::string name);
 		void	announce(void);
 
 		std::string	get_name(void) const;
 		void		set_name(std::string new_name);
+		int			get_index(void) const;
+		void		set_index(int index);
 };
