@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:45:21 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/07 17:15:48 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/08 19:18:22 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ int	main(void)
 	// print memory address of brain
 	std::cout << "string memory address     : " << &brain << '\n';
 	// print memory address held by stringPTR
-	std::cout << "pointer memory address    : " << &stringPTR << '\n';
+	std::cout << "pointer memory address    : " << stringPTR << '\n';
 	// print memory address held by stringREF
 	std::cout << "reference memory address  : " << &stringREF << '\n';
 
 	// print value of brain
 	std::cout << "\nstd::string brain :" << brain << '\n';
 	// print value of stringPTR
-	std::cout << "pointer to brain  :" << stringPTR << '\n';
+	std::cout << "pointer to brain  :" << *stringPTR << '\n';
 	// print value of stringREF
 	std::cout << "rerence to brain  :" << stringREF << std::endl;
 }
