@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:22:04 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/07 17:34:35 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/08 19:34:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 class HumanA
 {
 	public :
-		HumanA(Weapon neweapon);
+		HumanA(std::string newname, Weapon newweapon);
 		~HumanA();
 
 		void		attack();
