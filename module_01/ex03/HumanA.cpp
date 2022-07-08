@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:32:45 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/08 19:34:29 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/08 19:43:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Weapon	HumanA::get_weapon(void) const
 	return (_weapon);
 }
 
-void		HumanA::set_weapon(Weapon newweapon)
+void		HumanA::set_weapon(Weapon &newweapon)
 {
 	_weapon = newweapon;
 }
@@ -39,7 +39,7 @@ void	HumanA::attack(void)
 		<< std::endl;
 }
 
-HumanA::HumanA(std::string newname, Weapon newweapon): _weapon(newweapon), name(newname)
+HumanA::HumanA(std::string newname, Weapon &newweapon): _weapon(newweapon), name(newname)
 {}
 
 HumanA::~HumanA(void)
