@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:32:45 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/08 19:34:53 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:12:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,4 @@ HumanB::HumanB(std::string newname) : _weapon(NULL), name(newname)
 {}
 
 HumanB::~HumanB(void)
-{
-	
-}
+{}
