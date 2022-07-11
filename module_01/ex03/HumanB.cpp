@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:32:45 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/11 15:12:11 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/11 17:26:01 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,18 @@ Weapon	*HumanB::get_weapon(void) const
 	return (_weapon);
 }
 
-void		HumanB::set_weapon(Weapon *neweapon)
+void		HumanB::setWeapon(Weapon &neweapon)
 {
-	_weapon = neweapon;
+	_weapon = &neweapon;
 }
 
 void	HumanB::attack(void)
 {
 	if (_weapon == NULL)
 		std::cout << name << " doesn't have a weapon" << std::endl;
-	std::cout << name << " attacks with their " << _weapon->getType()
-		<< std::endl;
+	else
+		std::cout << name << " attacks with their " << _weapon->getType()
+			<< std::endl;
 }
 
 HumanB::HumanB(std::string newname) : _weapon(NULL), name(newname)
