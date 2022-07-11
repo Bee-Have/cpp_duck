@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:32:45 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/11 17:26:01 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/11 18:27:21 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,12 @@ std::string	HumanB::get_name(void) const
 	return (name);
 }
 
-void		HumanB::set_name(std::string newname)
+void		HumanB::set_name(const char *newname)
 {
-	name.assign(newname);
+	if (newname != NULL)
+		name.assign(newname);
+	else
+		name.assign("NoName-B");
 }
 
 Weapon	*HumanB::get_weapon(void) const
@@ -42,8 +45,11 @@ void	HumanB::attack(void)
 			<< std::endl;
 }
 
-HumanB::HumanB(std::string newname) : _weapon(NULL), name(newname)
-{}
+HumanB::HumanB(const char *newname) : _weapon(NULL), name("NoName-B")
+{
+	if (newname != NULL)
+		name.assign(newname);
+}
 
 HumanB::~HumanB(void)
 {}

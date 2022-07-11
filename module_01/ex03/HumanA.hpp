@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:22:04 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/11 16:50:50 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/11 18:00:32 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class HumanA
 {
 	public :
-		HumanA(std::string newname, Weapon &newweapon);
+		HumanA(const char *newname, Weapon &newweapon);
 		~HumanA();
 
 		void		attack();
@@ -26,7 +26,7 @@ class HumanA
 		Weapon		get_weapon() const;
 		void		setWeapon(Weapon &neweapon);
 		std::string	get_name() const;
-		void		set_name(std::string newname);
+		void		set_name(const char *newname);
 
 	private :
 		Weapon		&_weapon;
