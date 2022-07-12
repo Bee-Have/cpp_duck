@@ -18,7 +18,7 @@ echo "${YELLOW}\n REPLACING [garbage] by [duck duck] in [./text/simple.txt.repla
 ./replace ./text/simple.txt.replace.replace garbage duckduck
 echo "${GREEN}RESULTS can be found in -> [./text/simple.txt.replace.replace.replace]${END}"
 
-echo "${YELLOW}\n REPLACING [\ n] by [ ] in [./text/callofCthulhu.txt]${END}"
+echo "${YELLOW}\n REPLACING [\\\n] by [ ] in [./text/callofCthulhu.txt]${END}"
 ./replace ./text/callofCthulhu.txt "\n" " "
 echo "${GREEN}RESULTS can be found in -> [./text/callofCthulhu.txt.replace]${END}"
 
