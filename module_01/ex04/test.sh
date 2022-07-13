@@ -1,30 +1,30 @@
 #!/bin/bash
 
-make
+make re
 
 YELLOW="\e[33m"
 GREEN="\e[32m"
 END="\e[0m"
 
-echo "${YELLOW}\n REPLACING [duck] by [garbage] in [./text/simple.txt]${END}"
-./replace ./text/simple.txt duck garbage
+echo "${YELLOW}\n REPLACING [.] by [ duck] in [./text/simple.txt]${END}"
+./replace ./text/simple.txt . " duck"
 echo "${GREEN}RESULTS can be found in -> [./text/simple.txt.replace]${END}"
 
 echo "${YELLOW}\n REPLACING [ ] by [.] in [./text/simple.txt.replace]${END}"
 ./replace ./text/simple.txt.replace " " "."
 echo "${GREEN}RESULTS can be found in -> [./text/simple.txt.replace.replace]${END}"
 
-echo "${YELLOW}\n REPLACING [garbage] by [duck duck] in [./text/simple.txt.replace.replace]${END}"
-./replace ./text/simple.txt.replace.replace garbage duckduck
+echo "${YELLOW}\n REPLACING [duck] by [duckduck] in [./text/simple.txt.replace.replace]${END}"
+./replace ./text/simple.txt.replace.replace duck duckduck
 echo "${GREEN}RESULTS can be found in -> [./text/simple.txt.replace.replace.replace]${END}"
 
-echo "${YELLOW}\n REPLACING [\\\n] by [ ] in [./text/callofCthulhu.txt]${END}"
-./replace ./text/callofCthulhu.txt "\n" " "
-echo "${GREEN}RESULTS can be found in -> [./text/callofCthulhu.txt.replace]${END}"
+echo "${YELLOW}\n REPLACING [\\\n] by [ ] in [./text/callOfCthulhu.txt]${END}"
+./replace ./text/callOfCthulhu.txt "\n" " "
+echo "${GREEN}RESULTS can be found in -> [./text/callOfCthulhu.txt.replace]${END}"
 
-echo "${YELLOW}\n REPLACING [,] by [then] in [./text/callofCthulhu.txt.replace]${END}"
-./replace ./text/callofCthulhu.txt.replace "," "then"
-echo "${GREEN}RESULTS can be found in -> [./text/callofCthulhu.txt.replace.replace]${END}"
+echo "${YELLOW}\n REPLACING [,] by [then] in [./text/callOfCthulhu.txt.replace]${END}"
+./replace ./text/callOfCthulhu.txt.replace "," "then"
+echo "${GREEN}RESULTS can be found in -> [./text/callOfCthulhu.txt.replace.replace]${END}"
 
 echo "${YELLOW}\n REPLACING [Lorem ipsum dolor sit amet] by [random gibberish] in [./text/loremIpsum.txt]${END}"
 ./replace ./text/loremIpsum.txt "Lorem ipsum dolor sit amet" "random gibberish"
