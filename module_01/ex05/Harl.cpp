@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 13:16:10 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/14 15:41:22 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/14 15:43:24 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 void	Harl::debug(void)
 {
-	std::cout << ""
-		<< "Hello yes this is Harl-Karen. Can I help you ?\n";
+	std::cout << "Hello yes this is Harl-Karen. Can I help you ?\n";
 }
 
 void	Harl::info(void)
