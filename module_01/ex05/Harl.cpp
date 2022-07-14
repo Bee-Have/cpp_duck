@@ -6,16 +6,19 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 13:16:10 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/14 15:43:24 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/14 16:04:50 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Harl.hpp"
 
+#define YELLOW "\033[1;33m"
+#define END "\33[0m"
+
 void	Harl::debug(void)
 {
-	std::cout << "Hello yes this is Harl-Karen. Can I help you ?\n";
+	std::cout << "Hello yes this is Harl. Can I help you ?\n";
 }
 
 void	Harl::info(void)
@@ -51,7 +54,7 @@ void	Harl::complain(std::string level)
 			return ;
 		}
 	}
-	std::cout << "Harl does not have an entry for this" << std::endl;
+	std::cout << "F*CK OFF ! I WON'T SAY THAT ! THAT'S RUDE !" << std::endl;
 }
 
 Harl::Harl(void)
