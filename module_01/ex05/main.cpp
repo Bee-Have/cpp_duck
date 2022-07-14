@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 15:15:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/14 16:04:32 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/14 16:13:21 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 #define RED "\033[1;31m"
 #define GREEN "\033[1;32m"
-#define YELLOW "\033[1;33m"
-#define CYAN "\033[1;36m"
 #define END "\33[0m"
 
 int	main(void)
@@ -31,33 +29,34 @@ int	main(void)
 	Karen.complain("WARNING");
 	std::cout << RED << "Harl ERROR : " << END;
 	Karen.complain("WARNING");
+	std::cout << RED << "Harl bad argument : " << END;
+	Karen.complain("BAD");
 
-	std::cout << "\nHello Harl\n";
+	std::cout << GREEN << "\nHello Harl\n" << END;
 	Karen.complain("DEBUG");
-	std::cout << "That's good. So how are you today Karen, I mean Harl ?\n";
+	std::cout << GREEN << "That's good. So how are you today Karen, I mean Harl ?\n" << END;
 	Karen.complain("INFO");
-	std::cout << "I mean... in all fairness, you used to be named Karen\n";
+	std::cout << GREEN << "I mean... in all fairness, you used to be named Karen\n" << END;
 	Karen.complain("WARNING");
-	std::cout << "Come oooooon, why do you have to always be like this ?\n";
+	std::cout << GREEN << "Come oooooon, why do you have to always be like this ?\n" << END;
 	Karen.complain("ERROR");
 	
-	std::cout << "\nHarl ?\n";
+	std::cout << GREEN << "\nHarl ?\n" << END;
 	Karen.complain("DEBUG");
-	std::cout << "Can you complain about something else then your defaults ?\n";
+	std::cout << GREEN << "Can you complain about something else then your defaults ?\n" << END;
 	Karen.complain("SOMETHING ELSE");
-	std::cout << "Wow geez, you got such a foul mouth. Calm down.\n";
+	std::cout << GREEN << "Wow geez, you got such a foul mouth. Calm down.\n" << END;
 	Karen.complain("ERROR");
 
-	std::cout << "\nAlright Harl, let's try to print your ERROR first :\n";
+	std::cout << GREEN << "\nAlright Harl, let's try to print your ERROR first :\n" << END;
 	Karen.complain("ERROR");
-	std::cout << "Outch, but ok, next is your WARNING :\n";
+	std::cout << GREEN << "Outch, but ok, next is your WARNING :\n" << END;
 	Karen.complain("WARNING");
-	std::cout << "Yeah yeah whatever, INFO :\n";
+	std::cout << GREEN << "Yeah yeah whatever, INFO :\n" << END;
 	Karen.complain("INFO");
-	std::cout << "WHAT ? I'm not a... *sigh*, whatever, DEBUG now :\n";
+	std::cout << GREEN << "WHAT ? I'm not a... *sigh*, whatever, DEBUG now :\n" << END;
 	Karen.complain("DEBUG");
-	std::cout << "See, you can be nice sometimes.\n";
+	std::cout << GREEN << "See, you can be nice sometimes.\n" << END;
 	Karen.complain("ERROR");
-	std::cout << "I should have known...\n";
-	
+	std::cout << GREEN << "I should have known...\n" << END;
 }
