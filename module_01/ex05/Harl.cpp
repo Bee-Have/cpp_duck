@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 13:16:10 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/14 15:29:25 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/14 15:41:22 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,24 @@
 
 void	Harl::debug(void)
 {
-	std::cout << "Going to the mall is really my favorite thing !"
-		<< "I love getting free samples, It's so easy !\n";
+	std::cout << ""
+		<< "Hello yes this is Harl-Karen. Can I help you ?\n";
 }
 
 void	Harl::info(void)
 {
-	std::cout << "But. I've never had to pay for these before and i come here every day !\n";
+	std::cout << "Oh MY GOD ! Back of you PERV ! Do you know who I am ?!\n";
 }
 
 void	Harl::warning(void)
 {
-	std::cout << "Do you make all of your loyal customers do this?"
-		<< "I think I deserve it to be free, It's not like i'm poor !\n";
+	std::cout << "Ew, Why would you say that ? It's discrimination against ME,"
+		<< " I DARE you to say that again you PSYCHO!\n";
 }
 
 void	Harl::error(void)
 {
-	std::cout << "But, that doesn't apply to me ! I'm calling the cops.\n";
+	std::cout << "WHAT DID YOU SAY ?! I'm calling the cops !!\n";
 }
 
 void	Harl::complain(std::string level)
