@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 15:45:21 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/08 19:18:22 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/16 22:51:47 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	main(void)
 {
 	std::string	brain = "HI THIS IS BRAIN";
 	std::string	*stringPTR = &brain;
-	std::string	stringREF = brain;
+	std::string	&stringREF = brain;
 
 	std::cout << "brain is a std::string\n";
-	std::cout << "stringPTR is a point to brain\n";
+	std::cout << "stringPTR is a pointer to brain\n";
 	std::cout << "stringREF is a reference to brain\n";
 	// print memory address of brain
 	std::cout << "string memory address     : " << &brain << '\n';
