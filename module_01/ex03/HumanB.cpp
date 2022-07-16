@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 17:32:45 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/11 18:27:21 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/17 00:07:57 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ Weapon	*HumanB::get_weapon(void) const
 
 void		HumanB::setWeapon(Weapon &neweapon)
 {
-	_weapon = &neweapon;
+	if (_weapon != NULL)
+		delete _weapon;
+	_weapon = new Weapon(neweapon);
 }
 
 void	HumanB::attack(void)
@@ -52,4 +54,7 @@ HumanB::HumanB(const char *newname) : _weapon(NULL), name("NoName-B")
 }
 
 HumanB::~HumanB(void)
-{}
+{
+	if (_weapon != NULL)
+		delete _weapon;
+}
