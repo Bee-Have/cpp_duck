@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 12:16:08 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/16 22:31:10 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/16 22:44:29 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,7 @@ int	main(void)
 	std::cout << YELLOW << "\n DE-DELETING HORDE OF " << CYAN << "ONE"
 		<< YELLOW << " :\n" << END;
 	delete[] Horde;
-	std::cout  << GREEN << " BZZZZZZZZZ... SUCCESSSSSSSSSSS\n" << END;
+	std::cout  << GREEN << " BZZZZZZZZZ... SUCCESSSSSSSSSSS" << END << std::endl;
 
-	std::cout << RED << "\n EXPERIMENT RESULT BZZZZ :\n" << END << std::endl;
-	
 	return (0);
 }
