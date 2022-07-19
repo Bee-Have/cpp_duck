@@ -15,7 +15,7 @@ OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
 all: $(NAME)
 
-$(NAME) = $(OBJ)
+$(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $@
 
 $(OBJ_DIR)/%.o: %.cpp
