@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:07:55 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/19 13:06:14 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/19 13:13:47 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ int		Fixed::getRawBits() const
 
 void	Fixed::setRawBits(int const raw)
 {
+	std::cout << "setRawBits member function called" << std::endl;
 	_fixed_value = raw;
 }
