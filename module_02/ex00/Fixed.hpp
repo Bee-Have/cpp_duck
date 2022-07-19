@@ -6,15 +6,15 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:27:49 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/18 20:54:43 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/19 12:03:02 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 class Fixed
 {
 	private:
-		int	_fixed_value;
-		static const int	_fractional_bits;
+		int					_fixed_value;
+		static const int	_fractional_bits = 8;
 	public:
 		Fixed();
 		Fixed(const Fixed &newnbr);
