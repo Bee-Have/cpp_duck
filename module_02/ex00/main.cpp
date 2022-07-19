@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 12:33:22 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/19 13:15:06 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/19 13:25:15 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int main( void )
 	std::cout << b.getRawBits() << '\n';
 	std::cout << c.getRawBits() << '\n';
 
-	a.setRawBits(6);
-	b.setRawBits(42);
-	c.setRawBits(11);
+	a.setRawBits(0);
+	b.setRawBits(0);
+	c.setRawBits(0);
 
 	std::cout << "\na = " << a.getRawBits() << '\n';
 	std::cout << "b = " << b.getRawBits() << '\n';
@@ -35,7 +35,6 @@ int main( void )
 
 	a = b;
 	b = c;
-	c.setRawBits(3);
 
 	std::cout << "\na = " << a.getRawBits() << '\n';
 	std::cout << "b = " << b.getRawBits() << '\n';
