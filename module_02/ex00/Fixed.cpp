@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:07:55 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/19 12:48:07 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/19 13:06:14 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ Fixed::Fixed(const Fixed &newnbr): _fixed_value(newnbr._fixed_value)
 
 Fixed& Fixed::operator=(const Fixed &newnbr)
 {
-	if (this != &newnbr)
-		this->_fixed_value = newnbr._fixed_value;
 	std::cout << "Copy assignment operator called" << std::endl;
+	if (this != &newnbr)
+		this->_fixed_value = newnbr.getRawBits();
 	return (*this);
 }
 
