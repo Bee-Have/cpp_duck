@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:27:49 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/19 17:50:33 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/19 18:16:40 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,11 @@ class Fixed
 		Fixed	operator/(const Fixed &comp) const;
 
 		~Fixed();
+
+		static Fixed		&min(Fixed &fixed, Fixed &comp);
+		static const Fixed	&min(const Fixed &fixed, const Fixed &comp);
+		static Fixed		&max(Fixed &fixed, Fixed &comp);
+		static const Fixed	&max(const Fixed &fixed, const Fixed &comp);
 
 		float	toFloat() const;
 		int		toInt() const;
