@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:07:55 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/19 18:17:39 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/19 18:25:28 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cmath>
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed(void)
 {
 	_fixed_value = 0;
 }
@@ -110,7 +110,7 @@ Fixed	Fixed::operator/(const Fixed &comp) const
 	return (this->_fixed_value / comp._fixed_value);
 }
 
-Fixed::~Fixed()
+Fixed::~Fixed(void)
 {}
 
 Fixed	&Fixed::min(Fixed &fixed, Fixed &comp)
@@ -140,17 +140,17 @@ const Fixed	&Fixed::max(const Fixed &fixed, const Fixed &comp)
 	return (comp);
 }
 
-float	Fixed::toFloat() const
+float	Fixed::toFloat(void) const
 {
 	return (static_cast<float>(_fixed_value) / static_cast<float>(1 << _fractional_bits));
 }
 
-int		Fixed::toInt() const
+int		Fixed::toInt(void) const
 {
 	return (static_cast<int>(_fixed_value) / static_cast<int>(1 << _fractional_bits));
 }
 
-int		Fixed::getRawBits() const
+int		Fixed::getRawBits(void) const
 {
 	return (_fixed_value);
 }

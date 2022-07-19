@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:07:55 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/19 16:10:46 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/19 18:25:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <cmath>
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed(void)
 {
 	_fixed_value = 0;
 	std::cout << "Default constructor called" << std::endl;
@@ -51,22 +51,22 @@ std::ostream& operator<<(std::ostream &stream, const Fixed &nbr)
 	return (stream);
 }
 
-Fixed::~Fixed()
+Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
-float	Fixed::toFloat() const
+float	Fixed::toFloat(void) const
 {
 	return (static_cast<float>(_fixed_value) / static_cast<float>(1 << _fractional_bits));
 }
 
-int		Fixed::toInt() const
+int		Fixed::toInt(void) const
 {
 	return (static_cast<int>(_fixed_value) / static_cast<int>(1 << _fractional_bits));
 }
 
-int		Fixed::getRawBits() const
+int		Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (_fixed_value);

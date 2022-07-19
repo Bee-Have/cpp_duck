@@ -6,14 +6,14 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:07:55 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/19 13:13:47 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/19 18:26:05 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Fixed.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed(void)
 {
 	_fixed_value = 0;
 	std::cout << "Default constructor called" << std::endl;
@@ -32,12 +32,12 @@ Fixed& Fixed::operator=(const Fixed &newnbr)
 	return (*this);
 }
 
-Fixed::~Fixed()
+Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }
 
-int		Fixed::getRawBits() const
+int		Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
 	return (_fixed_value);
