@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:27:49 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/19 18:16:40 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/20 15:10:38 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,23 @@ class Fixed
 		Fixed(const float newnbr);
 		// Assignable operator : '='
 		Fixed& operator=(const Fixed &newnbr);
-		// comparison operator : '>' '<' '>=' '<=' '==' '!='
+		// Comparison operator : '>' '<' '>=' '<=' '==' '!='
 		bool	operator>(const Fixed &comp) const;
 		bool	operator<(const Fixed &comp) const;
 		bool	operator>=(const Fixed &comp) const;
 		bool	operator<=(const Fixed &comp) const;
 		bool	operator==(const Fixed &comp) const;
 		bool	operator!=(const Fixed &comp) const;
-		// arithmetic operators : '+' '-' '*' '/'
+		// Arithmetic operators : '+' '-' '*' '/'
 		Fixed	operator+(const Fixed &comp) const;
 		Fixed	operator-(const Fixed &comp) const;
 		Fixed	operator*(const Fixed &comp) const;
 		Fixed	operator/(const Fixed &comp) const;
+		// Increment/Decrement operators : '++' '--'
+		Fixed	&operator++();
+		Fixed	operator++(int);
+		Fixed	&operator--();
+		Fixed	operator--(int);
 
 		~Fixed();
 

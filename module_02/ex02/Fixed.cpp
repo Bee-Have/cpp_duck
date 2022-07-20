@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:07:55 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/19 18:25:28 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/20 16:06:12 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ Fixed::Fixed(const float newnbr)
 {
 	_fixed_value = static_cast<float>((round(newnbr * (1 << _fractional_bits))));
 }
+
+Fixed::~Fixed(void)
+{}
 
 // Assignable operator
 Fixed& Fixed::operator=(const Fixed &newnbr)
@@ -110,8 +113,28 @@ Fixed	Fixed::operator/(const Fixed &comp) const
 	return (this->_fixed_value / comp._fixed_value);
 }
 
-Fixed::~Fixed(void)
-{}
+// Increment/Decrement operators : '++' '--'
+Fixed	&Fixed::operator++(void)
+{
+	this->_fixed_value += 1;
+	return (*this);
+}
+
+Fixed	&Fixed::operator--(void)
+{
+	this->_fixed_value -= 1;
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int)
+{
+	return (this->_fixed_value++);
+}
+
+Fixed	Fixed::operator--(int)
+{
+	return (this->_fixed_value--);
+}
 
 Fixed	&Fixed::min(Fixed &fixed, Fixed &comp)
 {
@@ -124,6 +147,7 @@ const Fixed	&Fixed::min(const Fixed &fixed, const Fixed &comp)
 {
 	if (fixed <= comp)
 		return (fixed);
+	return (comp);
 }
 
 Fixed	&Fixed::max(Fixed &fixed, Fixed &comp)
