@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 18:23:37 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/22 14:46:12 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:48:58 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,43 @@
 
 int	main(void)
 {
-	Fixed	a;
-	Fixed	const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::cout << "42 Mandatory tests :\n";
+	{
+		Fixed	a;
+		Fixed	const b( Fixed( 5.05f ) * Fixed( 2 ) );
 
-	std::cout << a << "\n";
-	std::cout << ++a << "\n";
-	std::cout << a << "\n";
-	// std::cout << a++ << "\n";
-	std::cout << a++ << "\n";
-	// std::cout << "\n";
-	// std::cout << "a = " << a << "\n";
-	std::cout << a << "\n";
+		std::cout << "a         = " << a << "\n";
+		std::cout << "b         = " << b << "\n\n";
 
-	std::cout << b << "\n";
+		std::cout << "a         = " << a << "\n";
+		std::cout << "++a       = " << ++a << "\n";
+		std::cout << "a         = " << a << "\n";
+		std::cout << "a++       = " << a++ << "\n";
+		std::cout << "a         = " << a << "\n";
 
-	std::cout << Fixed::max(a, b) << std::endl;
+		std::cout << "b         = " << b << "\n";
 
-	// Fixed	n1(1);
-	// Fixed	n2(++n1);
-	// Fixed	n3(++ ++n1);
-	// Fixed	n4(n1++);
+		std::cout << "max(a, b) = " << Fixed::max(a, b) << "\n";
+	}
+	std::cout << "\nFurther tests :\n";
+	{
+		Fixed	a;
+		Fixed	b(3);
+		Fixed	c(Fixed(4) * Fixed(2));
+		Fixed	d(5.05f);
 
-	// std::cout << "\nn1 = " << n1 << '\n'
-	//			<< "n2 = " << n2 << '\n'
-	//			<< "n3 = " << n3 << '\n'
-	//			<< "n4 = " << n4 << '\n';
+		std::cout << "a         = " << a << "\n";
+		std::cout << "b         = " << b << "\n";
+		std::cout << "c         = " << c << "\n";
+		std::cout << "d         = " << d << "\n\n";
+
+		std::cout << "a + b     = " << a + b << "\n";
+		std::cout << "b + d     = " << b - d << "\n";
+		std::cout << "c         = " << c << "\n";
+		std::cout << "d         = " << d << "\n";
+		std::cout << "d * 2     = " << d * 2 << "\n";
+		std::cout << "d / 2     = " << d / 2 << "\n";
+		std::cout << "min(c, d) = " << Fixed::min(c, d) << std::endl;
+	}
 	return 0;
 }
