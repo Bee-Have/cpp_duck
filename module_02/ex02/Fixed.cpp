@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:07:55 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/22 15:03:37 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/22 19:35:48 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,22 +95,22 @@ std::ostream& operator<<(std::ostream &stream, const Fixed &nbr)
 // Arithmetic operators
 Fixed	Fixed::operator+(const Fixed &comp) const
 {
-	return (this->_fixed_value + comp._fixed_value);
+	return (this->toFloat() + comp.toFloat());
 }
 
 Fixed	Fixed::operator-(const Fixed &comp) const
 {
-	return (this->_fixed_value - comp._fixed_value);
+	return (this->toFloat() - comp.toFloat());
 }
 
 Fixed	Fixed::operator*(const Fixed &comp) const
 {
-	return (this->_fixed_value * comp._fixed_value);
+	return (this->toFloat() * comp.toFloat());
 }
 
 Fixed	Fixed::operator/(const Fixed &comp) const
 {
-	return (this->_fixed_value / comp._fixed_value);
+	return (this->toFloat() / comp.toFloat());
 }
 
 // Increment/Decrement operators : '++' '--'
