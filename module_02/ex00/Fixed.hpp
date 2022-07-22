@@ -6,9 +6,11 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:27:49 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/19 12:03:02 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/22 20:32:49 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 class Fixed
 {
@@ -18,8 +20,8 @@ class Fixed
 	public:
 		Fixed();
 		Fixed(const Fixed &newnbr);
-		Fixed& operator=(const Fixed &newnbr);
 		~Fixed();
+		Fixed& operator=(const Fixed &newnbr);
 
 		int		getRawBits() const;
 		void	setRawBits(int const raw);

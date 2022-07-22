@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:27:49 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/20 15:10:38 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/22 20:31:56 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class Fixed
 		Fixed(const Fixed &newnbr);
 		Fixed(const int newnbr);
 		Fixed(const float newnbr);
+		~Fixed();
 		// Assignable operator : '='
 		Fixed& operator=(const Fixed &newnbr);
 		// Comparison operator : '>' '<' '>=' '<=' '==' '!='
@@ -44,7 +45,6 @@ class Fixed
 		Fixed	&operator--();
 		Fixed	operator--(int);
 
-		~Fixed();
 
 		static Fixed		&min(Fixed &fixed, Fixed &comp);
 		static const Fixed	&min(const Fixed &fixed, const Fixed &comp);

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 19:27:49 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/19 15:30:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/22 20:32:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ class Fixed
 		Fixed(const Fixed &newnbr);
 		Fixed(const int newnbr);
 		Fixed(const float newnbr);
-		Fixed& operator=(const Fixed &newnbr);
-
 		~Fixed();
+		Fixed& operator=(const Fixed &newnbr);
 
 		float	toFloat() const;
 		int		toInt() const;
