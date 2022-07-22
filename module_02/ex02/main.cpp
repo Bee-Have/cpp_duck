@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 18:23:37 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/20 16:07:50 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/22 14:46:12 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,25 @@ int	main(void)
 
 	std::cout << a << "\n";
 	std::cout << ++a << "\n";
-	// std::cout << "a = " << a << "\n";
-	// std::cout << a << "\n";
 	std::cout << a << "\n";
+	// std::cout << a++ << "\n";
 	std::cout << a++ << "\n";
+	// std::cout << "\n";
+	// std::cout << "a = " << a << "\n";
 	std::cout << a << "\n";
-	std::cout << b << "\n";
-	std::cout << Fixed::max( a, b ) << std::endl;
 
-	// Fixed n1(1);
-    // Fixed n2(++n1);
-    // Fixed n3(++ ++n1);
-    // Fixed n4(n1++);
-    // std::cout << "\nn1 = " << n1 << '\n'
-    //           << "n2 = " << n2 << '\n'
-    //           << "n3 = " << n3 << '\n'
-    //           << "n4 = " << n4 << '\n';
+	std::cout << b << "\n";
+
+	std::cout << Fixed::max(a, b) << std::endl;
+
+	// Fixed	n1(1);
+	// Fixed	n2(++n1);
+	// Fixed	n3(++ ++n1);
+	// Fixed	n4(n1++);
+
+	// std::cout << "\nn1 = " << n1 << '\n'
+	//			<< "n2 = " << n2 << '\n'
+	//			<< "n3 = " << n3 << '\n'
+	//			<< "n4 = " << n4 << '\n';
 	return 0;
 }
