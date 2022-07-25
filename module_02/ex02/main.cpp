@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 18:23:37 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/22 19:48:58 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/25 16:10:35 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(void)
 		std::cout << "d         = " << d << "\n\n";
 
 		std::cout << "a + b     = " << a + b << "\n";
-		std::cout << "b + d     = " << b - d << "\n";
+		std::cout << "b - d     = " << b - d << "\n";
 		std::cout << "c         = " << c << "\n";
 		std::cout << "d         = " << d << "\n";
 		std::cout << "d * 2     = " << d * 2 << "\n";
