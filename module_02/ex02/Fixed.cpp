@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:07:55 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/22 19:35:48 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/25 16:09:30 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ Fixed::Fixed(const Fixed &newnbr): _fixed_value(newnbr._fixed_value)
 
 Fixed::Fixed(const int newnbr)
 {
-	_fixed_value = static_cast<int>((roundf(newnbr * (1 << _fractional_bits))));
+	_fixed_value = roundf(newnbr * (1 << _fractional_bits));
 }
 
 Fixed::Fixed(const float newnbr)
 {
-	_fixed_value = static_cast<float>((roundf(newnbr * (1 << _fractional_bits))));
+	_fixed_value = roundf(newnbr * (1 << _fractional_bits));
 }
 
 Fixed::~Fixed(void)

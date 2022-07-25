@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 11:07:55 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/19 18:25:46 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/25 16:08:49 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ Fixed::Fixed(const Fixed &newnbr): _fixed_value(newnbr._fixed_value)
 Fixed::Fixed(const int newnbr)
 {
 	std::cout << "Int constructor called" << std::endl;
-	_fixed_value = static_cast<int>((round(newnbr * (1 << _fractional_bits))));
+	_fixed_value = roundf(newnbr * (1 << _fractional_bits));
 }
 
 Fixed::Fixed(const float newnbr)
 {
 	std::cout << "Float constructor called" << std::endl;
-	_fixed_value = static_cast<float>((round(newnbr * (1 << _fractional_bits))));
+	_fixed_value = roundf(newnbr * (1 << _fractional_bits));
 }
 
 Fixed& Fixed::operator=(const Fixed &newnbr)
