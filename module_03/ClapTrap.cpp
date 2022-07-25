@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:39:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/25 17:51:32 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/25 19:57:25 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 ClapTrap::ClapTrap(void): _name("NoName"), _hit_pts(10), _energy_pts(10), _attack_dmg(0)
 {}
 
-ClapTrap::ClapTrap(std::string &name): _hit_pts(10), _energy_pts(10), _attack_dmg(0)
+ClapTrap::ClapTrap(const char *name): _name(name),  _hit_pts(10), _energy_pts(10), _attack_dmg(0)
 {}
 
 ClapTrap::ClapTrap(ClapTrap &cpy): _name(cpy._name), _hit_pts(cpy._hit_pts), _energy_pts(cpy._energy_pts), _attack_dmg(cpy._attack_dmg)
@@ -66,10 +66,13 @@ void	ClapTrap::attack(const std::string& target)
 
 void	ClapTrap::takeDamage(unsigned int amount)
 {
-	if (_hit_pts >= 0)
+	if (_hit_pts > 0)
 	{
+		std::cout << _name << " loses " << amount << " health, ";
+		if (amount > _hit_pts)
+			amount = _hit_pts;
 		_hit_pts -= amount;
-		std::cout << _name << " loses " << amount << " points of health" << std::endl;
+		std::cout << _name << " now has " << _hit_pts << " health points" << std::endl;
 	}
 	else
 		std::cerr << _name << " cannot lose anymore health points" << std::endl;
@@ -95,37 +98,37 @@ std::string	ClapTrap::get_name(void) const
 	return (_name);
 }
 
-void	ClapTrap::set_name(std::string &new_name)
+void	ClapTrap::set_name(const char *new_name)
 {
 	_name.assign(new_name);
 }
 
-int	ClapTrap::get_hitpts(void) const
+unsigned int	ClapTrap::get_hitpts(void) const
 {
 	return (_hit_pts);
 }
 
-void	ClapTrap::set_hitpts(int &new_hitpts)
+void	ClapTrap::set_hitpts(unsigned int new_hitpts)
 {
 	_hit_pts = new_hitpts;
 }
 
-int	ClapTrap::get_energypts(void) const
+unsigned int	ClapTrap::get_energypts(void) const
 {
 	return (_energy_pts);
 }
 
-void	ClapTrap::set_energypts(int &new_energypts)
+void	ClapTrap::set_energypts(unsigned int new_energypts)
 {
 	_energy_pts = new_energypts;
 }
 
-int	ClapTrap::get_attackdmg(void) const
+unsigned int	ClapTrap::get_attackdmg(void) const
 {
 	return (_attack_dmg);
 }
 
-void	ClapTrap::set_attackdmg(int &new_attackdmg)
+void	ClapTrap::set_attackdmg(unsigned int new_attackdmg)
 {
 	_attack_dmg = new_attackdmg;
 }
