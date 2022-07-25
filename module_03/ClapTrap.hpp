@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:57:58 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/25 16:58:00 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/25 17:38:37 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ class ClapTrap
 	public:
 	// Constructors :
 		ClapTrap();
+		ClapTrap(std::string &name);
 		ClapTrap(ClapTrap &cpy);
 	// Destructor :
 		~ClapTrap();
@@ -24,7 +25,7 @@ class ClapTrap
 		ClapTrap	&operator=(const ClapTrap &assign);
 
 	// Member functions :
-		void	attack(const std::string& traget);
+		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
 	// Accessors :
