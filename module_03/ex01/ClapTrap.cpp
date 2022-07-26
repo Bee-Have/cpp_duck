@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:39:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/26 10:42:52 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/26 13:07:05 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ClapTrap::attack(const std::string& target)
 {
 	if (_hit_pts <= 0)
 		std::cerr << _name << " does not have enough health to attack" << std::endl;
-	else if (_hit_pts <= 0)
+	else if (_energy_pts <= 0)
 		std::cerr << _name << " does not have enough energy to attack" << std::endl;
 	else
 	{
