@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:21:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/26 13:26:34 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/26 16:50:12 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ ScavTrap::ScavTrap(void): ClapTrap()
 ScavTrap::ScavTrap(const char *newname): ClapTrap(newname)
 {
 	std::cout << _name << " : new challenger has arrived" << std::endl;
+	_guard_gate = false;
 	_hit_pts = 100;
 	_energy_pts = 50;
 	_attack_dmg = 20;
@@ -36,6 +37,7 @@ ScavTrap::ScavTrap(const char *newname): ClapTrap(newname)
 ScavTrap::ScavTrap(ScavTrap &cpy): ClapTrap(cpy)
 {
 	std::cout << _name << " : new challenger has arrived" << std::endl;
+	this->_guard_gate = cpy._guard_gate;
 }
 
 /**
@@ -57,6 +59,7 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &newscav)
 		this->_hit_pts = newscav._hit_pts;
 		this->_energy_pts = newscav._energy_pts;
 		this->_attack_dmg = newscav._attack_dmg;
+		this->_guard_gate = newscav._guard_gate;
 	}
 	return (*this);
 }
@@ -66,9 +69,9 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &newscav)
 **/
 void	ScavTrap::attack(const std::string &target)
 {
-	if (_hit_pts <= 0)
+	if (_hit_pts == 0)
 		std::cerr << _name << " has no health " << _name << " can't attack" << std::endl;
-	else if (_energy_pts <= 0)
+	else if (_energy_pts == 0)
 		std::cerr << _name << " has no energy " << _name << " can't attack" << std::endl;
 	else
 	{
@@ -88,6 +91,10 @@ void	ScavTrap::takeDamage(unsigned int amount)
 		std::cout << _name << " is guarding. " << _name << " can't take damage" << std::endl;
 		return ;
 	}
+	if (amount == 0)
+		std::cout << _name << " takes no damage" << std::endl;
+	if (_hit_pts == 0)
+		std::cerr << _name << " cannot lose anymore health points" << std::endl;
 	if (_hit_pts > 0 && amount != 0)
 	{
 		std::cout << _name << " loses " << amount << " health, ";
@@ -96,10 +103,6 @@ void	ScavTrap::takeDamage(unsigned int amount)
 		_hit_pts -= amount;
 		std::cout << _name << " has now " << _hit_pts << " health points" << std::endl;
 	}
-	if (amount == 0)
-		std::cout << _name << " takes no damage" << std::endl;
-	if (_hit_pts == 0)
-		std::cerr << _name << " cannot lose anymore health points" << std::endl;
 }
 
 void	ScavTrap::guardGate(void)
@@ -117,9 +120,4 @@ void	ScavTrap::guardGate(void)
 bool	ScavTrap::get_guard_gate(void) const
 {
 	return (_guard_gate);
-}
-
-void	ScavTrap::set_guard_gate(bool state)
-{
-	_guard_gate = state;
 }

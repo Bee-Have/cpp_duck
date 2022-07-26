@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 10:54:51 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/26 13:24:32 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/26 15:50:41 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@ class ScavTrap : public ClapTrap
 		ScavTrap();
 		ScavTrap(const char *newname);
 		ScavTrap(ScavTrap &cpy);
-	// Assignment Operator
-		ScavTrap	&operator=(const ScavTrap &newscav);
 	// Destructor
 		~ScavTrap();
+	// Assignment Operator
+		ScavTrap	&operator=(const ScavTrap &newscav);
 	
 	// Member Functions
 	void	attack(const std::string &target);
@@ -33,7 +33,6 @@ class ScavTrap : public ClapTrap
 
 	// Accessors
 	bool	get_guard_gate() const;
-	void	set_guard_gate(bool state);
 
 	protected:
 		bool	_guard_gate;
