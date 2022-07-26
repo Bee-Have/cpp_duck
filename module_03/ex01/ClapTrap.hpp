@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:57:58 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/26 12:46:24 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/26 16:44:28 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ class ClapTrap
 		unsigned int	get_energypts(void) const;
 		void			set_energypts(unsigned int new_energypts);
 		unsigned int	get_attackdmg(void) const;
-		void			set_attackdmg(unsigned int 	new_attackdmg);
+		void			set_attackdmg(unsigned int new_attackdmg);
 
 	protected:
 		std::string		_name;
