@@ -1,4 +1,4 @@
-NAME = Violence
+NAME = ClapTrap
 
 CC = c++
 
