@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 10:54:51 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/26 13:11:39 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/26 13:24:32 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class ScavTrap : public ClapTrap
 	
 	// Member Functions
 	void	attack(const std::string &target);
+	void	takeDamage(unsigned int amount);
 	void	guardGate();
 
 	// Accessors

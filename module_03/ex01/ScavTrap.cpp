@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:21:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/26 13:15:18 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/26 13:26:34 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,31 @@ void	ScavTrap::attack(const std::string &target)
 		_energy_pts -= 1;
 		std::cout << _name << " aggros " << target;
 		if (_attack_dmg == 0)
-			std::cout << ", but is too weak to do dammage" << std::endl;
+			std::cout << ", but is too weak to do damage" << std::endl;
 		else
 			std::cout << ", " << target << " loses " << _attack_dmg << " health" << std::endl;
 	}
+}
+
+void	ScavTrap::takeDamage(unsigned int amount)
+{
+	if (_guard_gate == true)
+	{
+		std::cout << _name << " is guarding. " << _name << " can't take damage" << std::endl;
+		return ;
+	}
+	if (_hit_pts > 0 && amount != 0)
+	{
+		std::cout << _name << " loses " << amount << " health, ";
+		if (amount > _hit_pts)
+			amount = _hit_pts;
+		_hit_pts -= amount;
+		std::cout << _name << " has now " << _hit_pts << " health points" << std::endl;
+	}
+	if (amount == 0)
+		std::cout << _name << " takes no damage" << std::endl;
+	if (_hit_pts == 0)
+		std::cerr << _name << " cannot lose anymore health points" << std::endl;
 }
 
 void	ScavTrap::guardGate(void)

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:39:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/26 13:05:43 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/26 13:26:34 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,9 @@ void	ClapTrap::attack(const std::string& target)
 		_energy_pts -= 1;
 		std::cout << _name << " attacks " << target;
 		if (_attack_dmg == 0)
-			std::cout << ", but makes no dammage" << std::endl;
+			std::cout << ", but makes no damage" << std::endl;
 		else
-			std::cout << ", " << target << " takes " << _attack_dmg << " dammage" << std::endl;
+			std::cout << ", " << target << " takes " << _attack_dmg << " damage" << std::endl;
 	}
 }
 
@@ -86,7 +86,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 		std::cout << _name << " has now " << _hit_pts << " health points" << std::endl;
 	}
 	if (amount == 0)
-		std::cout << _name << " takes no dammage" << std::endl;
+		std::cout << _name << " takes no damage" << std::endl;
 	if (_hit_pts == 0)
 		std::cerr << _name << " cannot lose anymore health points" << std::endl;
 }
@@ -165,6 +165,6 @@ void	ClapTrap::set_attackdmg(unsigned int new_attackdmg)
 {
 	if (_attack_dmg == new_attackdmg)
 		return ;
-	std::cout << _name << " unleashes their true power and now makes " << new_attackdmg << " dammage" << std::endl;
+	std::cout << _name << " unleashes their true power and now makes " << new_attackdmg << " damage" << std::endl;
 	_attack_dmg = new_attackdmg;
 }
