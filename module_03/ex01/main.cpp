@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:29:53 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/26 15:32:30 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/26 15:39:18 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(void)
 		Lucas.takeDamage(Lucas.get_attackdmg());
 	}
 
-	std::cout << "\nGuard Gate tests\n";
+	std::cout << RED << "\nGuard Gate tests\n" << END;
 	{
 		Unknown.guardGate();
 		Charles.attack(Unknown.get_name());
@@ -58,6 +58,6 @@ int	main(void)
 		Lucas.attack(Charles.get_name());
 		Unknown.set_name("");
 	}
-	
+
 	return (0);
 }
