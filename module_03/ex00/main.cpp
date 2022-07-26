@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 19:19:31 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/26 15:29:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/26 16:45:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,11 @@ int	main(void)
 {
 	ClapTrap	Charles("chdespon");
 	ClapTrap	Lucas("ldutriez");
-	
+	ClapTrap	Walter;
+	ClapTrap	Maxime(Walter);
+
+	Walter.set_name("wluong");
+
 	std::cout << RED << "\nBasic tests :\n" << END;
 	{
 		Lucas.set_hitpts(50);
@@ -33,10 +37,9 @@ int	main(void)
 		Lucas.attack(Lucas.get_name());
 		Lucas.takeDamage(Lucas.get_attackdmg());
 	}
+
 	std::cout << RED << "\nError tests :\n" << END;
 	{
-		ClapTrap	Unknown("Random Person");
-
 		Charles.set_hitpts(0);
 		Lucas.set_attackdmg(1);
 		Lucas.attack(Charles.get_name());
@@ -44,8 +47,18 @@ int	main(void)
 		Charles.attack(Lucas.get_name());
 		Lucas.set_energypts(0);
 		Lucas.attack(Charles.get_name());
-		Unknown.set_name("");
 	}
 
+	std::cout << RED << "\nWrong values tests :\n" << END;
+	{
+		Maxime.set_name("");
+		Maxime.set_name(NULL);
+		Walter.beRepaired(-2);
+		Lucas.set_attackdmg(-42);
+		Lucas.set_energypts(-1);
+		Charles.set_hitpts(-1000);
+		Charles.takeDamage(-99);
+	}
+	std::cout << std::endl;
 	return (0);
 }
