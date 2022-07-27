@@ -6,12 +6,15 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:39:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/26 16:43:43 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:04:49 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ClapTrap.hpp"
+
+#define YELLOW "\033[1;33m"
+#define END "\33[0m"
 
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
@@ -19,7 +22,7 @@
 
 ClapTrap::ClapTrap(void): _name("NoName"), _hit_pts(10), _energy_pts(10), _attack_dmg(0)
 {
-	std::cout << _name << " has entered the Arena" << std::endl;
+	std::cout << YELLOW << _name << " has entered the Arena" << END << std::endl;
 }
 
 ClapTrap::ClapTrap(const char *name): _hit_pts(10), _energy_pts(10), _attack_dmg(0)
@@ -31,12 +34,12 @@ ClapTrap::ClapTrap(const char *name): _hit_pts(10), _energy_pts(10), _attack_dmg
 	}
 	else
 		_name.assign(name);
-	std::cout << _name << " has entered the Arena" << std::endl;
+	std::cout << YELLOW << _name << " has entered the Arena" << END << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap &cpy): _name(cpy._name), _hit_pts(cpy._hit_pts), _energy_pts(cpy._energy_pts), _attack_dmg(cpy._attack_dmg)
 {
-	std::cout << _name << " has entered the Arena" << std::endl;
+	std::cout << YELLOW << _name << " has entered the Arena" << END << std::endl;
 }
 
 /**
@@ -44,7 +47,7 @@ ClapTrap::ClapTrap(ClapTrap &cpy): _name(cpy._name), _hit_pts(cpy._hit_pts), _en
 **/
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << _name << " is withdrawing from the fight" << std::endl;
+	std::cout << YELLOW << _name << " is withdrawing from the fight" << END << std::endl;
 }
 
 /**

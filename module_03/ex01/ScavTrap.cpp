@@ -6,19 +6,22 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:21:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/26 16:50:12 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:05:41 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ScavTrap.hpp"
 
+#define YELLOW "\033[1;33m"
+#define END "\33[0m"
+
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
 **/
 ScavTrap::ScavTrap(void): ClapTrap()
 {
-	std::cout << _name << " : new challenger has arrived" << std::endl;
+	std::cout << YELLOW << _name << " : new challenger has arrived" << END << std::endl;
 	_guard_gate = false;
 	_hit_pts = 100;
 	_energy_pts = 50;
@@ -27,7 +30,7 @@ ScavTrap::ScavTrap(void): ClapTrap()
 
 ScavTrap::ScavTrap(const char *newname): ClapTrap(newname)
 {
-	std::cout << _name << " : new challenger has arrived" << std::endl;
+	std::cout << YELLOW << _name << " : new challenger has arrived" << END << std::endl;
 	_guard_gate = false;
 	_hit_pts = 100;
 	_energy_pts = 50;
@@ -36,7 +39,7 @@ ScavTrap::ScavTrap(const char *newname): ClapTrap(newname)
 
 ScavTrap::ScavTrap(ScavTrap &cpy): ClapTrap(cpy)
 {
-	std::cout << _name << " : new challenger has arrived" << std::endl;
+	std::cout << YELLOW << _name << " : new challenger has arrived" << END << std::endl;
 	this->_guard_gate = cpy._guard_gate;
 }
 
@@ -45,7 +48,7 @@ ScavTrap::ScavTrap(ScavTrap &cpy): ClapTrap(cpy)
 **/
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << _name << " : challenger left" << std::endl;
+	std::cout << YELLOW << _name << " : challenger left" << END << std::endl;
 }
 
 /**
