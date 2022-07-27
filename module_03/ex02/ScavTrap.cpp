@@ -6,14 +6,16 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:21:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/27 13:06:27 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:35:37 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ScavTrap.hpp"
 
-#define YELLOW "\033[1;33m"
+#define YELLOW "\033[33m"
+#define YB "\033[1;33m"
+#define BOLD "\033[1m"
 #define END "\33[0m"
 
 /**
@@ -21,7 +23,8 @@
 **/
 ScavTrap::ScavTrap(void): ClapTrap()
 {
-	std::cout << YELLOW << _name << " : new challenger has arrived" << END << std::endl;
+	std::cout << YB << _name << END
+		<< YELLOW << " : new challenger has arrived" << END << std::endl;
 	_guard_gate = false;
 	_hit_pts = 100;
 	_energy_pts = 50;
@@ -30,7 +33,8 @@ ScavTrap::ScavTrap(void): ClapTrap()
 
 ScavTrap::ScavTrap(const char *newname): ClapTrap(newname)
 {
-	std::cout << YELLOW << _name << " : new challenger has arrived" << END << std::endl;
+	std::cout << YB << _name << END
+		<< YELLOW << " : new challenger has arrived" << END << std::endl;
 	_guard_gate = false;
 	_hit_pts = 100;
 	_energy_pts = 50;
@@ -39,7 +43,8 @@ ScavTrap::ScavTrap(const char *newname): ClapTrap(newname)
 
 ScavTrap::ScavTrap(ScavTrap &cpy): ClapTrap(cpy)
 {
-	std::cout << YELLOW << _name << " : new challenger has arrived" << END << std::endl;
+	std::cout << YB << _name << END
+		<< YELLOW << " : new challenger has arrived" << END << std::endl;
 	this->_guard_gate = cpy._guard_gate;
 }
 
@@ -48,7 +53,8 @@ ScavTrap::ScavTrap(ScavTrap &cpy): ClapTrap(cpy)
 **/
 ScavTrap::~ScavTrap(void)
 {
-	std::cout << YELLOW << _name << " : challenger left" << END << std::endl;
+	std::cout << YB << _name << END
+		<< YELLOW << " : challenger left" << END << std::endl;
 }
 
 /**
@@ -73,13 +79,15 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &newscav)
 void	ScavTrap::attack(const std::string &target)
 {
 	if (_hit_pts == 0)
-		std::cerr << _name << " has no health " << _name << " can't attack" << std::endl;
+		std::cerr << BOLD << _name << END << " has no health "
+			<< BOLD << _name << END << " can't attack" << std::endl;
 	else if (_energy_pts == 0)
-		std::cerr << _name << " has no energy " << _name << " can't attack" << std::endl;
+		std::cerr << BOLD << _name << END << " has no energy "
+			<< BOLD <<  _name << END << " can't attack" << std::endl;
 	else
 	{
 		_energy_pts -= 1;
-		std::cout << _name << " aggros " << target;
+		std::cout << BOLD << _name << END << " aggros " << target;
 		if (_attack_dmg == 0)
 			std::cout << ", but is too weak to do damage" << std::endl;
 		else
@@ -91,20 +99,21 @@ void	ScavTrap::takeDamage(unsigned int amount)
 {
 	if (_guard_gate == true)
 	{
-		std::cout << _name << " is guarding. " << _name << " can't take damage" << std::endl;
+		std::cout << BOLD << _name << END << " is guarding. "
+			<< BOLD << _name << END << " can't take damage" << std::endl;
 		return ;
 	}
 	if (amount == 0)
-		std::cout << _name << " takes no damage" << std::endl;
+		std::cout << BOLD << _name << END << " takes no damage" << std::endl;
 	if (_hit_pts == 0)
-		std::cerr << _name << " cannot lose anymore health points" << std::endl;
+		std::cerr << BOLD << _name << END << " cannot lose anymore health points" << std::endl;
 	if (_hit_pts > 0 && amount != 0)
 	{
-		std::cout << _name << " loses " << amount << " health, ";
+		std::cout << BOLD << _name << END << " loses " << amount << " health, ";
 		if (amount > _hit_pts)
 			amount = _hit_pts;
 		_hit_pts -= amount;
-		std::cout << _name << " has now " << _hit_pts << " health points" << std::endl;
+		std::cout << BOLD << _name << END << " has now " << _hit_pts << " health points" << std::endl;
 	}
 }
 
@@ -112,9 +121,9 @@ void	ScavTrap::guardGate(void)
 {
 	_guard_gate = !_guard_gate;
 	if (_guard_gate == true)
-		std::cout << _name << " is guarding" << std::endl;
+		std::cout << BOLD << _name << END << " is guarding" << std::endl;
 	else
-		std::cout << _name << " stops guarding" << std::endl;
+		std::cout << BOLD << _name << END << " stops guarding" << std::endl;
 }
 
 /**

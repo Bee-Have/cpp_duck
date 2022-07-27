@@ -6,14 +6,16 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 19:03:03 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/27 13:07:25 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:35:50 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "FragTrap.hpp"
 
-#define YELLOW "\033[1;33m"
+#define YELLOW "\033[33m"
+#define YB "\033[1;33m"
+#define BOLD "\033[1m"
 #define END "\33[0m"
 
 /**
@@ -21,7 +23,7 @@
 **/
 FragTrap::FragTrap(void): ClapTrap()
 {
-	std::cout << YELLOW << "It is I " << _name << END << std::endl;
+	std::cout << YELLOW << "It is I " << YB << _name << END << std::endl;
 	_hit_pts = 100;
 	_energy_pts = 100;
 	_attack_dmg = 30;
@@ -29,7 +31,7 @@ FragTrap::FragTrap(void): ClapTrap()
 
 FragTrap::FragTrap(const char *name): ClapTrap(name)
 {
-	std::cout << YELLOW << "It is I " << _name << END << std::endl;
+	std::cout << YELLOW << "It is I " << YB << _name << END << std::endl;
 	_hit_pts = 100;
 	_energy_pts = 100;
 	_attack_dmg = 30;
@@ -37,7 +39,7 @@ FragTrap::FragTrap(const char *name): ClapTrap(name)
 
 FragTrap::FragTrap(FragTrap &newfrag): ClapTrap(newfrag)
 {
-	std::cout << YELLOW << "It is I " << _name << END << std::endl;
+	std::cout << YELLOW << "It is I " << YB << _name << END << std::endl;
 }
 
 /**
@@ -45,7 +47,7 @@ FragTrap::FragTrap(FragTrap &newfrag): ClapTrap(newfrag)
 **/
 FragTrap::~FragTrap(void)
 {
-	std::cout << YELLOW << _name << " out !" << END << std::endl;
+	std::cout << YB << _name << END << YELLOW << " out !" << END << std::endl;
 }
 
 /**
@@ -68,5 +70,5 @@ FragTrap	&FragTrap::operator=(const FragTrap &newfrag)
 **/
 void	FragTrap::highFivesGuys(void)
 {
-	std::cout << _name << " is requesting the HIGH FIVE" << std::endl;
+	std::cout << BOLD << _name << END << " is requesting the HIGH FIVE" << std::endl;
 }

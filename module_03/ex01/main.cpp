@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:29:53 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/27 12:46:15 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:12:26 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	main(void)
 	// I suggest changing types of vars during correction
 	// This way they can all be properly tested instead of having to many tests
 	ClapTrap	Lucas("ldutriez");
-	ScavTrap	Charles("chdespont");
+	ScavTrap	Charles("chdespon");
 	ScavTrap	Walter;
 	ScavTrap	Maxime(Walter);
 	

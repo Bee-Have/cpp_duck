@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:37:05 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/27 12:46:09 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/07/27 13:12:32 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 	ScavTrap	Maxime("mlormois");
 	
 	Walter.set_name("wluong");
-	Charles.set_name("chdespont");
+	Charles.set_name("chdespon");
 	
 	std::cout << RED << "\nBasic tests :\n" << END;
 	{
