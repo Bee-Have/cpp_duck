@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:35:08 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/02 19:37:49 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/02 19:56:06 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,10 @@ int main()
 	j->makeSound();
 	meta->makeSound();
 
+	std::cout << "\n";
+
+	delete meta;
+	delete j;
+	delete i;
 	return (0);
 }
