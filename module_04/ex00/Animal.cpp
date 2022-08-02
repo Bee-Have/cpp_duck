@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 15:10:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/02 19:37:41 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/02 19:51:09 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
 **/
-Animal::Animal(): type(NULL)
+Animal::Animal(): type()
 {
 	std::cout << "An animal comes to life" << std::endl;
 }
