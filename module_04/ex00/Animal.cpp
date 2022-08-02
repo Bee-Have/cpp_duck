@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 15:10:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/02 19:27:32 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/02 19:37:41 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,7 @@ void	Animal::makeSound() const
 /**
 -----------------------------| ENCAPSULATION |----------------------------------
 **/
-std::string	Animal::get_type(void) const
+std::string	Animal::getType(void) const
 {
 	return (type);
-}
-
-void	Animal::set_type(std::string &cpy)
-{
-	type.assign(cpy);
 }

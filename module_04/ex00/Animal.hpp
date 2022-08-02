@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 14:51:19 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/02 19:17:54 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/02 19:37:34 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ class Animal
 		void	makeSound() const;
 	
 	// Encapsulations
-		std::string	get_type(void) const;
-		void		set_type(std::string &cpy);
+		std::string	getType(void) const;
 
 	protected:
 		std::string	type;
