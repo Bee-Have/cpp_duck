@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 15:10:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/02 15:21:58 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/02 19:27:32 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ Animal::~Animal()
 **/
 Animal	&Animal::operator=(const Animal &assign)
 {
-	this->type = assign.type;
+	if (this->type.compare(assign.type) != 0)
+		this->type.assign(assign.type);
 	return (*this);
 }
 
@@ -59,7 +60,7 @@ std::string	Animal::get_type(void) const
 	return (type);
 }
 
-void		Animal::set_type(std::string &cpy)
+void	Animal::set_type(std::string &cpy)
 {
 	type.assign(cpy);
 }
