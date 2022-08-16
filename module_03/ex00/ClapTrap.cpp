@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:39:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/27 13:30:50 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/16 06:34:28 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ ClapTrap::ClapTrap(const char *name): _hit_pts(10), _energy_pts(10), _attack_dmg
 {
 	if (name == NULL || name[0] == '\0')
 	{
-		std::cerr << "Empty name is not allowed. It will be changed to :"
+		std::cout << "Empty name is not allowed. It will be changed to :"
 			<< BOLD << " NoName" << END << std::endl;
 		_name.assign("NoName");
 	}
@@ -77,8 +77,11 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &assign)
 **/
 void	ClapTrap::attack(const std::string& target)
 {
-	if (_energy_pts == 0)
-		std::cerr << BOLD << _name << END
+	if (_hit_pts == 0)
+		std::cout << BOLD << _name << END << " is technically dead, therefore "
+			<< BOLD << _name << END << " can't attack" << std::endl;
+	else if (_energy_pts == 0)
+		std::cout << BOLD << _name << END
 			<< " does not have enough energy to attack" << std::endl;
 	else
 	{
@@ -96,7 +99,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 	if (amount == 0)
 		std::cout << BOLD << _name << END << " takes no damage" << std::endl;
 	if (_hit_pts == 0)
-		std::cerr << BOLD << _name << END << " cannot lose anymore health points" << std::endl;
+		std::cout << BOLD << _name << END << " cannot lose anymore health points" << std::endl;
 	if (_hit_pts > 0 && amount > 0)
 	{
 		std::cout << BOLD << _name << END << " loses " << amount << " health, ";
@@ -109,8 +112,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_energy_pts == 0)
-		std::cerr << BOLD << _name << END << " does not have enough energy to be repaired" << std::endl;
+	if (_hit_pts == 0)
+		std::cout << BOLD << _name << END << " is dead, they can't do anything" << std::endl;
+	else if (_energy_pts == 0)
+		std::cout << BOLD << _name << END << " is exhausted, they can't do anything" << std::endl;
 	else
 	{
 		_energy_pts -= 1;
@@ -134,7 +139,7 @@ void	ClapTrap::set_name(const char *new_name)
 {
 	if (new_name == NULL || new_name[0] == '\0')
 	{
-		std::cerr << "Empty name is not allowed. It will be changed to :"
+		std::cout << "Empty name is not allowed. It will be changed to :"
 			<< BOLD << " NoName" << END << std::endl;
 		_name.assign("NoName");
 		return ;
@@ -158,7 +163,7 @@ void	ClapTrap::set_hitpts(unsigned int new_hitpts)
 {
 	if (new_hitpts < 0)
 	{
-		std::cerr << BOLD << _name << END
+		std::cout << BOLD << _name << END
 			<< "'s health points cannot be negative" << std::endl;
 		return ;
 	}
@@ -178,7 +183,7 @@ void	ClapTrap::set_energypts(unsigned int new_energypts)
 {
 	if (new_energypts < 0)
 	{
-		std::cerr << BOLD << _name << END << "'s energy cannot be negative" << std::endl;
+		std::cout << BOLD << _name << END << "'s energy cannot be negative" << std::endl;
 		return ;
 	}
 	if (_energy_pts == new_energypts)
@@ -197,7 +202,7 @@ void	ClapTrap::set_attackdmg(unsigned int new_attackdmg)
 {
 	if (new_attackdmg < 0)
 	{
-		std::cerr << BOLD << _name << END << "'s damages cannot be negative" << std::endl;
+		std::cout << BOLD << _name << END << "'s damages cannot be negative" << std::endl;
 		return ;
 	}
 	if (_attack_dmg == new_attackdmg)
