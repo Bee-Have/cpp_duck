@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 15:10:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/02 19:51:09 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/16 02:16:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
 **/
-Animal::Animal(): type()
+Animal::Animal(void): type()
 {
 	std::cout << "An animal comes to life" << std::endl;
 }
@@ -29,7 +29,7 @@ Animal::Animal(const Animal &cpy): type(cpy.type)
 /**
 ------------------------------| DESTRUCTOR |------------------------------------
 **/
-Animal::~Animal()
+Animal::~Animal(void)
 {
 	std::cout << "An animal just died" << std::endl;
 }
@@ -47,7 +47,7 @@ Animal	&Animal::operator=(const Animal &assign)
 /**
 --------------------------------| METHODS |-------------------------------------
 **/
-void	Animal::makeSound() const
+void	Animal::makeSound(void) const
 {
 	std::cout << "Random Animal sound" << std::endl;
 }
