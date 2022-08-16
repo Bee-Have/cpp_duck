@@ -4,13 +4,13 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-INC = -IAnimal.hpp -IDog.hpp -ICat.hpp
+INC = -IAnimal.hpp -IDog.hpp -ICat.hpp -IWrongAnimal.hpp -IWrongDog.hpp -IWrongCat.hpp
 
 OBJ_DIR = objs
 
 SRC = main.cpp \
-	Animal.cpp \
-	Dog.cpp Cat.cpp
+	Animal.cpp Dog.cpp Cat.cpp \
+	WrongAnimal.cpp WrongDog.cpp WrongCat.cpp
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
