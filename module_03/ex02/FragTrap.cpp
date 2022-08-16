@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 19:03:03 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/27 13:35:50 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/16 06:53:58 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,14 @@ FragTrap	&FragTrap::operator=(const FragTrap &newfrag)
 **/
 void	FragTrap::highFivesGuys(void)
 {
+	if (_hit_pts == 0 || _energy_pts == 0)
+	{
+		std::cout << BOLD << _name << END << " can't high five with";
+		if (_hit_pts == 0)
+			std::cout << " no health ";
+		else if (_hit_pts == 0)
+			std::cout << " no energy ";
+		return ;
+	}
 	std::cout << BOLD << _name << END << " is requesting the HIGH FIVE" << std::endl;
 }
