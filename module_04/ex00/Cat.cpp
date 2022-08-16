@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:20:52 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/02 19:32:31 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/16 02:27:44 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
 **/
-Cat::Cat(): Animal()
+Cat::Cat(void): Animal()
 {
 	type.assign("Cat");
 	std::cout << "His Meowgesty has arrived (cat)" << std::endl;
@@ -30,7 +30,7 @@ Cat::Cat(const Cat &cpy): Animal(cpy)
 /**
 ------------------------------| DESTRUCTOR |------------------------------------
 **/
-Cat::~Cat()
+Cat::~Cat(void)
 {
 	std::cout << "His Meowgesty is unimpressed and leaves (cat)" << std::endl;
 }

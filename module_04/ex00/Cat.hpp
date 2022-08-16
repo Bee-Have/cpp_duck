@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:15:59 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/02 19:29:26 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/16 05:56:42 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class	Cat: public Animal
 		Cat(const Cat &cpy);
 	// Destructor
 		~Cat();
-	// Copy Assignment operator
+	// Copy sssignment operator
 		Cat	&operator=(const Cat &assign);
 	
 	// Method
