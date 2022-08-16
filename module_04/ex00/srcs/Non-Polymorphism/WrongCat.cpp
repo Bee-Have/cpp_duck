@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 02:21:49 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/16 04:01:31 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/16 07:30:33 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ WrongCat::WrongCat(void): WrongAnimal()
 	std::cout << "Nyan cat has arrived" << std::endl;
 }
 
-WrongCat::WrongCat(const WrongCat &cpy)
+WrongCat::WrongCat(const WrongCat &cpy): WrongAnimal(cpy)
 {
 	std::cout << "Nyan cat has arrived" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:35:08 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/16 07:35:40 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/16 07:43:50 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,47 +20,53 @@
 #include "WrongDog.hpp"
 #include "WrongCat.hpp"
 
+// Colors
+#define BOLD "\033[1m"
+#define GB "\033[1;32m"
+#define YB "\033[1;33m"
+#define END "\33[0m"
+
 int main()
 {
-	std::cout << "Mandatory Polymorphism tests :\n";
+	std::cout << GB << "Mandatory Polymorphism tests :\n" << END;
 	{
-		std::cout << "	Constructors : \n";
+		std::cout << YB << "	Constructors : \n" << END;
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
 
-		std::cout << "\n	Tests : \n";
+		std::cout << YB << "	Tests : \n" << END;
 		std::cout << j->getType() << " " << std::endl;
 		std::cout << i->getType() << " " << std::endl;
 		i->makeSound(); //will output the cat sound!
 		j->makeSound();
 		meta->makeSound();
 
-		std::cout << "\n	Destructors : \n";
+		std::cout << YB << "	Destructors : \n" << END;
 		delete meta;
 		delete j;
 		delete i;
 	}
 	
-	std::cout << "\nCounter NON-Polymorphism tests :\n";
+	std::cout << GB << "\nCounter NON-Polymorphism tests :\n" << END;
 	{
-		std::cout << "	Constructors : \n";
+		std::cout << YB << "	Constructors : \n" << END;
 		const WrongAnimal* meta = new WrongAnimal();
 		const WrongAnimal* j = new WrongDog();
 		const WrongAnimal* i = new WrongCat();
 
-		std::cout << "\n	Tests : \n";
+		std::cout << YB << "	Tests : \n" << END;
 		std::cout << j->getType() << " " << std::endl;
 		std::cout << i->getType() << " " << std::endl;
 		i->makeSound(); //will output the WrongAnimal sound!
 		j->makeSound();
 		meta->makeSound();
 
-		std::cout << "\n	Destructors : \n";
+		std::cout << YB << "	Destructors : \n" << END;
 		delete meta;
 		delete j;
 		delete i;
 	}
-	
+
 	return (0);
 }
