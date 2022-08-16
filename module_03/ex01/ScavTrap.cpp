@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:21:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/27 13:35:42 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/16 06:10:05 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &newscav)
 void	ScavTrap::attack(const std::string &target)
 {
 	if (_hit_pts == 0)
-		std::cerr << BOLD << _name << END << " has no health "
+		std::cout << BOLD << _name << END << " has no health "
 			<< BOLD << _name << END << " can't attack" << std::endl;
 	else if (_energy_pts == 0)
-		std::cerr << BOLD << _name << END << " has no energy "
+		std::cout << BOLD << _name << END << " has no energy "
 			<< BOLD <<  _name << END << " can't attack" << std::endl;
 	else
 	{
@@ -95,30 +95,17 @@ void	ScavTrap::attack(const std::string &target)
 	}
 }
 
-void	ScavTrap::takeDamage(unsigned int amount)
-{
-	if (_guard_gate == true)
-	{
-		std::cout << BOLD << _name << END << " is guarding. "
-			<< BOLD << _name << END << " can't take damage" << std::endl;
-		return ;
-	}
-	if (amount == 0)
-		std::cout << BOLD << _name << END << " takes no damage" << std::endl;
-	if (_hit_pts == 0)
-		std::cerr << BOLD << _name << END << " cannot lose anymore health points" << std::endl;
-	if (_hit_pts > 0 && amount != 0)
-	{
-		std::cout << BOLD << _name << END << " loses " << amount << " health, ";
-		if (amount > _hit_pts)
-			amount = _hit_pts;
-		_hit_pts -= amount;
-		std::cout << BOLD << _name << END << " has now " << _hit_pts << " health points" << std::endl;
-	}
-}
-
 void	ScavTrap::guardGate(void)
 {
+	if (_hit_pts == 0 || _energy_pts == 0)
+	{
+		if (_hit_pts == 0)
+			std::cout << BOLD << _name << END << " has no health ";
+		else if (_hit_pts == 0)
+			std::cout << BOLD << _name << END << " has no energy ";
+		std::cout << BOLD << _name << END << " can't change guard" << std::endl;
+		return ;
+	}
 	_guard_gate = !_guard_gate;
 	if (_guard_gate == true)
 		std::cout << BOLD << _name << END << " is guarding" << std::endl;

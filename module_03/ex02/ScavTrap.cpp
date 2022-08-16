@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 11:21:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/27 13:35:37 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/16 06:04:48 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ ScavTrap	&ScavTrap::operator=(const ScavTrap &newscav)
 void	ScavTrap::attack(const std::string &target)
 {
 	if (_hit_pts == 0)
-		std::cerr << BOLD << _name << END << " has no health "
+		std::cout << BOLD << _name << END << " has no health "
 			<< BOLD << _name << END << " can't attack" << std::endl;
 	else if (_energy_pts == 0)
-		std::cerr << BOLD << _name << END << " has no energy "
+		std::cout << BOLD << _name << END << " has no energy "
 			<< BOLD <<  _name << END << " can't attack" << std::endl;
 	else
 	{
@@ -106,7 +106,7 @@ void	ScavTrap::takeDamage(unsigned int amount)
 	if (amount == 0)
 		std::cout << BOLD << _name << END << " takes no damage" << std::endl;
 	if (_hit_pts == 0)
-		std::cerr << BOLD << _name << END << " cannot lose anymore health points" << std::endl;
+		std::cout << BOLD << _name << END << " cannot lose anymore health points" << std::endl;
 	if (_hit_pts > 0 && amount != 0)
 	{
 		std::cout << BOLD << _name << END << " loses " << amount << " health, ";
