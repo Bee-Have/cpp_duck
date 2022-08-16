@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:39:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/16 06:04:48 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/16 06:47:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,10 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &assign)
 **/
 void	ClapTrap::attack(const std::string& target)
 {
-	if (_energy_pts == 0)
+	if (_hit_pts == 0)
+		std::cout << BOLD << _name << END << " is technically dead, therefore "
+			<< BOLD << _name << END << " can't attack" << std::endl;
+	else if (_energy_pts == 0)
 		std::cout << BOLD << _name << END
 			<< " does not have enough energy to attack" << std::endl;
 	else
@@ -109,8 +112,10 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (_energy_pts == 0)
-		std::cout << BOLD << _name << END << " does not have enough energy to be repaired" << std::endl;
+	if (_hit_pts == 0)
+		std::cout << BOLD << _name << END << " is dead, they can't do anything" << std::endl;
+	else if (_energy_pts == 0)
+		std::cout << BOLD << _name << END << " is exhausted, they can't do anything" << std::endl;
 	else
 	{
 		_energy_pts -= 1;
