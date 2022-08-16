@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:20:52 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/02 19:28:26 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/16 07:21:31 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
 **/
-Dog::Dog(): Animal()
+Dog::Dog(void): Animal()
 {
 	type.assign("Dog");
 	std::cout << "Hello dis is dog" << std::endl;
@@ -30,7 +30,7 @@ Dog::Dog(const Dog &cpy): Animal(cpy)
 /**
 ------------------------------| DESTRUCTOR |------------------------------------
 **/
-Dog::~Dog()
+Dog::~Dog(void)
 {
 	std::cout << "Best boy is departing" << std::endl;
 }
@@ -48,7 +48,7 @@ Dog	&Dog::operator=(const Dog &assign)
 /**
 --------------------------------| METHODS |-------------------------------------
 **/
-void	Dog::makeSound() const
+void	Dog::makeSound(void) const
 {
 	std::cout << "bark BARK" << std::endl;
 }
