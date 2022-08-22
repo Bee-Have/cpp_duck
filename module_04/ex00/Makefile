@@ -5,11 +5,21 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC_DIR = $(shell find srcs -type d)
+INC_DIR = $(shell find srcs -type d)
 OBJ_DIR = objs
 
-INC = -I$(SRC_DIR)Animal.hpp -I$(SRC_DIR)Dog.hpp -I$(SRC_DIR)Cat.hpp -I$(SRC_DIR)WrongAnimal.hpp -I$(SRC_DIR)WrongDog.hpp -I$(SRC_DIR)WrongCat.hpp
+# INC = -IAnimal.hpp -IDog.hpp -ICat.hpp -IWrongAnimal.hpp -IWrongDog.hpp -IWrongCat.hpp
+
+vpath %.hpp $(foreach dir, $(SRC_DIR), $(dir):)
+INC = Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongDog.hpp WrongCat.hpp
 
 vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
+# vpath %.hpp $(foreach dir, $(INC_DIR), $(dir):)
+# INC = Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongDog.hpp WrongCat.hpp
+
+# INC_DIR = $(addprefix $(INC))
+
+INC = $(addprefix -I$(foreach dir, $(SRC_DIR), $(dir)), $(SRC:.cpp=.hpp))
 
 SRC = main.cpp \
 	Animal.cpp Dog.cpp Cat.cpp \
