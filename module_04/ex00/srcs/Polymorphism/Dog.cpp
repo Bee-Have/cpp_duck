@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:20:52 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/23 06:02:42 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/23 06:06:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ Dog::Dog(const Dog &cpy): Animal(cpy)
 **/
 Dog::~Dog(void)
 {
-	std::cout << "Best boy" << BOLD << type << END << " is departing" << std::endl;
+	std::cout << "Best boy " << BOLD << type << END << " is departing" << std::endl;
 }
 
 /**
