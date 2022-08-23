@@ -6,15 +6,19 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 19:19:31 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/26 16:45:46 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/23 02:41:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstring>
+#include <limits>
 #include "ClapTrap.hpp"
 
 #define RED "\033[1;31m"
 #define END "\33[0m"
+
+//! Might want to limit the max value
 
 int	main(void)
 {
@@ -47,6 +51,8 @@ int	main(void)
 		Charles.attack(Lucas.get_name());
 		Lucas.set_energypts(0);
 		Lucas.attack(Charles.get_name());
+		Charles.set_hitpts(1);
+		Charles.takeDamage(100);
 	}
 
 	std::cout << RED << "\nWrong values tests :\n" << END;
@@ -58,6 +64,17 @@ int	main(void)
 		Lucas.set_energypts(-1);
 		Charles.set_hitpts(-1000);
 		Charles.takeDamage(-99);
+		Charles.set_hitpts(-1000);
+		Charles.beRepaired(std::numeric_limits<unsigned int>::max());
+	}
+
+	std::cout << RED << "\nHeap assign tests :\n" << END;
+	{
+		char *name = new char[6];
+		strcpy(name, "Hello");
+		ClapTrap savage(name);
+		delete[] name;
+		ClapTrap bob(savage);
 	}
 	std::cout << std::endl;
 	return (0);

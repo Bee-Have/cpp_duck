@@ -6,11 +6,12 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/25 16:39:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/16 06:34:28 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/23 02:29:20 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <limits>
 #include "ClapTrap.hpp"
 
 #define YELLOW "\033[33m"
@@ -21,7 +22,6 @@
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
 **/
-
 ClapTrap::ClapTrap(void): _name("NoName"), _hit_pts(10), _energy_pts(10), _attack_dmg(0)
 {
 	std::cout << YB << _name << END
@@ -112,10 +112,14 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
+	unsigned long	test_big = _hit_pts;
+	test_big += amount;
 	if (_hit_pts == 0)
 		std::cout << BOLD << _name << END << " is dead, they can't do anything" << std::endl;
 	else if (_energy_pts == 0)
 		std::cout << BOLD << _name << END << " is exhausted, they can't do anything" << std::endl;
+	else if (test_big >= std::numeric_limits<unsigned int>::max())
+		std::cout << BOLD << _name << END << " cannot have more hp then unsigned int value" << std::endl;
 	else
 	{
 		_energy_pts -= 1;

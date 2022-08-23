@@ -6,11 +6,13 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 12:37:05 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/27 13:12:32 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/23 04:47:10 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstring>
+#include <limits>
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
@@ -23,13 +25,13 @@ int	main(void)
 	// I suggest changing types of vars during correction
 	// This way they can all be properly tested instead of having to many tests
 	FragTrap	Lucas("ldutriez");
-	FragTrap	Charles(Lucas);
+	ClapTrap	Charles(Lucas);
 	ClapTrap	Walter;
 	ScavTrap	Maxime("mlormois");
-	
+
 	Walter.set_name("wluong");
 	Charles.set_name("chdespon");
-	
+
 	std::cout << RED << "\nBasic tests :\n" << END;
 	{
 		Lucas.set_hitpts(50);
@@ -75,14 +77,18 @@ int	main(void)
 		Lucas.set_energypts(-1);
 		Charles.set_hitpts(-1000);
 		Charles.takeDamage(-99);
+		Charles.set_hitpts(-1000);
+		Charles.beRepaired(std::numeric_limits<unsigned int>::max());
 	}
 
-	std::cout << RED << "\nHigh Five tests : \n" << END;
+	std::cout << RED << "\nHeap assign tests :\n" << END;
 	{
-		Lucas.highFivesGuys();
-		Charles.highFivesGuys();
+		char *name = new char[6];
+		strcpy(name, "Hello");
+		ClapTrap savage(name);
+		delete[] name;
+		ClapTrap bob(savage);
 	}
-
 	std::cout << std::endl;
 	return (0);
 }

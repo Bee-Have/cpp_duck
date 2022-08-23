@@ -6,11 +6,13 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 13:29:53 by amarini-          #+#    #+#             */
-/*   Updated: 2022/07/27 13:12:26 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/23 04:45:41 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <cstring>
+#include <limits>
 #include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
@@ -21,14 +23,14 @@ int	main(void)
 {
 	// I suggest changing types of vars during correction
 	// This way they can all be properly tested instead of having to many tests
-	ClapTrap	Lucas("ldutriez");
+	ScavTrap	Lucas("ldutriez");
 	ScavTrap	Charles("chdespon");
-	ScavTrap	Walter;
-	ScavTrap	Maxime(Walter);
-	
+	ClapTrap	Walter(Lucas);
+	ScavTrap	Maxime;
+
 	Walter.set_name("wluong");
 	Maxime.set_name("mlormois");
-	
+
 	std::cout << RED << "\nBasic tests :\n" << END;
 	{
 		Lucas.set_hitpts(50);
@@ -74,6 +76,17 @@ int	main(void)
 		Lucas.set_energypts(-1);
 		Charles.set_hitpts(-1000);
 		Charles.takeDamage(-99);
+		Charles.set_hitpts(-1000);
+		Charles.beRepaired(std::numeric_limits<unsigned int>::max());
+	}
+
+	std::cout << RED << "\nHeap assign tests :\n" << END;
+	{
+		char *name = new char[6];
+		strcpy(name, "Hello");
+		ClapTrap savage(name);
+		delete[] name;
+		ClapTrap bob(savage);
 	}
 	std::cout << std::endl;
 	return (0);
