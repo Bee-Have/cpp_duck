@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:35:08 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/16 07:43:50 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/24 21:58:27 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,42 +30,28 @@ int main()
 {
 	std::cout << GB << "Mandatory Polymorphism tests :\n" << END;
 	{
-		std::cout << YB << "	Constructors : \n" << END;
-		const Animal* meta = new Animal();
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
+		std::cout << YB << "Constructors :\n" << END;
+		const Animal	*j = new Dog();
+		const Animal	*i = new Cat();
 
-		std::cout << YB << "	Tests : \n" << END;
-		std::cout << j->getType() << " " << std::endl;
-		std::cout << i->getType() << " " << std::endl;
-		i->makeSound(); //will output the cat sound!
-		j->makeSound();
-		meta->makeSound();
-
-		std::cout << YB << "	Destructors : \n" << END;
-		delete meta;
-		delete j;
-		delete i;
+		std::cout << YB << "Destructors :\n" << END;
+		delete	j;
+		delete	i;
 	}
-	
-	std::cout << GB << "\nCounter NON-Polymorphism tests :\n" << END;
+
+	std::cout << GB << "\nArray tests :\n" << END;
 	{
-		std::cout << YB << "	Constructors : \n" << END;
-		const WrongAnimal* meta = new WrongAnimal();
-		const WrongAnimal* j = new WrongDog();
-		const WrongAnimal* i = new WrongCat();
+		std::cout << YB << "Constructors :\n" << END;
+		Animal	tiny_hoard[2];
+		std::cout << YB "Assignation :\n" << END;
+		tiny_hoard[0] = Dog();
+		tiny_hoard[1] = Cat();
 
-		std::cout << YB << "	Tests : \n" << END;
-		std::cout << j->getType() << " " << std::endl;
-		std::cout << i->getType() << " " << std::endl;
-		i->makeSound(); //will output the WrongAnimal sound!
-		j->makeSound();
-		meta->makeSound();
+		std::cout << YB << "Tests :\n" << END;
+		tiny_hoard[0].makeSound();
+		tiny_hoard[1].makeSound();
 
-		std::cout << YB << "	Destructors : \n" << END;
-		delete meta;
-		delete j;
-		delete i;
+		std::cout << YB << "Destructors :\n" << END;
 	}
 
 	return (0);
