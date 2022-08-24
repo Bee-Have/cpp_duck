@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 09:15:17 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/16 10:24:38 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/24 20:01:42 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,16 @@
 **/
 Brain::Brain(void): ideas()
 {
-	std::cout << "I am now aware" << std::endl;
+	for (int i = 0; i < 100; ++i)
+		ideas[i].assign("idea");
+	std::cout << "Brain is ON" << std::endl;
 }
 
 Brain::Brain(const Brain &cpy)
 {
-	std::cout << "I am now aware" << std::endl;
+	for (int i = 0; i < 100; ++i)
+		ideas[i].assign("idea");
+	std::cout << "Brain is ON" << std::endl;
 }
 
 /**
@@ -31,7 +35,7 @@ Brain::Brain(const Brain &cpy)
 **/
 Brain::~Brain(void)
 {
-	std::cout << "Brain is dying" << std::endl;
+	std::cout << "Brain OFF X_X" << std::endl;
 }
 
 /**
@@ -53,6 +57,9 @@ const std::string	*Brain::get_ideas(void) const
 	return (ideas);
 }
 
+/**
+-----------------------------| ENCAPSULATION |----------------------------------
+**/
 const std::string	&Brain::get_ideas(int index) const
 {
 	if (index < 0)
@@ -62,14 +69,14 @@ const std::string	&Brain::get_ideas(int index) const
 	return (ideas[index]);
 }
 
-void	Brain::set_ideas(std::string *cpy)
+void	Brain::set_ideas(const std::string *cpy)
 {
 	for (int i = 0; i < 100; ++i)
 		if (this->ideas[i].compare(cpy[i]) != 0)
 			this->ideas[i].assign(cpy[i]);
 }
 
-void	Brain::set_ideas(int index, std::string cpy)
+void	Brain::set_ideas(int index, const std::string cpy)
 {
 	if (index < 0 || index > 99)
 		std::cout << "Index is out of range, cannot assign this value" << std::endl;
