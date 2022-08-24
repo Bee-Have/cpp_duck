@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:20:52 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/16 14:56:49 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/24 20:10:33 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,17 @@ Cat	&Cat::operator=(const Cat &assign)
 void	Cat::makeSound() const
 {
 	std::cout << "mreow (not barking, not barking at all)" << std::endl;
+}
+
+/**
+-----------------------------| ENCAPSULATION |----------------------------------
+**/
+Brain	*Cat::get_brain(void) const
+{
+	return (this->_brain);
+}
+
+void	Cat::set_brain(const Brain *cpy)
+{
+	this->_brain->set_ideas(cpy->get_ideas());
 }
