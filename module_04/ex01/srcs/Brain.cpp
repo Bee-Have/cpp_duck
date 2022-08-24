@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 09:15:17 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/24 20:01:42 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/24 21:54:50 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Brain::Brain(void): ideas()
 Brain::Brain(const Brain &cpy)
 {
 	for (int i = 0; i < 100; ++i)
-		ideas[i].assign("idea");
+		ideas[i].assign(cpy.get_ideas(i));
 	std::cout << "Brain is ON" << std::endl;
 }
 

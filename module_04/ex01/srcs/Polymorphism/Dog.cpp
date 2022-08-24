@@ -6,25 +6,29 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:20:52 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/24 20:10:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/24 22:06:23 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Dog.hpp"
 
+#define BOLD "\033]1m"
+#define END "\33[0m"
+
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
 **/
-Dog::Dog(void): Animal()
+Dog::Dog(void): Animal(), _brain(new Brain())
 {
 	type.assign("Dog");
-	std::cout << "Hello dis is dog" << std::endl;
+	std::cout << "Hello dis is " << BOLD << type << END << std::endl;
 }
 
 Dog::Dog(const Dog &cpy): Animal(cpy)
 {
-	std::cout << "Hello dis is dog" << std::endl;
+	_brain->set_ideas(cpy._brain->get_ideas());
+	std::cout << "Hello dis is " << BOLD << type << END << std::endl;
 }
 
 /**
@@ -32,7 +36,8 @@ Dog::Dog(const Dog &cpy): Animal(cpy)
 **/
 Dog::~Dog(void)
 {
-	std::cout << "Best boy is departing" << std::endl;
+	delete _brain;
+	std::cout << "Best boy " << BOLD << type << END << " is departing" << std::endl;
 }
 
 /**
@@ -42,6 +47,7 @@ Dog	&Dog::operator=(const Dog &assign)
 {
 	if (this->type.compare(assign.type) != 0)
 		this->type.assign(assign.type);
+	this->_brain->set_ideas(assign._brain->get_ideas());
 	return (*this);
 }
 
@@ -50,7 +56,7 @@ Dog	&Dog::operator=(const Dog &assign)
 **/
 void	Dog::makeSound(void) const
 {
-	std::cout << "bark BARK" << std::endl;
+	std::cout << BOLD << type << END << " bark BARK" << std::endl;
 }
 
 /**
