@@ -6,14 +6,14 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:20:52 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/24 22:06:23 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/25 01:50:23 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Dog.hpp"
 
-#define BOLD "\033]1m"
+#define BOLD "\033[1m"
 #define END "\33[0m"
 
 /**
@@ -25,7 +25,7 @@ Dog::Dog(void): Animal(), _brain(new Brain())
 	std::cout << "Hello dis is " << BOLD << type << END << std::endl;
 }
 
-Dog::Dog(const Dog &cpy): Animal(cpy)
+Dog::Dog(const Dog &cpy): Animal(cpy), _brain(new Brain())
 {
 	_brain->set_ideas(cpy._brain->get_ideas());
 	std::cout << "Hello dis is " << BOLD << type << END << std::endl;

@@ -6,14 +6,14 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:20:52 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/24 22:06:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/25 01:50:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Cat.hpp"
 
-#define BOLD "\033]1m"
+#define BOLD "\033[1m"
 #define END "\33[0m"
 
 /**
@@ -25,8 +25,9 @@ Cat::Cat(void): Animal(), _brain(new Brain())
 	std::cout << "His Meowgesty the " << BOLD << type << END << " has arrived" << std::endl;
 }
 
-Cat::Cat(const Cat &cpy): Animal(cpy)
+Cat::Cat(const Cat &cpy): Animal(cpy), _brain(new Brain())
 {
+	std::cout << "type: "<< type << "\n";
 	_brain->set_ideas(cpy._brain->get_ideas());
 	std::cout << "His Meowgesty the " << BOLD << type << END << " has arrived" << std::endl;
 }
