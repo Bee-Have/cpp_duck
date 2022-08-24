@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 15:10:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/24 22:16:03 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/24 22:35:25 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
 **/
-Animal::Animal(void): type()
+Animal::Animal(void): type("Animal")
 {
 	std::cout << "An " << BOLD << type << END << " comes to life" << std::endl;
 }
