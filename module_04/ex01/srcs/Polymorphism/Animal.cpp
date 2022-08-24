@@ -6,24 +6,27 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 15:10:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/16 02:16:11 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/24 22:16:03 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Animal.hpp"
 
+#define BOLD "\033[1m"
+#define END "\33[0m"
+
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
 **/
 Animal::Animal(void): type()
 {
-	std::cout << "An animal comes to life" << std::endl;
+	std::cout << "An " << BOLD << type << END << " comes to life" << std::endl;
 }
 
 Animal::Animal(const Animal &cpy): type(cpy.type)
 {
-	std::cout << "An animal comes to life" << std::endl;
+	std::cout << "An " << BOLD << type << END << " comes to life" << std::endl;
 }
 
 /**
@@ -31,7 +34,7 @@ Animal::Animal(const Animal &cpy): type(cpy.type)
 **/
 Animal::~Animal(void)
 {
-	std::cout << "An animal just died" << std::endl;
+	std::cout << BOLD << type << END << " just died" << std::endl;
 }
 
 /**
@@ -49,7 +52,7 @@ Animal	&Animal::operator=(const Animal &assign)
 **/
 void	Animal::makeSound(void) const
 {
-	std::cout << "Random Animal sound" << std::endl;
+	std::cout << "Random " << BOLD << type << END << " sound" << std::endl;
 }
 
 /**
