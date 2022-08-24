@@ -7,10 +7,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC_DIR = $(shell find srcs -type d)
 OBJ_DIR = objs
 
-vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
+IFLAGS = $(foreach dir, $(SRC_DIR), -I$(dir))
 
-INC = -IAnimal.hpp -IBrain.hpp -IDog.hpp -ICat.hpp \
-	-IWrongAnimal.hpp -IWrongDog.hpp -IWrongCat.hpp
+vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
 
 SRC = main.cpp \
 	Brain.cpp \
@@ -26,7 +25,7 @@ $(NAME): $(OBJ)
 
 $(OBJ_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(INC) -c $< -o $@
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR)
