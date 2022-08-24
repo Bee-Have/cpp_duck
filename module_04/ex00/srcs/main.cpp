@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:35:08 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/16 07:43:50 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/24 16:21:07 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int main()
 		delete j;
 		delete i;
 	}
-	
+
 	std::cout << GB << "\nCounter NON-Polymorphism tests :\n" << END;
 	{
 		std::cout << YB << "	Constructors : \n" << END;
@@ -68,5 +68,18 @@ int main()
 		delete i;
 	}
 
+	std::cout << GB << "\nMy tests :\n" << END;
+	{
+		const Cat		cat_base;
+		const Animal	cat_derived(cat_base);
+
+		// dog_derived = &dog_base;
+		
+		std::cout << "base class type : " << cat_base.getType() << "\n";
+		std::cout << "derived class type : " << cat_derived.getType() << "\n";
+		cat_base.makeSound(); //will output Cat class sound
+		cat_derived.makeSound(); //will output Animal sound with Cat type
+	}
+	
 	return (0);
 }
