@@ -6,12 +6,15 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 02:21:49 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/16 07:30:33 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/24 16:29:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "WrongCat.hpp"
+
+#define BOLD "\033[1m"
+#define END "\33[0m"
 
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
@@ -19,12 +22,12 @@
 WrongCat::WrongCat(void): WrongAnimal()
 {
 	type.assign("WrongCat");
-	std::cout << "Nyan cat has arrived" << std::endl;
+	std::cout << "Nyan " << BOLD << type << END << " has arrived" << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat &cpy): WrongAnimal(cpy)
 {
-	std::cout << "Nyan cat has arrived" << std::endl;
+	std::cout << "Nyan " << BOLD << type << END << " has arrived" << std::endl;
 }
 
 /**
@@ -32,7 +35,7 @@ WrongCat::WrongCat(const WrongCat &cpy): WrongAnimal(cpy)
 **/
 WrongCat::~WrongCat(void)
 {
-	std::cout << "Nyan cat is flying away (bye bye)" << std::endl;
+	std::cout << "Nyan " << BOLD << type << END << " is flying away (bye bye)" << std::endl;
 }
 
 /**
@@ -50,5 +53,5 @@ WrongCat	&WrongCat::operator=(const WrongCat &assign)
 **/
 void	WrongCat::makeSound() const
 {
-	std::cout << "Nyan cat music in the background" << std::endl;
+	std::cout << "Nyan " << BOLD << type << END << " music in the background" << std::endl;
 }

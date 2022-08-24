@@ -6,24 +6,27 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 01:56:00 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/16 02:15:48 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/24 16:29:54 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "WrongAnimal.hpp"
 
+#define BOLD "\033[1m"
+#define END "\33[0m"
+
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
 **/
-WrongAnimal::WrongAnimal(void): type()
+WrongAnimal::WrongAnimal(void): type("WrongAnimal")
 {
-	std::cout << "A VERY WRONG animal has arrived" << std::endl;
+	std::cout << "A VERY WRONG " << BOLD << type << END << " has arrived" << std::endl;
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &cpy): type(cpy.type)
 {
-	std::cout << "A VERY WRONG animal has arrived" << std::endl;
+	std::cout << "A VERY WRONG " << BOLD << type << END << " has arrived" << std::endl;
 }
 
 /**
@@ -31,7 +34,7 @@ WrongAnimal::WrongAnimal(const WrongAnimal &cpy): type(cpy.type)
 **/
 WrongAnimal::~WrongAnimal(void)
 {
-	std::cout << "That abonimation finally died" << std::endl;
+	std::cout << "That abonimation " << BOLD << type << END << " finally died" << std::endl;
 }
 
 /**
@@ -49,7 +52,7 @@ WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &assign)
 **/
 void	WrongAnimal::makeSound(void) const
 {
-	std::cout << "Abomination groans" << std::endl;
+	std::cout << BOLD << type << END << " abomination groans" << std::endl;
 }
 
 /**
