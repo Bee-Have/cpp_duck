@@ -6,12 +6,15 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 09:15:17 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/24 21:54:50 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/24 22:21:44 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Brain.hpp"
+
+#define BOLD "\033[1m"
+#define END "\33[0m"
 
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
@@ -20,14 +23,14 @@ Brain::Brain(void): ideas()
 {
 	for (int i = 0; i < 100; ++i)
 		ideas[i].assign("idea");
-	std::cout << "Brain is ON" << std::endl;
+	std::cout << BOLD << "Brain" << END " is ON" << std::endl;
 }
 
 Brain::Brain(const Brain &cpy)
 {
 	for (int i = 0; i < 100; ++i)
 		ideas[i].assign(cpy.get_ideas(i));
-	std::cout << "Brain is ON" << std::endl;
+	std::cout << BOLD << "Brain" << END << " is ON" << std::endl;
 }
 
 /**
@@ -35,7 +38,7 @@ Brain::Brain(const Brain &cpy)
 **/
 Brain::~Brain(void)
 {
-	std::cout << "Brain OFF X_X" << std::endl;
+	std::cout << BOLD <<  "Brain" << END << " OFF X_X" << std::endl;
 }
 
 /**
