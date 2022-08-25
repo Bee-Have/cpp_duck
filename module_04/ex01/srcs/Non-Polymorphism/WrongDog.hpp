@@ -6,13 +6,14 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 07:05:27 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/16 07:07:47 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/25 05:21:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "WrongAnimal.hpp"
+#include "Brain.hpp"
 
 class WrongDog: public WrongAnimal
 {
@@ -27,4 +28,12 @@ class WrongDog: public WrongAnimal
 
 	// Method
 		void	makeSound() const;
+
+	// Accessors
+	Brain	*get_brain(void) const;
+	void	set_brain(const Brain *cpy);
+	
+	private:
+	// Variables
+		Brain	*_brain;
 };
