@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/02 19:35:08 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/26 08:14:15 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/26 08:56:49 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int main()
 
 	std::cout << GB << "\nSimple array tests :\n" << END;
 	{
-		// this poses no problem because no constructor i called
+		// this poses no problem because no constructor are called
 		Animal	*tiny_hoard[2];
 		std::cout << YB << "Constructors :\n" << END;
 		tiny_hoard[0] = new Dog();
