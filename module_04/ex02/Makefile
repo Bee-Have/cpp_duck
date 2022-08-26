@@ -4,12 +4,12 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC_DIR = $(shell find srcs type -d)
+SRC_DIR = $(shell find srcs -type d)
 OBJ_DIR = objs
 
 IFLAGS = $(foreach dir, $(SRC_DIR), -I$(dir))
 
-vpath: %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
+vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
 
 SRC = main.cpp \
 	Brain.cpp \
@@ -24,14 +24,15 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $^ -o $@
 
 $(OBJ_DIR)/%.o: %.cpp
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm $(NAME)
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fcllean re
+.PHONY: all clean fclean re
