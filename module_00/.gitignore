@@ -1,7 +1,0 @@
-../.vscode/
-**/megaphone
-!megaphone.cpp
-**/phonebook
-!phonebook.*
-**/objs/
-*.o
