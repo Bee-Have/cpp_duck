@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:26:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/26 12:48:59 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/26 12:49:49 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ std::ostream	&operator<<(std::ostream &stream, const Bureaucrat &obj)
 {
 	// read subject for this part
 	stream << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+	return (stream);
 }
 
 /**
