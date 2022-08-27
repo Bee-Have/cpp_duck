@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:26:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/26 12:49:49 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/28 01:54:35 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,39 @@
 Bureaucrat::Bureaucrat(void): name("Bureaucrat")
 {
 	// this must throw an error because there is no grade instantiated
+	throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &cpy)
+Bureaucrat::Bureaucrat(Bureaucrat &cpy): name(cpy.name)
 {
-	if (name.compare(cpy.name) != 0)
-		name.assign(cpy.name); // is it because it is const ?
 	if (grade != cpy.grade)
-		grade = cpy.grade;
+	{
+		if (cpy.grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+		else if (cpy.grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+		else
+			grade = cpy.grade;
+	}
 }
 
 Bureaucrat::Bureaucrat(int grade): name("Bureaucrat")
 {
-	// try catch here for exeptions of grades (1 >= grade <= 150)
+	if (grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (grade < 1)
+		throw Bureaucrat::GradeTooHighException();
 	grade = grade;
 }
 
-Bureaucrat::Bureaucrat(int grade, const char *newname): name(newname)
+Bureaucrat::Bureaucrat(int newgrade, const char *newname): name(newname)
 {
 	// try catch here for exeptions of grades (1 >= grade <= 150)
-	grade = grade;
+	if (newgrade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (newgrade < 1)
+		throw Bureaucrat::GradeTooHighException();
+	grade = newgrade;
 }
 
 /**
@@ -51,10 +64,12 @@ Bureaucrat::~Bureaucrat(void)
 **/
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &assign)
 {
-	if (grade != assign.grade)
+	if (assign.grade > 150)
+		throw GradeTooLowException();
+	else if (assign.grade < 1)
+		throw GradeTooHighException();
+	else if (grade != assign.grade)
 		grade = assign.grade;
-	if (name.compare(assign.name) != 0)
-		name.assign(assign.name); // is it because it is const ?
 }
 
 /**
@@ -62,7 +77,6 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &assign)
 **/
 std::ostream	&operator<<(std::ostream &stream, const Bureaucrat &obj)
 {
-	// read subject for this part
 	stream << obj.getName() << ", bureaucrat grade " << obj.getGrade();
 	return (stream);
 }
@@ -87,13 +101,15 @@ int	Bureaucrat::getGrade(void) const
 void	Bureaucrat::increment_grade(void)
 {
 	// diminishes grade
-	// try catch here for exeptions of grades (1 >= grade <= 150)
+	if (grade == 150)
+		throw Bureaucrat::GradeTooLowException();
 	--grade;
 }
 
 void	Bureaucrat::decrement_grade(void)
 {
 	// augments grade
-	// try catch here for exeptions of grades (1 >= grade <= 150)
+	if (grade == 1)
+		throw Bureaucrat::GradeTooHighException();
 	++grade;
 }
