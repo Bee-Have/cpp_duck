@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 03:51:01 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 08:09:34 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/28 08:37:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ class Form
 		int			get_exec_grade() const;
 
 	// Methods
-		void	beSigned(Bureaucrat &tosign);
+		void			beSigned(Bureaucrat &tosign);
+		void			execute(Bureaucrat const & executor) const;
+		virtual void	to_execute() = 0;
 
 	// Nested classes
 		class GradeTooHighException : public std::exception
@@ -52,8 +54,16 @@ class Form
 					return ("Error: Grade cannot be lower then 150\n");
 				}
 		};
+		class FormNotSigned : public std::exception
+		{
+			public:
+				const char	*what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_NOTHROW
+				{
+					return ("Error: Form has not been Signed, cannot execute Form\n");
+				}
+		};
 
-	protected:
+	private:
 		const std::string	_name;
 		bool				_is_signed;
 		const int			_sign_grade;

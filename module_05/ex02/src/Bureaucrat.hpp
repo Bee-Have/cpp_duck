@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 11:15:36 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 07:03:27 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/28 08:37:15 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ class Bureaucrat
 		void	increment_grade();
 		void	decrement_grade();
 		void	signForm(Form &theform);
+		void	executeForm(Form const & form);
 
 	// Nested classes
 		class GradeTooHighException : public std::exception
