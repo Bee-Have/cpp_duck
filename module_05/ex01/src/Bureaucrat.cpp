@@ -6,11 +6,12 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:26:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 03:28:01 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/28 07:01:16 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 #define BOLD "\033[1m"
 #define END "\33[0m"
@@ -116,4 +117,12 @@ void	Bureaucrat::decrement_grade(void)
 	if (grade == 1)
 		throw Bureaucrat::GradeTooHighException();
 	++grade;
+}
+
+void	Bureaucrat::signForm(Form &theform)
+{
+	if (theform.get_is_signed() == true)
+		std::cout << BOLD << name << END << " signed " << BOLD << theform.get_name() << END << std::endl;
+	else
+		std::cout << BOLD << name << END << " couldn't sign " << BOLD << theform.get_name() << END << " because " << BOLD << name << END << "'s grade is too low" << std::endl;
 }
