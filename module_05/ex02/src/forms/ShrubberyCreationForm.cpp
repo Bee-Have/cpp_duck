@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 08:49:01 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 09:00:43 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/28 09:03:45 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,5 @@ std::string	ShrubberyCreationForm::get_target(void) const
 void	ShrubberyCreationForm::to_execute(void)
 {
 	// read subject for this part
+	std::cout << "HELLO THIS IS A BUSH HI !" << std::endl;
 }
