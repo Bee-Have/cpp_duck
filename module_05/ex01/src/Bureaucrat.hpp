@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 11:15:36 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 04:10:50 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/28 04:43:07 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ class Bureaucrat
 	// Constructors
 		Bureaucrat();
 		Bureaucrat(Bureaucrat &cpy);
-		Bureaucrat(int grade);
-		Bureaucrat(int grade, const char *newname);
+		Bureaucrat(int newgrade);
+		Bureaucrat(int newgrade, const char *newname);
 	// Destructor
 		~Bureaucrat();
 	// Assignment opertor
@@ -61,4 +61,4 @@ class Bureaucrat
 		int					grade;
 };
 // Operator overload "<<"
-	std::ostream	&operator<<(std::ostream &os, const Bureaucrat &obj);
+	std::ostream	&operator<<(std::ostream &stream, const Bureaucrat &obj);
