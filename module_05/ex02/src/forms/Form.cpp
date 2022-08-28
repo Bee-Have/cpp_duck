@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 04:12:30 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 08:36:23 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/28 08:56:56 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ Form::Form(Form &cpy): _name(cpy._name), _sign_grade(cpy._sign_grade), _exec_gra
 {
 	if (cpy._is_signed != _is_signed)
 		_is_signed = cpy._is_signed;
+}
+
+Form::Form(const char *newname, int sign_grade, int exec_grade): _name(newname), _is_signed(false), _sign_grade(sign_grade), _exec_grade(exec_grade)
+{
+	if (sign_grade < 1 || exec_grade < 1)
+		throw Form::GradeTooHighException();
+	if (sign_grade > 150 || exec_grade > 150)
+		throw Form::GradeTooLowException();
 }
 
 /**
