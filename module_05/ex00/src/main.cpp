@@ -6,35 +6,39 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 03:21:22 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/28 03:25:52 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+#define GB "\033[1;32m"
+#define YB "\033[1;33m"
+#define END "\33[0m"
+
 int	main()
 {
-	std::cout << "Simple tests :\n";
+	std::cout << GB << "Simple tests :\n" << END;
 	{
-		std::cout << "Bureaucrat Moss(10, Moss)\n";
-		std::cout << "Bureaucrat Jen(Moss)\n";
+		std::cout << YB << "Bureaucrat Moss(10, Moss)\n" << END;
+		std::cout << YB << "Bureaucrat Jen(Moss)\n" << END;
 		Bureaucrat	Moss(10, "Moss");
 		Bureaucrat	Jen(Moss);
 
 		std::cout << Moss << "\n";
 		std::cout << Jen << "\n";
 
-		std::cout << "Grade change test :\n";
+		std::cout << YB << "Grade change test :\n" << END;
 		Moss.decrement_grade();
 		Jen.increment_grade();
 		std::cout << Moss << "\n";
 		std::cout << Jen << "\n";
 	}
 
-	std::cout << "\nBad Constructor tests :\n";
+	std::cout << GB << "\nBad Constructor tests :\n" << END;
 	{
-		std::cout << "Test with default constructor :\n";
+		std::cout << YB << "Test with default constructor :\n" << END;
 		try
 		{
 			Bureaucrat	Moss;
@@ -43,7 +47,7 @@ int	main()
 		{
 			std::cout << exception.what();
 		}
-		std::cout << "Test with int Constructor < 1 :\n";
+		std::cout << YB << "Test with int Constructor < 1 :\n" << END;
 		try
 		{
 			Bureaucrat	Roy(-19);
@@ -52,7 +56,7 @@ int	main()
 		{
 			std::cout << exception.what();
 		}
-		std::cout << "Test with (int, name) Constructor > 150 :\n";
+		std::cout << YB << "Test with (int, name) Constructor > 150 :\n" << END;
 		try
 		{
 			Bureaucrat Jen(180, "Jen");
@@ -63,7 +67,7 @@ int	main()
 		}
 	}
 
-	std::cout << "\nTest incrementing/decrementing maximum grades :\n";
+	std::cout << GB << "\nTest incrementing/decrementing maximum grades :\n" << END;
 	{
 		Bureaucrat	Jen(1, "Jen");
 		Bureaucrat	Roy(150, "Roy");
