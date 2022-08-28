@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/26 11:15:36 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 04:10:50 by amarini-         ###   ########.fr       */
+/*   Created: 2022/08/28 03:51:01 by amarini-          #+#    #+#             */
+/*   Updated: 2022/08/28 04:10:32 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <string>
-#include <iostream>
+#include "Bureaucrat.hpp"
 
-class Bureaucrat
+class Form
 {
 	public:
 	// Constructors
-		Bureaucrat();
-		Bureaucrat(Bureaucrat &cpy);
-		Bureaucrat(int grade);
-		Bureaucrat(int grade, const char *newname);
+		Form();
+		Form(Form &cpy);
 	// Destructor
-		~Bureaucrat();
-	// Assignment opertor
-		Bureaucrat	&operator=(const Bureaucrat &assign);
+		~Form();
+	// Assignment operator
+		Form	&operator=(const Form &assign);
 
-	// Accessors
-		std::string	getName() const;
-		int			getGrade() const;
+	// Accesors
+		std::string	get_name()const;
+		bool		get_is_signed() const;
+		int			get_sign_grade() const;
+		int			get_exec_grade() const;
 
 	// Methods
-		void	increment_grade();
-		void	decrement_grade();
-		void	signForm();
+		void	beSigned(Bureaucrat &tosign);
 
 	// Nested classes
 		class GradeTooHighException : public std::exception
@@ -56,9 +54,10 @@ class Bureaucrat
 		};
 
 	private:
-	// Attributes
-		const std::string	name;
-		int					grade;
+		const std::string	_name;
+		bool				_is_signed;
+		const int			_sign_grade;
+		const int			_exec_grade;
 };
 // Operator overload "<<"
-	std::ostream	&operator<<(std::ostream &os, const Bureaucrat &obj);
+	std::ostream	&operator<<(std::ostream &os, const Form &obj);
