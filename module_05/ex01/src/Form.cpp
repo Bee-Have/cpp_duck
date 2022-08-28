@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 04:12:30 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 04:38:48 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/28 06:42:58 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ Form	&Form::operator=(const Form &assign)
 {
 	if (assign._is_signed != _is_signed)
 		_is_signed = assign._is_signed;
+	return (*this);
 }
 
 /**
@@ -89,7 +90,13 @@ int			Form::get_exec_grade(void) const
 **/
 void	Form::beSigned(Bureaucrat &tosign)
 {
+	if (_is_signed == true)
+		return ;
 	if (tosign.getGrade() > _sign_grade)
+	{
+		tosign.signForm(*this);
 		throw	Form::GradeTooLowException();
+	}
 	_is_signed = true;
+	tosign.signForm(*this);
 }
