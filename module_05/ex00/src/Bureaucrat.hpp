@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 11:15:36 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 02:55:28 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/28 04:23:45 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,4 @@ class Bureaucrat
 		int					grade;
 };
 // Operator overload "<<"
-	std::ostream	&operator<<(std::ostream &os, const Bureaucrat &obj);
+	std::ostream	&operator<<(std::ostream &stream, const Bureaucrat &obj);
