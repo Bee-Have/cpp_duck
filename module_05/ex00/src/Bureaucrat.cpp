@@ -6,11 +6,14 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:26:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 03:11:17 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/28 03:28:01 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+
+#define BOLD "\033[1m"
+#define END "\33[0m"
 
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
@@ -78,7 +81,7 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &assign)
 **/
 std::ostream	&operator<<(std::ostream &stream, const Bureaucrat &obj)
 {
-	stream << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
+	stream << BOLD << obj.getName() << END << ", bureaucrat grade " << BOLD << obj.getGrade() << END << ".";
 	return (stream);
 }
 
