@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:26:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 01:54:35 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/28 03:11:17 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ Bureaucrat::Bureaucrat(Bureaucrat &cpy): name(cpy.name)
 	}
 }
 
-Bureaucrat::Bureaucrat(int grade): name("Bureaucrat")
+Bureaucrat::Bureaucrat(int newgrade): name("Bureaucrat")
 {
-	if (grade > 150)
+	if (newgrade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	else if (grade < 1)
+	else if (newgrade < 1)
 		throw Bureaucrat::GradeTooHighException();
-	grade = grade;
+	grade = newgrade;
 }
 
 Bureaucrat::Bureaucrat(int newgrade, const char *newname): name(newname)
@@ -70,6 +70,7 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &assign)
 		throw GradeTooHighException();
 	else if (grade != assign.grade)
 		grade = assign.grade;
+	return (*this);
 }
 
 /**
@@ -77,7 +78,7 @@ Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &assign)
 **/
 std::ostream	&operator<<(std::ostream &stream, const Bureaucrat &obj)
 {
-	stream << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+	stream << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ".";
 	return (stream);
 }
 
