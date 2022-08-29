@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 04:12:30 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 09:52:58 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/29 06:46:40 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,16 +95,16 @@ void	Form::beSigned(Bureaucrat &tosign)
 	tosign.signForm(*this);
 }
 
-void	Form::execute(Bureaucrat const &executor) const
+void	Form::execute(Bureaucrat const & executor) const
 {
 	if (_is_signed == false || executor.getGrade() > _exec_grade)
 	{
-		executor.executeForm(*this);
+		const_cast<Bureaucrat &>(executor).executeForm(*this);
 		if (_is_signed == false)
 			throw	Form::FormNotSigned();
 		else
 			throw	Form::GradeTooLowException();
 	}
 	to_execute();
-	executor.executeForm(*this);
+	const_cast<Bureaucrat &>(executor).executeForm(*this);
 }
