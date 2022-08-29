@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 04:12:30 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/29 06:46:40 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 01:14:17 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@ Form::Form(const char *newname, int sign_grade, int exec_grade): _name(newname),
 	if (sign_grade > 150 || exec_grade > 150)
 		throw Form::GradeTooLowException();
 }
+
+/**
+------------------------------| DESTRUCTOR |------------------------------------
+**/
+Form::~Form(void)
+{}
 
 /**
 --------------------------| ASSIGNMENT OPERATOR |-------------------------------
