@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 08:44:13 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 00:59:56 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 01:26:10 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ class ShrubberyCreationForm : public Form
 	private:
 	// these constructor are private because we don't want them to be used
 	// However we want them to exist to have a Canonical
+	// Constructors
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(ShrubberyCreationForm &cpy);
-	// Attribute
+	// Attributes
 		std::string	_target;
 		std::string	_file_name;
 };
