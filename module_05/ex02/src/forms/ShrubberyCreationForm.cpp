@@ -6,10 +6,11 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 08:49:01 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 09:03:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 01:02:58 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <fstream>
 #include "ShrubberyCreationForm.hpp"
 
 /**
@@ -21,8 +22,10 @@ ShrubberyCreationForm::ShrubberyCreationForm(void): Form("Shrubbery", 145, 137),
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &cpy): Form(cpy), _target(cpy._target)
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const char *newtarget): Form("Shrubbery", 145, 137), _target(newtarget)
-{}
+ShrubberyCreationForm::ShrubberyCreationForm(const char *newtarget): Form("Shrubbery", 145, 137), _target(newtarget), _file_name(newtarget)
+{
+	_file_name.append("_shrubbery");
+}
 
 /**
 ------------------------------| DESTRUCTOR |------------------------------------
@@ -37,6 +40,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=(const ShrubberyCreationF
 {
 	if (_target.compare(assign._target) != 0)
 		_target.assign(assign._target);
+	return (*this);
 }
 
 /**
@@ -50,8 +54,20 @@ std::string	ShrubberyCreationForm::get_target(void) const
 /**
 --------------------------------| METHODS |-------------------------------------
 **/
-void	ShrubberyCreationForm::to_execute(void)
+void	ShrubberyCreationForm::to_execute(void) const
 {
-	// read subject for this part
-	std::cout << "HELLO THIS IS A BUSH HI !" << std::endl;
+	std::ofstream	outfile;
+
+	outfile.open(_file_name);
+	outfile << "               ,@@@@@@@,\n";
+	outfile << "       ,,,.   ,@@@@@@/@@,  .oo8888o.\n";
+	outfile << "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n";
+	outfile << "   ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n";
+	outfile << "   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n";
+	outfile << "   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n";
+	outfile << "   `&%\\ ` /%&'    |.|        \\ '|8'\n";
+	outfile << "       |o|        | |         | |\n";
+	outfile << "       |.|        | |         | |\n";
+	outfile << "_//_ \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_\n";
+	outfile.close();
 }

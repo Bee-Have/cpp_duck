@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 08:44:13 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 08:53:02 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 00:59:56 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class ShrubberyCreationForm : public Form
 		std::string	get_target() const;
 
 	// Method
-		void	to_execute();
+		void	to_execute() const;
 
 	private:
 	// these constructor are private because we don't want them to be used
@@ -38,4 +38,5 @@ class ShrubberyCreationForm : public Form
 		ShrubberyCreationForm(ShrubberyCreationForm &cpy);
 	// Attribute
 		std::string	_target;
+		std::string	_file_name;
 };
