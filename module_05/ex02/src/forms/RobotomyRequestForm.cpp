@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 01:35:52 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 03:00:53 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 04:52:36 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	RobotomyRequestForm::to_execute(void) const
 	std::cout << "*drill noises*\n";
 	srand(time (0));
 	if ((rand() % 2) == 0)
-		std::cout << _target << " has been Sucessfully robotomized\n" << std::endl;
+		std::cout << _target << " has been Sucessfully robotomized" << std::endl;
 	else
-		std::cout << _target << " failed to be robotomized\n" << std::endl;
+		std::cout << _target << " failed to be robotomized" << std::endl;
 }
