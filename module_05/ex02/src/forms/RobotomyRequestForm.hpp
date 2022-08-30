@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 01:19:40 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 01:26:29 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 01:42:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string>
 #include "Form.hpp"
 
-class RobotomyRequestForm
+class RobotomyRequestForm : public Form
 {
 	public:
 	// Constructor
@@ -26,7 +26,7 @@ class RobotomyRequestForm
 		RobotomyRequestForm	&operator=(const RobotomyRequestForm &assign);
 
 	// Accessors
-		std::string get_target() const;
+		std::string	get_target() const;
 
 	// Method
 		void	to_execute() const;
