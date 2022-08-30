@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 04:35:58 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 04:58:24 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 06:59:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,12 @@ PresidentialPardonForm::PresidentialPardonForm(void): Form("Pardon", 25, 5), _ta
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &cpy): Form(cpy), _target(cpy._target)
 {}
 
-PresidentialPardonForm::PresidentialPardonForm(const char *newtarget): Form("Pardon", 25, 5), _target(newtarget)
-{}
+PresidentialPardonForm::PresidentialPardonForm(const char *newtarget): Form("Pardon", 25, 5)
+{
+	if (newtarget == NULL)
+		throw PresidentialPardonForm::BadTargetInit();
+	_target.assign(newtarget);
+}
 
 /**
 ------------------------------| DESTRUCTOR |------------------------------------

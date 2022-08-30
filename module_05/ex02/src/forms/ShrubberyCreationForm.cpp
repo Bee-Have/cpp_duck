@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 08:49:01 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 04:51:57 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 06:56:17 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,12 @@ ShrubberyCreationForm::ShrubberyCreationForm(void): Form("Shrubbery", 145, 137),
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &cpy): Form(cpy), _target(cpy._target)
 {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const char *newtarget): Form("Shrubbery", 145, 137), _target(newtarget), _file_name(newtarget)
+ShrubberyCreationForm::ShrubberyCreationForm(const char *newtarget): Form("Shrubbery", 145, 137)
 {
+	if (newtarget == NULL)
+		throw ShrubberyCreationForm::BadTargetInit();
+	_target.assign(newtarget);
+	_file_name.assign(newtarget);
 	_file_name.append("_shrubbery");
 }
 

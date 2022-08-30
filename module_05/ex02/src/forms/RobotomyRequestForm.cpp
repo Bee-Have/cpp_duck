@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 01:35:52 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 04:57:30 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 06:58:30 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,12 @@ RobotomyRequestForm::RobotomyRequestForm(void): Form("robotomy", 72, 45), _targe
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &cpy): Form(cpy), _target(cpy._target)
 {}
 
-RobotomyRequestForm::RobotomyRequestForm(const char *newtarget): Form("robotomy", 75, 45), _target(newtarget)
-{}
+RobotomyRequestForm::RobotomyRequestForm(const char *newtarget): Form("robotomy", 75, 45)
+{
+	if (newtarget == NULL)
+		throw RobotomyRequestForm::BadTargetInit();
+	_target.assign(newtarget);
+}
 
 /**
 ------------------------------| DESTRUCTOR |------------------------------------

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 03:07:11 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 04:41:14 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 06:57:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@ class PresidentialPardonForm: public Form
 		std::string	get_target() const;
 	// Method
 		void	to_execute() const;
+
+		class BadTargetInit : public std::exception
+		{
+			public:
+				const char	*what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_NOTHROW
+				{
+					return ("Error: Target of form Cannot be NULL\n");
+				}
+		};
 
 	private:
 	// these constructor are private because we don't want them to be used
