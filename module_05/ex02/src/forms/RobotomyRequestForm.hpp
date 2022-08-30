@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 01:19:40 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 01:42:39 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 04:34:01 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class RobotomyRequestForm : public Form
 	// Copy assignment operator
 		RobotomyRequestForm	&operator=(const RobotomyRequestForm &assign);
 
-	// Accessors
+	// Accessor
 		std::string	get_target() const;
 
 	// Method
