@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 03:07:11 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 04:35:03 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 04:41:14 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "Form.hpp"
 
-class PresidentialPardonForm
+class PresidentialPardonForm: public Form
 {
 	public:
 	// Constructor
