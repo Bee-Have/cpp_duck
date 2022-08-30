@@ -6,12 +6,15 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 01:35:52 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 04:52:36 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 04:57:30 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <ctime>
 #include "RobotomyRequestForm.hpp"
+
+#define BOLD "\033[1m"
+#define END "\33[0m"
 
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
@@ -54,10 +57,10 @@ std::string	RobotomyRequestForm::get_target(void) const
 **/
 void	RobotomyRequestForm::to_execute(void) const
 {
-	std::cout << "*drill noises*\n";
+	std::cout << BOLD << "*drill noises*\n" << END;
 	srand(time (0));
 	if ((rand() % 2) == 0)
-		std::cout << _target << " has been Sucessfully robotomized" << std::endl;
+		std::cout << BOLD << _target << END << " has been Sucessfully " << BOLD << "robotomized" << END << std::endl;
 	else
-		std::cout << _target << " failed to be robotomized" << std::endl;
+		std::cout << BOLD << _target << END << " failed to be " << BOLD << "robotomized" << END << std::endl;
 }

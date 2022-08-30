@@ -6,29 +6,26 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 04:35:58 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 04:45:31 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 04:58:24 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PresidentialPardonForm.hpp"
 
+#define BOLD "\033[1m"
+#define END "\33[0m"
+
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
 **/
 PresidentialPardonForm::PresidentialPardonForm(void): Form("Pardon", 25, 5), _target("NoTarget")
-{
-	
-}
+{}
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &cpy): Form(cpy), _target(cpy._target)
-{
-	
-}
+{}
 
 PresidentialPardonForm::PresidentialPardonForm(const char *newtarget): Form("Pardon", 25, 5), _target(newtarget)
-{
-	
-}
+{}
 
 /**
 ------------------------------| DESTRUCTOR |------------------------------------
@@ -59,5 +56,5 @@ std::string	PresidentialPardonForm::get_target(void) const
 **/
 void	PresidentialPardonForm::to_execute(void) const
 {
-	std::cout << _target << " has been pardoned by the amazing Zaphod Beeblebrox" << std::endl;
+	std::cout << BOLD << _target << END << " has been pardoned by the amazing " << BOLD << "Zaphod Beeblebrox" << END << std::endl;
 }
