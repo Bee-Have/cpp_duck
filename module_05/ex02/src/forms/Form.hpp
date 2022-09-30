@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 03:51:01 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 08:56:31 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/08/30 00:20:32 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Form
 	// Methods
 		void			beSigned(Bureaucrat &tosign);
 		void			execute(Bureaucrat const & executor) const;
-		virtual void	to_execute() = 0;
+		virtual void	to_execute() const = 0;
 
 	// Nested classes
 		class GradeTooHighException : public std::exception

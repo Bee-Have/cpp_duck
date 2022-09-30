@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/28 08:44:13 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 06:44:43 by amarini-         ###   ########.fr       */
+/*   Created: 2022/08/30 03:07:11 by amarini-          #+#    #+#             */
+/*   Updated: 2022/08/30 06:57:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <string>
 #include "Form.hpp"
 
-class ShrubberyCreationForm : public Form
+class PresidentialPardonForm: public Form
 {
 	public:
-	// Constructors
-		ShrubberyCreationForm(const char *newtarget);
+	// Constructor
+		PresidentialPardonForm(const char *newtarget);
 	// Destructor
-		~ShrubberyCreationForm();
+		~PresidentialPardonForm();
 	// Copy assignment operator
-		ShrubberyCreationForm	&operator=(const ShrubberyCreationForm &assign);
+		PresidentialPardonForm	&operator=(const PresidentialPardonForm &assign);
 
-	// Accessors
+	// Accessor
 		std::string	get_target() const;
-
 	// Method
 		void	to_execute() const;
 
@@ -43,10 +41,9 @@ class ShrubberyCreationForm : public Form
 	private:
 	// these constructor are private because we don't want them to be used
 	// However we want them to exist to have a Canonical
-	// Constructors
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(ShrubberyCreationForm &cpy);
-	// Attributes
+	//Constructors
+		PresidentialPardonForm();
+		PresidentialPardonForm(PresidentialPardonForm &cpy);
+	// Attribute
 		std::string	_target;
-		std::string	_file_name;
 };

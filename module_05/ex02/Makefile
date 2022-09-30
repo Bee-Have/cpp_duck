@@ -13,7 +13,7 @@ vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
 
 SRC = main.cpp \
 	Bureaucrat.cpp Form.cpp \
-	ShrubberyCreationForm.cpp
+	ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
