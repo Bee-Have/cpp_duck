@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 03:25:52 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/10/01 01:52:29 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 int	main()
 {
-	std::cout << GB << "Simple tests :\n" << END;
+	std::cout << GB << "Simple working test :\n" << END;
 	{
 		std::cout << YB << "Bureaucrat Moss(10, Moss)\n" << END;
 		std::cout << YB << "Bureaucrat Jen(Moss)\n" << END;
