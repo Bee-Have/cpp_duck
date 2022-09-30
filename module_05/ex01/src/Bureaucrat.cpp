@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:26:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 07:01:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/10/01 01:43:42 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,8 @@ Bureaucrat::Bureaucrat(Bureaucrat &cpy): name(cpy.name)
 {
 	if (grade != cpy.grade)
 	{
-		if (cpy.grade > 150)
-			throw Bureaucrat::GradeTooLowException();
-		else if (cpy.grade < 1)
-			throw Bureaucrat::GradeTooHighException();
-		else
-			grade = cpy.grade;
+		// you don't need to check the grade because it will be checked by cpy's constructor
+		grade = cpy.grade;
 	}
 }
 
