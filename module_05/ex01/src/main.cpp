@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 06:59:46 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/10/01 02:10:31 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ int	main()
 		Bureaucrat	Moss(10, "Moss");
 		Form		F0("F0", 10, 10);
 
-		std::cout << YB << "Bureaucrat signs the form :\n" << END;
 		std::cout << Moss << '\n';
+		std::cout << YB << "Bureaucrat signs the form :\n" << END;
 		F0.beSigned(Moss);
-		std::cout << YB << "Here the form is signed twice, it is already signed, nothing happens\n" << END;
+		std::cout << YB << "Bureaucrat attempt to sign again, nothing happens\n" << END;
 		F0.beSigned(Moss);
 	}
 
@@ -57,8 +57,10 @@ int	main()
 	std::cout << GB << "\nError test with bureaucrat having a grade too low :\n" << END;
 	{
 		Bureaucrat	Jen(42, "Jen");
-		Form		good_form("good form", 40, 40);
+		Form		good_form("good form", 40, 30);
 
+		std::cout << Jen;
+		std::cout << YB << "\nTrying to sign form with wrong bureaucrat grade :\n" << END;
 		try
 		{
 			good_form.beSigned(Jen);
@@ -67,6 +69,12 @@ int	main()
 		{
 			std::cout << exception.what();
 		}
+		std::cout << YB << "Incrementing bureaucrat grade to sign form :\n" << END;
+		Jen.increment_grade();
+		Jen.increment_grade();
+		std::cout << Jen;
+		std::cout << YB << "\nSigning document now that buregrade is high enough :\n" << END;
+		good_form.beSigned(Jen);
 	}
 	return (0);
 }
