@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 03:51:01 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 00:20:32 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/10/01 02:16:59 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ class Form
 		};
 
 	private:
+	// Attributes
 		const std::string	_name;
 		bool				_is_signed;
 		const int			_sign_grade;

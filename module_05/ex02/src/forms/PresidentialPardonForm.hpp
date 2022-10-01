@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 03:07:11 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 06:57:13 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/10/01 02:18:53 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class PresidentialPardonForm: public Form
 	// Method
 		void	to_execute() const;
 
+	// Nested class
 		class BadTargetInit : public std::exception
 		{
 			public:
