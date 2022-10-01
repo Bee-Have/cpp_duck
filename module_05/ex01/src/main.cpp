@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/10/01 02:10:31 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/10/01 02:13:14 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,14 @@ int	main()
 		Jen.increment_grade();
 		std::cout << Jen;
 		std::cout << YB << "\nSigning document now that buregrade is high enough :\n" << END;
-		good_form.beSigned(Jen);
+		try
+		{
+			good_form.beSigned(Jen);
+		}
+		catch (Form::GradeTooLowException &exception)
+		{
+			std::cout << exception.what();
+		}
 	}
 	return (0);
 }
