@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 04:35:58 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 06:59:13 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/10/01 05:16:34 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,9 @@ std::string	PresidentialPardonForm::get_target(void) const
 void	PresidentialPardonForm::to_execute(void) const
 {
 	std::cout << BOLD << _target << END << " has been pardoned by the amazing " << BOLD << "Zaphod Beeblebrox" << END << std::endl;
+}
+
+Form	*PresidentialPardonForm::alloc(const char *target)
+{
+	return (new PresidentialPardonForm(target));
 }

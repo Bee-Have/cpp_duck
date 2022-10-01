@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 01:19:40 by amarini-          #+#    #+#             */
-/*   Updated: 2022/10/01 02:18:21 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/10/01 05:15:24 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class RobotomyRequestForm : public Form
 
 	// Method
 		void	to_execute() const;
+		static Form	*alloc(const char *target);
 
 	// Nested class
 		class BadTargetInit : public std::exception

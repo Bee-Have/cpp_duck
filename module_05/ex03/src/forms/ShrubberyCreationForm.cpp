@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 08:49:01 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 06:56:17 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/10/01 05:16:20 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,4 +74,9 @@ void	ShrubberyCreationForm::to_execute(void) const
 	outfile << "       |.|        | |         | |\n";
 	outfile << "_//_ \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_";
 	outfile.close();
+}
+
+Form	*ShrubberyCreationForm::alloc(const char *target)
+{
+	return (new ShrubberyCreationForm(target));
 }
