@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/30 07:15:11 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/10/01 02:52:07 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,30 @@ int	main(void)
 
 	std::cout << GB << "\nBad target in form creating constructor test :\n" << END;
 	{
+		std::cout << YB << "Bad Shrubbery creation form :\n" << END;
 		try
 		{
 			ShrubberyCreationForm	test(NULL);
 		}
 		catch (ShrubberyCreationForm::BadTargetInit &exception)
+		{
+			std::cout << exception.what();
+		}
+		std::cout << YB << "Bad Robotomy creation form :\n" << END;
+		try
+		{
+			RobotomyRequestForm	test(NULL);
+		}
+		catch (RobotomyRequestForm::BadTargetInit &exception)
+		{
+			std::cout << exception.what();
+		}
+		std::cout << YB << "Bad Presidential pardon creation form :\n" << END;
+		try
+		{
+			PresidentialPardonForm	test(NULL);
+		}
+		catch (PresidentialPardonForm::BadTargetInit &exception)
 		{
 			std::cout << exception.what();
 		}
