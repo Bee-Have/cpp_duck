@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 03:04:36 by amarini-          #+#    #+#             */
-/*   Updated: 2022/10/01 05:17:08 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/07 11:16:10 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ Intern	&Intern::operator=(const Intern &assign)
 /**
 --------------------------------| METHODS |-------------------------------------
 **/
-Form	*Intern::makeForm(std::string &form_name, std::string &form_target)
+Form	*Intern::makeForm(std::string form_name, std::string form_target)
 {
-	char					cases[3][28] = {"shruberry request", "robotomy request", "presidential pardon request"};
+	char	cases[3][28] = {"shruberry request", "robotomy request", "pardon request"};
 	Form	*(*type[3])(const char *target);
-	int						i = 0;
+	int		i = 0;
 
 	type[0] = ShrubberyCreationForm::alloc;
 	type[1] = RobotomyRequestForm::alloc;
@@ -61,7 +61,7 @@ Form	*Intern::makeForm(std::string &form_name, std::string &form_target)
 			break ;
 	if (i == 3)
 	{
-		std::cout << "Form does NOT EXIST\n";
+		std::cout << form_name << " : type Form does NOT EXIST\n";
 		return (NULL);
 	}
 	std::cout << "Intern creates " << form_name << std::endl;

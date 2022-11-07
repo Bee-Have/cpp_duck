@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 02:56:03 by amarini-          #+#    #+#             */
-/*   Updated: 2022/10/01 04:09:41 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/10/01 06:21:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ class Intern
 	// Copy assignment operator
 		Intern	&operator=(const Intern &assign);
 	// Method
-		Form	*makeForm(std::string &form_name, std::string &form_target);
+		Form	*makeForm(std::string form_name, std::string form_target);
 };
