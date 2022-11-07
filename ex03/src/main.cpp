@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/07 13:46:28 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:39:32 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 
 int	main(void)
 {
-	// test with intern creating form and bureaucrat signing/executing it
+	std::cout << GB << "Simple working tests :\n" << END;
 	{
 		Intern		thatguy;
 		Bureaucrat	workerbee(2, "Bee");
@@ -34,20 +34,24 @@ int	main(void)
 
 		std::cout << workerbee << '\n';
 
+		std::cout << YB << "Intern creates forms of each type :\n" << END;
 		shrub = thatguy.makeForm("shruberry request", "shrub");
 		robot = thatguy.makeForm("robotomy request", "robot");
 		pardon = thatguy.makeForm("pardon request", "pardon");
 
+		std::cout << YB << "Bureaucrat Sign and Execute Shruberry form :\n" << END;
 		shrub->beSigned(workerbee);
 		shrub->execute(workerbee);
-		
+
+		std::cout << YB << "Bureaucrat Sign and Execute Robotomy form :\n" << END;
 		robot->beSigned(workerbee);
 		robot->execute(workerbee);
 
+		std::cout << YB << "Bureaucrat Sign and Execute Presidential Pardon Robotomy form :\n" << END;
 		pardon->beSigned(workerbee);
 		pardon->execute(workerbee);
 	}
-	// 42 test
+	std::cout << GB << "\n42 subject required tests :\n" << END;
 	{
 		Bureaucrat	someguy(1, "Some Guy");
 		Intern		someRandomIntern;
@@ -58,6 +62,7 @@ int	main(void)
 		rrf->execute(someguy);
 	}
 	// test with intern trying to create form but bad input text
+	std::cout << GB << "\nTest Intern creating a bad Form :\n" << END;
 	{
 		Bureaucrat	test(150, "test");
 		Intern		thatguy;
