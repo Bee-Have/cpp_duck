@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/07 11:50:24 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/10/01 02:13:14 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	main()
 		Jen.increment_grade();
 		Jen.increment_grade();
 		std::cout << Jen;
-		std::cout << YB << "\nSigning document now that bureaucrat grade is high enough :\n" << END;
+		std::cout << YB << "\nSigning document now that buregrade is high enough :\n" << END;
 		try
 		{
 			good_form.beSigned(Jen);
