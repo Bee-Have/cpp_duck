@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/01 03:04:36 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/07 11:16:10 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/07 13:46:58 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ Form	*Intern::makeForm(std::string form_name, std::string form_target)
 			break ;
 	if (i == 3)
 	{
-		std::cout << form_name << " : type Form does NOT EXIST\n";
+		std::cout << "\"" << form_name << "\" : type of Form does " << BOLD << "NOT EXIST\n" << END;
 		return (NULL);
 	}
 	std::cout << "Intern creates " << form_name << std::endl;
