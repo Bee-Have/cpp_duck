@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/10/01 01:52:29 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/07 11:36:02 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int	main()
 		std::cout << YB << "Bureaucrat Moss(10, Moss)\n" << END;
 		std::cout << YB << "Bureaucrat Jen(Moss)\n" << END;
 		Bureaucrat	Moss(10, "Moss");
-		Bureaucrat	Jen(Moss);
+		// can do the same test with cpy constructor
+		// (but the copied bureaucreat will have the same name (not great to identify them))
+		Bureaucrat	Jen(10, "Jen");
 
 		std::cout << Moss << "\n";
 		std::cout << Jen << "\n";
@@ -43,7 +45,7 @@ int	main()
 		{
 			Bureaucrat	Moss;
 		}
-		catch (Bureaucrat::GradeTooLowException exception)
+		catch (Bureaucrat::GradeTooLowException const &exception)
 		{
 			std::cout << exception.what();
 		}
@@ -52,7 +54,7 @@ int	main()
 		{
 			Bureaucrat	Roy(-19);
 		}
-		catch (Bureaucrat::GradeTooHighException exception)
+		catch (Bureaucrat::GradeTooHighException const &exception)
 		{
 			std::cout << exception.what();
 		}
@@ -61,7 +63,7 @@ int	main()
 		{
 			Bureaucrat Jen(180, "Jen");
 		}
-		catch (Bureaucrat::GradeTooLowException exception)
+		catch (Bureaucrat::GradeTooLowException const &exception)
 		{
 			std::cout << exception.what();
 		}
@@ -79,7 +81,7 @@ int	main()
 		{
 			Jen.decrement_grade();
 		}
-		catch (Bureaucrat::GradeTooHighException exception)
+		catch (Bureaucrat::GradeTooHighException const &exception)
 		{
 			std::cout << exception.what();
 		}
@@ -87,7 +89,7 @@ int	main()
 		{
 			Roy.increment_grade();
 		}
-		catch (Bureaucrat::GradeTooLowException exception)
+		catch (Bureaucrat::GradeTooLowException const &exception)
 		{
 			std::cout << exception.what();
 		}
