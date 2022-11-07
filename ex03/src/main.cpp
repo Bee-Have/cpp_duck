@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/10/01 06:35:29 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/07 13:46:28 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,23 @@ int	main(void)
 	}
 	// 42 test
 	{
-		Intern someRandomIntern;
-		Form* rrf;
+		Bureaucrat	someguy(1, "Some Guy");
+		Intern		someRandomIntern;
+		Form*		rrf;
 
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		rrf->beSigned(someguy);
+		rrf->execute(someguy);
 	}
 	// test with intern trying to create form but bad input text
 	{
-		Intern	thatguy;
-		Form	*badform;
+		Bureaucrat	test(150, "test");
+		Intern		thatguy;
+		Form		*badform;
 
 		badform = thatguy.makeForm("this is a bad form", "Random Target");
+		if (badform != NULL)
+			badform->beSigned(test);
 	}
 	return (0);
 }
