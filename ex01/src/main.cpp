@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/07 12:30:19 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:08:20 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main()
 		std::cout << Moss << '\n';
 		std::cout << YB << "Bureaucrat signs the form :\n" << END;
 		F0.beSigned(Moss);
-		std::cout << YB << "Bureaucrat attempt to sign again, nothing happens\n" << END;
+		std::cout << YB << "Bureaucrat can sign any number of times\n" << END;
 		F0.beSigned(Moss);
 	}
 
