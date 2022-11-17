@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:26:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/17 14:41:29 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 14:47:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,7 @@ Bureaucrat::~Bureaucrat(void)
 **/
 Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &assign)
 {
-	if (assign.grade > 150)
-		throw GradeTooLowException();
-	else if (assign.grade < 1)
-		throw GradeTooHighException();
-	else if (grade != assign.grade)
+	if (this != &assign && grade != assign.grade)
 		grade = assign.grade;
 	return (*this);
 }
