@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 04:12:30 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/17 16:00:41 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:46:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ Form	&Form::operator=(const Form &assign)
 std::ostream	&operator<<(std::ostream &stream, const Form &obj)
 {
 	// form <name> must be signed by grade <sign grade> and execute by grade <exec_grade>. it has been signed <is_signed>
-	stream << obj.get_name() << ", must be signed by grade " << obj.get_sign_grade();
-	stream << " and executed by grade " << obj.get_exec_grade();
-	stream << ". it has been signed " << obj.get_is_signed();
+	stream << obj.get_name() << ", must be signed by grade " << obj.get_sign_grade()
+	<< " and executed by grade " << obj.get_exec_grade()
+	<< ". it has been signed " << obj.get_is_signed();
 	return (stream);
 }
 
