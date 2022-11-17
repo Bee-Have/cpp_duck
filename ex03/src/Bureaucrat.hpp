@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 11:15:36 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/17 14:41:51 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:04:03 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Bureaucrat
 	// Methods
 		void	increment_grade();
 		void	decrement_grade();
-		void	signForm(Form &theform);
+		bool	signForm(Form &theform);
 		void	executeForm(Form const & form);
 
 	// Nested classes
