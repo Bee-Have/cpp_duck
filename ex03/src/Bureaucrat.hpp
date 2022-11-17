@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 11:15:36 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/17 11:53:26 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 14:41:51 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Bureaucrat
 	// Constructors
 		Bureaucrat(Bureaucrat &cpy);
 		Bureaucrat(int newgrade);
-		Bureaucrat(int newgrade, const char *newname);
+		Bureaucrat(int newgrade, const std::string &newname);
 	// Destructor
 		~Bureaucrat();
 	// Assignment opertor

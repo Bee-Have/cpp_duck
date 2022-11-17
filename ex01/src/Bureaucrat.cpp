@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:26:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/17 14:30:06 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 14:39:38 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ Bureaucrat::Bureaucrat(int newgrade): name("Bureaucrat")
 	grade = newgrade;
 }
 
-Bureaucrat::Bureaucrat(int newgrade, const char *newname): name(newname)
+Bureaucrat::Bureaucrat(int newgrade, const std::string &newname): name(newname)
 {
 	// try catch here for exeptions of grades (1 >= grade <= 150)
 	if (newgrade > 150)
