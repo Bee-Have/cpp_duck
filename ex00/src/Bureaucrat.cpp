@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:26:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/17 14:46:29 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 14:49:52 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,15 +92,15 @@ int	Bureaucrat::getGrade(void) const
 void	Bureaucrat::increment_grade(void)
 {
 	// diminishes grade
-	if (grade == 150)
-		throw Bureaucrat::GradeTooLowException();
+	if (grade == 1)
+		throw Bureaucrat::GradeTooHighException();
 	--grade;
 }
 
 void	Bureaucrat::decrement_grade(void)
 {
 	// augments grade
-	if (grade == 1)
-		throw Bureaucrat::GradeTooHighException();
+	if (grade == 150)
+		throw Bureaucrat::GradeTooLowException();
 	++grade;
 }
