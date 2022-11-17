@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/07 11:36:02 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 14:38:35 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,16 @@ int	main()
 
 	std::cout << GB << "\nBad Constructor tests :\n" << END;
 	{
-		std::cout << YB << "Test with default constructor :\n" << END;
-		try
-		{
-			Bureaucrat	Moss;
-		}
-		catch (Bureaucrat::GradeTooLowException const &exception)
-		{
-			std::cout << exception.what();
-		}
+		// this cannot compile because the default constructor is private since it should not be doable
+		// std::cout << YB << "Test with default constructor :\n" << END;
+		// try
+		// {
+		// 	Bureaucrat	Moss;
+		// }
+		// catch (Bureaucrat::GradeTooLowException const &exception)
+		// {
+		// 	std::cout << exception.what();
+		// }
 		std::cout << YB << "Test with int Constructor < 1 :\n" << END;
 		try
 		{
