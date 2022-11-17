@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 11:15:36 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/17 15:09:48 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 16:54:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Bureaucrat
 			public:
 				const char	*what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_NOTHROW
 				{
-					return ("Error: Grade cannot be higher then 1\n");
+					return ("Error: Grade cannot be higher than 1\n");
 				}
 		};
 		class GradeTooLowException : public std::exception
@@ -52,7 +52,7 @@ class Bureaucrat
 			public:
 				const char	*what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_NOTHROW
 				{
-					return ("Error: Grade cannot be lower then 150\n");
+					return ("Error: Grade cannot be lower than 150\n");
 				}
 		};
 
