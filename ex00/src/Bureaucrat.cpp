@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:26:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/10/01 01:43:28 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 14:29:25 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,9 @@ Bureaucrat::Bureaucrat(void): name("Bureaucrat")
 	throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &cpy): name(cpy.name)
-{
-	if (grade != cpy.grade)
-	{
-		// you don't need to check the grade because it will be checked by cpy's constructor
-		grade = cpy.grade;
-	}
-}
+// you don't need to check the grade because it will be checked by cpy's constructor
+Bureaucrat::Bureaucrat(Bureaucrat &cpy): name(cpy.name), grade(cpy.grade)
+{}
 
 Bureaucrat::Bureaucrat(int newgrade): name("Bureaucrat")
 {
