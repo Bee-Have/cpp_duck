@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 11:15:36 by amarini-          #+#    #+#             */
-/*   Updated: 2022/08/28 04:31:58 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 11:52:47 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ class Bureaucrat
 {
 	public:
 	// Constructors
-		Bureaucrat();
 		Bureaucrat(Bureaucrat &cpy);
 		Bureaucrat(int newgrade);
 		Bureaucrat(int newgrade, const char *newname);
@@ -55,6 +54,8 @@ class Bureaucrat
 		};
 
 	private:
+	// Constructors
+		Bureaucrat();
 	// Attributes
 		const std::string	name;
 		int					grade;
