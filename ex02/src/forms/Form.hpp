@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 03:51:01 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/17 14:52:43 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 15:03:17 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Form
 	public:
 	// Constructors
 		Form(Form &cpy);
-		Form(const char *newname, int sign_grade, int exec_grade);
+		Form(const std::string &newname, int sign_grade, int exec_grade);
 	// Destructor
 		virtual ~Form() = 0;
 	// Assignment operator

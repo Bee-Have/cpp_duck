@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 04:12:30 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/17 14:57:44 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/17 15:02:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Form::Form(void): _name("AForm"), _is_signed(false), _sign_grade(150), _exec_gra
 Form::Form(Form &cpy): _name(cpy._name), _sign_grade(cpy._sign_grade), _exec_grade(cpy._exec_grade), _is_signed(cpy._is_signed)
 {}
 
-Form::Form(const char *newname, int sign_grade, int exec_grade): _name(newname), _is_signed(false), _sign_grade(sign_grade), _exec_grade(exec_grade)
+Form::Form(const std::string &newname, int sign_grade, int exec_grade): _name(newname), _is_signed(false), _sign_grade(sign_grade), _exec_grade(exec_grade)
 {
 	if (sign_grade < 1 || exec_grade < 1)
 		throw Form::GradeTooHighException();
