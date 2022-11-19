@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/26 12:26:29 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/17 16:21:18 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/19 17:59:50 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,8 @@ void	Bureaucrat::executeForm(Form const & form) const
 	else if (grade > form.get_exec_grade())
 		std::cout << BOLD << name << END << " couldn't execute " << BOLD << form.get_name() << END << " because " << BOLD << name << END << "'s grade is too low" << std::endl;
 	else
+	{
 		std::cout << BOLD << name << END << " executed " << BOLD << form.get_name() << END << std::endl;
-	form.to_execute();
+		form.to_execute();
+	}
 }
