@@ -6,11 +6,11 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/30 01:35:52 by amarini-          #+#    #+#             */
-/*   Updated: 2022/10/01 05:16:27 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/19 17:56:18 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctime>
+#include <cstdlib>
 #include "RobotomyRequestForm.hpp"
 
 #define BOLD "\033[1m"
