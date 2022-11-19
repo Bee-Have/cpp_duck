@@ -2,7 +2,7 @@ NAME = Bureaucrat
 
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC_DIR = $(shell find src -type d)
 OBJ_DIR = objs
