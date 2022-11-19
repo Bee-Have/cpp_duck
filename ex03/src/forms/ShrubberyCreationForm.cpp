@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 08:49:01 by amarini-          #+#    #+#             */
-/*   Updated: 2022/10/01 05:16:20 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/19 17:48:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	ShrubberyCreationForm::to_execute(void) const
 {
 	std::ofstream	outfile;
 
-	outfile.open(_file_name);
+	outfile.open(_file_name.c_str());
 	outfile << "               ,@@@@@@@,\n";
 	outfile << "       ,,,.   ,@@@@@@/@@,  .oo8888o.\n";
 	outfile << "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n";
