@@ -1,1 +1,1 @@
-KO 2f should not be accepted.
+KO add documentation to gitignore before pushing final versions

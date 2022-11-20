@@ -1,3 +1,4 @@
+IDENTIFY TYPE :
 char :
 	-string size 1
 	-not a number
@@ -17,12 +18,61 @@ float :
 	-can finish by '.f'
 
 double :
-	-"-inf" | "+inf" | "nan" | only numbers & '.' & starting '-'
+	-"-
+	" | "+inf" | "nan" | only numbers & '.' & starting '-'
 	-inferior to double max
 	-if '-' = superior to double min
 	-there is ONE '.' (decimal)
 	-can finish by '.'
-
+----------------------------------------------------------------
+CONVERT :
 use string stream for first convertion and then do casts between types.
 	-first convertion with string stream
 	-second convertion with casts
+-----------------------------------------------------------------
+PRINT EVERYTHING :
+char :
+	PRINT:
+		-type int and is printable
+		-type float cast to int is printable
+		-type double cast to int is printable
+		-type char
+	IMPOSSIBLE:
+		-type float and nanf | +inff | -inff
+		-type double and nan | +inf | -inf
+	NON PRINTABLE:
+		-type int and non printable
+		-type float non printable
+		-type double non printable
+		-type undefined
+
+int :
+	PRINT:
+		-type char
+		-type int
+		-type float < int max | > int min
+		-type double < int max | > int min
+	IMPOSSIBLE:
+		-type float and nanf | +inff | -inff
+		-type double and nan | +inf | -
+		-type undefined
+
+float :
+	PRINT:
+		-type char
+		-type int
+		-type float
+		-type double < float max | > float min
+		-type double nan | +inf | -inf
+	IMPOSSIBLE:
+		-type double > float max | < float min (not inf or nan)
+		-type undefined
+
+double :
+	PRINT:
+		-type char
+		-type int
+		-type float
+		-type double
+	IMPOSSIBLE:
+		-type undefined
