@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/20 16:04:20 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/20 16:54:58 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,8 +81,6 @@ double	Converter::get_type_double(void) const
 **/
 void	Converter::print_values(void) const
 {
-	// change this since some convertions are impossible and therefore not displayable
-	// will need conditions relating to type
 	std::cout << "type: " << type << "\n";
 	if (type.compare("undefined") == 0)
 		std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible";
@@ -182,5 +180,34 @@ void	Converter::find_true_type(std::string &str)
 
 void	Converter::convert_to_all_types(void)
 {
-	// will do that later :D
+	if (type.compare("char") == 0)
+	{
+		type_i = static_cast<int>(type_c);
+		type_f = static_cast<float>(type_c);
+		type_d = static_cast<double>(type_c);
+	}
+	else if (type.compare("int") == 0)
+	{
+		if (std::isprint(type_i) != 0)
+			type_c = static_cast<char>(type_i);
+		type_f = static_cast<float>(type_i);
+		type_d = static_cast<double>(type_i);
+	}
+	else if (type.compare("float") == 0)
+	{
+		if (std::isprint(type_f) != 0)
+			type_c = static_cast<char>(type_f);
+		if (type_f < std::numeric_limits<int>::max() && type_f > std::numeric_limits<int>::lowest())
+			type_i = static_cast<int>(type_f);
+		type_d = static_cast<double>(type_f);
+	}
+	else if (type.compare("double") == 0)
+	{
+		if (std::isprint(type_f) != 0)
+			type_c = static_cast<char>(type_d);
+		if (type_d < std::numeric_limits<int>::max() && type_d > std::numeric_limits<int>::lowest())
+			type_i = static_cast<int>(type_d);
+		if (type_d < std::numeric_limits<float>::max() && type_d > std::numeric_limits<float>::lowest())
+			type_f = static_cast<float>(type_d);
+	}
 }
