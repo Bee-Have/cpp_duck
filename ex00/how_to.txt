@@ -31,6 +31,36 @@ use string stream for first convertion and then do casts between types.
 	-second convertion with casts
 -----------------------------------------------------------------
 PRINT EVERYTHING :
+TYPE CHAR :
+	print : char | int | float | double
+TYPE INT :
+	print : int float double
+		if int isprint : print char
+	non printable :
+		if int is not isprint : char non printable
+TYPE FLOAT :
+	impossible :
+		if float nanf | +inff | -inf : int|char impossible
+	non printable :
+		if float is not isprint : char non printable
+	print : float | double
+		if float is print : print char
+		if int min < float < int max : print int
+TYPE DOUBLE :
+	impossible :
+		if double nan | +inf | -inf : int|char impossible
+		if float min > double > float max : float impossible
+		if int min > double > int max : int impossible
+	non printable :
+		if double is not isprint : char non printable
+	print : double
+		if float min < double < float max : print float
+		if double nan | +inf | -inf : print float
+		if int min < double < int max : print int
+		if double isprint : print char
+TYPE UNDEFINED :
+	impossible : char | int | float | double
+----------------------------------------------------------------
 char :
 	PRINT:
 		-type int and is printable

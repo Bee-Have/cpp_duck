@@ -6,13 +6,15 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/20 14:17:25 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/20 15:57:27 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Converter.hpp"
 #include <iostream>
+#include <limits>
 #include <cctype>
+#include <cmath>
 
 /**
 -----------------------------| CONSTRUCTORS |-----------------------------------
@@ -48,6 +50,11 @@ Converter	&Converter::operator=(Converter &assign)
 /**
 --------------------------------| ACCESSORS |-----------------------------------
 **/
+std::string	Converter::get_type(void) const
+{
+	return (type);
+}
+
 char	Converter::get_type_char(void) const
 {
 	return (type_c);
@@ -76,10 +83,57 @@ void	Converter::print_values(void) const
 	// change this since some convertions are impossible and therefore not displayable
 	// will need conditions relating to type
 	std::cout << "type: " << type << "\n";
-	std::cout << "char: " << type_c << "\n";
-	std::cout << "int: " << type_i << "\n";
-	std::cout << "float: " << type_f << "\n";
-	std::cout << "double: " << type_d << std::endl;
+	if (type.compare("undefined") == 0)
+		std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible";
+	else if (type.compare("char") == 0)
+		std::cout << "char: " << type_c << "\nint: " << type_i << "\nfloat: " << type_d;
+	else if (type.compare("int") == 0)
+	{
+		if (std::isprint(type_i) == 0)
+			std::cout << "char: non displayable";
+		else
+			std::cout << "char: " << type_c;
+		std::cout << "\nint: " << type_i << "\nfloat: " << type_f << "\ndouble: " << type_d;
+	}
+	else if (type.compare("float") == 0)
+	{
+		if (std::isnan(type_f) == true)
+			std::cout << "char: impossible\nint: impossible";
+		else
+		{
+			if (std::isprint(type_f) != 0)
+				std::cout << "char: " << type_c;
+			else
+				std::cout << "char: non displayable";
+			if (type_f < std::numeric_limits<int>::max() && type_f > std::numeric_limits<int>::lowest())
+				std::cout << "\nint: " << type_i;
+			else
+				std::cout << "\nint: impossible";
+		}
+		std::cout << "\nfloat: " << type_f << "\ndouble: " << type_d;
+	}
+	else if (type.compare("double") == 0)
+	{
+		if (std::isnan(type_d) == true)
+			std::cout << "char: impossible\nint: impossible";
+		else
+		{
+			if (std::isprint(type_d) != 0)
+				std::cout << "char:" << type_c;
+			else
+				std::cout << "char: non displayable";
+			if (type_d < std::numeric_limits<int>::max() && type_d > std::numeric_limits<int>::lowest())
+				std::cout << "\nint: " << type_i;
+			else
+				std::cout << "\nint: impossible";
+		}
+		if (type_d > std::numeric_limits<float>::max() && type_d > std::numeric_limits<float>::lowest())
+			std::cout << "\nfloat: " << type_f;
+		else
+			std::cout << "\nfloat: impossible";
+		std::cout << "\ndouble: " << type_d;
+	}
+	std::cout << std::endl;
 }
 
 void	Converter::find_true_type(std::string &str)
