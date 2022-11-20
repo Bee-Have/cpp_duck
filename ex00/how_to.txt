@@ -1,0 +1,28 @@
+char :
+	-string size 1
+	-not a number
+
+int :
+	-only numbers & starting '-'
+	-check length for more less then int min/max length
+	-inferior to int max
+	-if '-' = superior to int min
+	-no '.' (decimals)
+
+float :
+	-"-inff" | "+inff" | "nanf" | only numbers & '.' & starting '-'
+	-inferior to float max
+	-if '-' = superior to float min
+	-there is ONE '.' (decimal)
+	-can finish by '.f'
+
+double :
+	-"-inf" | "+inf" | "nan" | only numbers & '.' & starting '-'
+	-inferior to double max
+	-if '-' = superior to double min
+	-there is ONE '.' (decimal)
+	-can finish by '.'
+
+use string stream for first convertion and then do casts between types.
+	-first convertion with string stream
+	-second convertion with casts
