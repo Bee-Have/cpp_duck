@@ -6,12 +6,13 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/20 15:57:27 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/20 16:04:20 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Converter.hpp"
 #include <iostream>
+#include <sstream>
 #include <limits>
 #include <cctype>
 #include <cmath>
@@ -138,12 +139,20 @@ void	Converter::print_values(void) const
 
 void	Converter::find_true_type(std::string &str)
 {
+	std::stringstream	ss;
+	ss << str;
 	if (str.size() == 1 && std::isdigit(str[0]) == 0)
+	{
 		type.assign("char");
+		ss >> type_c;
+	}
 	else if (((str[0] != '-' && str.find_first_not_of("0123456789", 0) == std::string::npos)
 		|| (str[0] == '-' && str.find_first_not_of("0123456789", 1) == std::string::npos))
 		&& ((str[0] != '-' && str.size() < 10) || (str[0] == '-' && str.size() < 11)))
+	{
 		type.assign("int");
+		ss >> type_i;
+	}
 	else if ((str.compare("-inff") == 0 || str.compare("+inff") == 0 || str.compare("nanf") == 0
 		|| ((((std::isdigit(str[0]) != 0 || str[0] == '.')
 		&& str.find_first_not_of("0123456789.f", 0) == std::string::npos)
@@ -152,7 +161,10 @@ void	Converter::find_true_type(std::string &str)
 		&& str.find_first_of("f", 0) == str.find_last_of("f", str.size() -1)))
 		&& str[str.size() - 1] == 'f' && str.find(".", 0) != std::string::npos
 		&& str.find_first_of("0123456789", 0) != std::string::npos)
+	{
 		type.assign("float");
+		ss >> type_f;
+	}
 	else if (str.compare("-inf") == 0 || str.compare("+inf") == 0 || str.compare("nan") == 0
 		|| ((((std::isdigit(str[0]) != 0 || str[0] == '.')
 		&& str.find_first_not_of("0123456789.", 0) == std::string::npos)
@@ -160,7 +172,10 @@ void	Converter::find_true_type(std::string &str)
 		&& str.find_first_of(".", 0) == str.find_last_of(".", str.size() -1)
 		&& str.find(".", 0) != std::string::npos
 		&& str.find_first_of("0123456789", 0) != std::string::npos))
+	{
 		type.assign("double");
+		ss >> type_d;
+	}
 	else
 		type.assign("undefined");
 }
