@@ -9,7 +9,7 @@ OBJ_DIR = objs
 
 vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
 
-SRC = main.cpp
+SRC = main.cpp Converter.cpp
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
