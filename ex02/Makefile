@@ -5,7 +5,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 DEBUG =
 ifdef DEBUG
-CFLAGS += -g3 -sanitize=address
+CFLAGS += -g3 -fsanitize=address
 endif
 
 SRC_DIR = $(shell find src -type d)
