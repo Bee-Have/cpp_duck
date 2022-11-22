@@ -6,11 +6,12 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/22 14:13:15 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:21:19 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Converter.hpp"
+#include <string>
 #include <iostream>
 #include <iomanip>
 #include <sstream>
@@ -88,14 +89,14 @@ void	Converter::print_values(void) const
 	if (type.compare("undefined") == 0)
 		std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible";
 	else if (type.compare("char") == 0)
-		std::cout << "char: " << type_c << "\nint: " << type_i << "\nfloat: "
+		std::cout << "char: \'" << type_c << "\'\nint: " << type_i << "\nfloat: "
 			<< std::fixed << std::setprecision(1) << type_f << "f\ndouble: " << std::setprecision(1) << type_d;
 	else if (type.compare("int") == 0)
 	{
 		if (std::isprint(type_i) == 0)
 			std::cout << "char: non displayable";
 		else
-			std::cout << "char: " << type_c;
+			std::cout << "char: \'" << type_c << "\'";
 		std::cout << "\nint: " << type_i << "\nfloat: "
 			<< std::fixed << std::setprecision(1) << type_f << "f\ndouble: " << std::setprecision(1) << type_d;
 	}
@@ -107,7 +108,7 @@ void	Converter::print_values(void) const
 		{
 			if (type_f != std::numeric_limits<float>::infinity() &&
 				type_f != -std::numeric_limits<float>::infinity() && std::isprint(type_f) != 0)
-				std::cout << "char: " << type_c;
+				std::cout << "char: \'" << type_c << "\'";
 			else
 				std::cout << "char: non displayable";
 			if (type_f < std::numeric_limits<int>::max() && type_f > std::numeric_limits<int>::min())
@@ -131,7 +132,7 @@ void	Converter::print_values(void) const
 		{
 			if (type_d != std::numeric_limits<double>::infinity() &&
 				type_d != -std::numeric_limits<double>::infinity() && std::isprint(type_d) != 0)
-				std::cout << "char:" << type_c;
+				std::cout << "char: \'" << type_c << "\'";
 			else
 				std::cout << "char: non displayable";
 			if (type_d < std::numeric_limits<int>::max() && type_d > std::numeric_limits<int>::min())
@@ -139,11 +140,18 @@ void	Converter::print_values(void) const
 			else
 				std::cout << "\nint: impossible";
 		}
-		if ((type_d < std::numeric_limits<float>::max() && type_d > std::numeric_limits<float>::min())
-			|| type_d != type_d || type_d == std::numeric_limits<double>::infinity() || type_d == -std::numeric_limits<double>::infinity())
-			std::cout << "\nfloat: " << std::fixed << std::setprecision(1) << type_f << 'f';
+		std::cout << "\nfloat: ";
+		if (type_d != std::numeric_limits<double>::infinity()
+			&& type_d != -std::numeric_limits<double>::infinity()
+			&& (type_d > std::numeric_limits<float>::max()
+			|| type_d < std::numeric_limits<float>::min()) && type_d != 0.0)
+			std::cout << "impossible";
 		else
-			std::cout << "\nfloat: impossible";
+		{
+			if (type_f == std::numeric_limits<float>::infinity())
+				std::cout << "+";
+			std::cout << std::fixed << std::setprecision(1) << type_f << 'f';
+		}
 		std::cout << "\ndouble: ";
 		if (type_d == std::numeric_limits<double>::infinity())
 			std::cout << "+";
@@ -181,7 +189,7 @@ void	Converter::find_true_type(std::string &str)
 		type.assign("float");
 		if (str.compare("nanf") == 0)
 			type_f = std::numeric_limits<float>::quiet_NaN();
-		else if (str.find("inff", 1) != str.size())
+		else if (str.compare("-inff") == 0 || str.compare("+inff") == 0)
 		{
 			type_f = std::numeric_limits<float>::infinity();
 			if (str[0] == '-')
@@ -201,7 +209,7 @@ void	Converter::find_true_type(std::string &str)
 		type.assign("double");
 		if (str.compare("nan") == 0)
 			type_d = std::numeric_limits<double>::quiet_NaN();
-		else if (str.find("inf", 1) != str.size())
+		else if (str.compare("-inf") == 0 || str.compare("+inf") == 0)
 		{
 			type_d = std::numeric_limits<double>::infinity();
 			if (str[0] == '-')
@@ -247,7 +255,11 @@ void	Converter::convert_to_all_types(void)
 			type_c = static_cast<char>(type_d);
 		if (type_d < std::numeric_limits<int>::max() && type_d > std::numeric_limits<int>::min())
 			type_i = static_cast<int>(type_d);
-		else if (type_d != type_d || (type_d < std::numeric_limits<float>::max() && type_d > std::numeric_limits<float>::min()))
+		if (type_d != type_d
+			|| type_d == std::numeric_limits<double>::infinity()
+			|| type_d == -std::numeric_limits<double>::infinity()
+			|| (type_d < std::numeric_limits<float>::max()
+			&& type_d > std::numeric_limits<float>::min()))
 			type_f = static_cast<float>(type_d);
 	}
 }
