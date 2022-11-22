@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/22 17:51:20 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:05:21 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int	main(void)
 		
 		robot_pointer = &robot;
 		
+		std::cout << Moss << "\n" << Roy << "\n";
 		std::cout << YB << "Signing form with a low grade :\n" << END;
 		try
 		{
