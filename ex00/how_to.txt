@@ -17,6 +17,12 @@ float :
 	-there is ONE '.' (decimal)
 	-can finish by '.f'
 
+	+inff | -inff | nanf
+	can start with '-'|'+' -> only one '-'|'+'
+	only made of "-+0123456789.f"
+	always tailing 'f' -> only one 'f'
+	only one '.'
+
 double :
 	-"-
 	" | "+inf" | "nan" | only numbers & '.' & starting '-'

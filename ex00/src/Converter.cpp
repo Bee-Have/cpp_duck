@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/22 12:51:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/22 13:13:25 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,12 @@ void	Converter::find_true_type(std::string &str)
 		type.assign("int");
 		ss >> type_i;
 	}
+	else if ((str.compare("+inff") == 0 || str.compare("-inff") == 0 || str.compare("nanf")
+			|| (str.find_first_not_of("0123456789-.f", 0) == std::string::npos
+			&& str.find_first_of("f", 0) == str.find_last_of("f", str.size() - 1)
+			&& str.find_first_of(".", 0) == str.find_last_of(".", str.size() - 1)
+			&& str.find_first_of("-", 0) == str.find_last_of("-", str.size() - 1)))
+			&& str[str.size() - 1] == 'f')
 	else if ((str.compare("-inff") == 0 || str.compare("+inff") == 0 || str.compare("nanf") == 0
 		|| ((((std::isdigit(str[0]) != 0 || str[0] == '.')
 		&& str.find_first_not_of("0123456789.f", 0) == std::string::npos)
@@ -174,7 +180,7 @@ void	Converter::find_true_type(std::string &str)
 		type.assign("float");
 		if (str.compare("nanf") == 0)
 			type_f = std::numeric_limits<float>::quiet_NaN();
-		else if (str.find("inf", 1) != str.size())
+		else if (str.find("inff", 1) != str.size())
 		{
 			type_f = std::numeric_limits<float>::infinity();
 			if (str[0] == '-')
