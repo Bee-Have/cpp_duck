@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/22 12:39:51 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:51:16 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,8 @@ void	Converter::print_values(void) const
 			std::cout << "char: impossible\nint: impossible";
 		else
 		{
-			if (std::isprint(type_d) != 0)
+			if (type_d != std::numeric_limits<double>::infinity() &&
+				type_d != -std::numeric_limits<double>::infinity() && std::isprint(type_d) != 0)
 				std::cout << "char:" << type_c;
 			else
 				std::cout << "char: non displayable";
@@ -137,7 +138,10 @@ void	Converter::print_values(void) const
 			std::cout << "\nfloat: " << std::fixed << std::setprecision(1) << type_f << 'f';
 		else
 			std::cout << "\nfloat: impossible";
-		std::cout << "\ndouble: " << std::fixed << std::setprecision(1) << type_d;
+		std::cout << "\ndouble: ";
+		if (type_d == std::numeric_limits<double>::infinity())
+			std::cout << "+";
+		std::cout << std::fixed << std::setprecision(1) << type_d;
 	}
 	std::cout << std::endl;
 }
@@ -168,7 +172,16 @@ void	Converter::find_true_type(std::string &str)
 		&& str.find_first_of("0123456789", 0) != std::string::npos)
 	{
 		type.assign("float");
-		ss >> type_f;
+		if (str.compare("nanf") == 0)
+			type_f = std::numeric_limits<float>::quiet_NaN();
+		else if (str.find("inf", 1) != str.size())
+		{
+			type_f = std::numeric_limits<float>::infinity();
+			if (str[0] == '-')
+				type_f = type_f * -1;
+		}
+		else
+			ss >> type_f;
 	}
 	else if (str.compare("-inf") == 0 || str.compare("+inf") == 0 || str.compare("nan") == 0
 		|| ((((std::isdigit(str[0]) != 0 || str[0] == '.')
@@ -181,10 +194,10 @@ void	Converter::find_true_type(std::string &str)
 		type.assign("double");
 		if (str.compare("nan") == 0)
 			type_d = std::numeric_limits<double>::quiet_NaN();
-		else if (str.find("inf", 1) == 0)
+		else if (str.find("inf", 1) != str.size())
 		{
 			type_d = std::numeric_limits<double>::infinity();
-			if (str.compare("-inf") == 0)
+			if (str[0] == '-')
 				type_d = type_d * -1;
 		}
 		else
