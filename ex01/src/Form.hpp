@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 03:51:01 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/17 16:54:20 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:41:28 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ class Form
 			public:
 				const char	*what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_NOTHROW
 				{
-					return ("Error: Grade cannot be higher than 1\n");
+					return ("Error: Grade is too high for this Form\n");
 				}
 		};
 		class GradeTooLowException : public std::exception
@@ -49,7 +49,7 @@ class Form
 			public:
 				const char	*what() const _GLIBCXX_TXN_SAFE_DYN _GLIBCXX_NOTHROW
 				{
-					return ("Error: Grade cannot be lower than 150\n");
+					return ("Error: Grade needs to be HIGHER to use Form\n");
 				}
 		};
 
