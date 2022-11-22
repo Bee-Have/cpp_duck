@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/17 14:38:35 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:36:00 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int	main()
 
 		try
 		{
-			Jen.decrement_grade();
+			Jen.increment_grade();
 		}
 		catch (Bureaucrat::GradeTooHighException const &exception)
 		{
@@ -88,7 +88,7 @@ int	main()
 		}
 		try
 		{
-			Roy.increment_grade();
+			Roy.decrement_grade();
 		}
 		catch (Bureaucrat::GradeTooLowException const &exception)
 		{
