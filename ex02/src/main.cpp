@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/07 12:41:40 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:51:20 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ int	main(void)
 		Form		*bush = new ShrubberyCreationForm("bush");
 		Form		*robot = new RobotomyRequestForm("robot");
 		Form		*pardon = new PresidentialPardonForm("Arthur Dent");
-		
+
+		std::cout << Moss << "\n";
 		std::cout << YB << "Shrubbery form :\n" << END;
 		bush->beSigned(Moss);
 		bush->execute(Moss);
