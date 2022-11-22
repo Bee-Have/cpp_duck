@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/22 13:13:25 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/22 14:13:15 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,8 @@ void	Converter::print_values(void) const
 			std::cout << "char: impossible\nint: impossible";
 		else
 		{
-			if (std::isprint(type_f) != 0)
+			if (type_f != std::numeric_limits<float>::infinity() &&
+				type_f != -std::numeric_limits<float>::infinity() && std::isprint(type_f) != 0)
 				std::cout << "char: " << type_c;
 			else
 				std::cout << "char: non displayable";
@@ -114,8 +115,13 @@ void	Converter::print_values(void) const
 			else
 				std::cout << "\nint: impossible";
 		}
-		std::cout << "\nfloat: " << std::fixed << std::setprecision(1) << type_f
-			<< "f\ndouble: " << std::setprecision(1) << type_d;
+		std::cout << "\nfloat: ";
+		if (type_f == std::numeric_limits<float>::infinity())
+			std::cout << "+";
+		std::cout << std::fixed << std::setprecision(1) << type_f << "f\ndouble: ";
+		if (type_f == std::numeric_limits<float>::infinity())
+			std::cout << "+";
+		std::cout << std::setprecision(1) << type_d;
 	}
 	else if (type.compare("double") == 0)
 	{
@@ -162,20 +168,15 @@ void	Converter::find_true_type(std::string &str)
 		type.assign("int");
 		ss >> type_i;
 	}
-	else if ((str.compare("+inff") == 0 || str.compare("-inff") == 0 || str.compare("nanf")
-			|| (str.find_first_not_of("0123456789-.f", 0) == std::string::npos
-			&& str.find_first_of("f", 0) == str.find_last_of("f", str.size() - 1)
-			&& str.find_first_of(".", 0) == str.find_last_of(".", str.size() - 1)
-			&& str.find_first_of("-", 0) == str.find_last_of("-", str.size() - 1)))
-			&& str[str.size() - 1] == 'f')
-	else if ((str.compare("-inff") == 0 || str.compare("+inff") == 0 || str.compare("nanf") == 0
+	else if (str.compare("-inff") == 0 || str.compare("+inff") == 0 || str.compare("nanf") == 0
 		|| ((((std::isdigit(str[0]) != 0 || str[0] == '.')
 		&& str.find_first_not_of("0123456789.f", 0) == std::string::npos)
 		|| (str[0] == '-' && str.find_first_not_of("0123456789.f", 1) == std::string::npos))
-		&& str.find_first_of(".", 0) == str.find_last_of(".", str.size() -1)
-		&& str.find_first_of("f", 0) == str.find_last_of("f", str.size() -1)))
-		&& str[str.size() - 1] == 'f' && str.find(".", 0) != std::string::npos
-		&& str.find_first_of("0123456789", 0) != std::string::npos)
+		&& str.find_first_of(".", 0) == str.find_last_of(".", str.size() - 1)
+		&& str.find(".", 0) != std::string::npos
+		&& str.find_first_of("0123456789", 0) != std::string::npos
+		&& str.find_first_of("f", 0) == str.find_last_of("f", str.size() - 1)
+		&& str[str.size() - 1] == 'f'))
 	{
 		type.assign("float");
 		if (str.compare("nanf") == 0)
@@ -230,7 +231,9 @@ void	Converter::convert_to_all_types(void)
 	}
 	else if (type.compare("float") == 0)
 	{
-		if (std::isprint(type_f) != 0)
+		if (type_f != std::numeric_limits<float>::infinity()
+			&& type_f != -std::numeric_limits<float>::infinity()
+			&& type_f == type_f && std::isprint(type_f) != 0)
 			type_c = static_cast<char>(type_f);
 		if (type_f < std::numeric_limits<int>::max() && type_f > std::numeric_limits<int>::min())
 			type_i = static_cast<int>(type_f);
@@ -238,11 +241,13 @@ void	Converter::convert_to_all_types(void)
 	}
 	else if (type.compare("double") == 0)
 	{
-		if (std::isprint(type_f) != 0)
+		if (type_d != std::numeric_limits<double>::infinity()
+			&& type_d != -std::numeric_limits<double>::infinity()
+			&& type_d == type_d && std::isprint(type_d) != 0)
 			type_c = static_cast<char>(type_d);
 		if (type_d < std::numeric_limits<int>::max() && type_d > std::numeric_limits<int>::min())
 			type_i = static_cast<int>(type_d);
-		if (type_d < std::numeric_limits<float>::max() && type_d > std::numeric_limits<float>::min())
+		else if (type_d != type_d || (type_d < std::numeric_limits<float>::max() && type_d > std::numeric_limits<float>::min()))
 			type_f = static_cast<float>(type_d);
 	}
 }
