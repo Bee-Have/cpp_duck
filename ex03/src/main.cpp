@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 01:57:07 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/07 15:39:32 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:40:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ int	main(void)
 		std::cout << YB << "Bureaucrat Sign and Execute Presidential Pardon Robotomy form :\n" << END;
 		pardon->beSigned(workerbee);
 		pardon->execute(workerbee);
+		delete shrub;
+		delete robot;
+		delete pardon;
 	}
 	std::cout << GB << "\n42 subject required tests :\n" << END;
 	{
@@ -60,6 +63,7 @@ int	main(void)
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 		rrf->beSigned(someguy);
 		rrf->execute(someguy);
+		delete rrf;
 	}
 	// test with intern trying to create form but bad input text
 	std::cout << GB << "\nTest Intern creating a bad Form :\n" << END;
