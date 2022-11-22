@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/22 17:21:19 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:24:46 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,7 +174,7 @@ void	Converter::find_true_type(std::string &str)
 		&& ((str[0] != '-' && str.size() < 10) || (str[0] == '-' && str.size() < 11)))
 	{
 		type.assign("int");
-		ss >> type_i;
+		type_i = str[0];
 	}
 	else if (str.compare("-inff") == 0 || str.compare("+inff") == 0 || str.compare("nanf") == 0
 		|| ((((std::isdigit(str[0]) != 0 || str[0] == '.')
