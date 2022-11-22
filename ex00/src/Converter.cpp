@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/20 18:02:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/22 12:39:51 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ double	Converter::get_type_double(void) const
 **/
 void	Converter::print_values(void) const
 {
+	// std::cout << "inf: " << std::numeric_limits<double>::infinity() << "\n";
+	// std::cout << "nan: " << std::numeric_limits<double>::quiet_NaN() << "\n";
 	std::cout << "type: " << type << "\n";
 	if (type.compare("undefined") == 0)
 		std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible";
@@ -99,7 +101,7 @@ void	Converter::print_values(void) const
 	}
 	else if (type.compare("float") == 0)
 	{
-		if (std::isnan(type_f) == true)
+		if (type_f != type_f)
 			std::cout << "char: impossible\nint: impossible";
 		else
 		{
@@ -117,7 +119,7 @@ void	Converter::print_values(void) const
 	}
 	else if (type.compare("double") == 0)
 	{
-		if (std::isnan(type_d) == true)
+		if (type_d != type_d)
 			std::cout << "char: impossible\nint: impossible";
 		else
 		{
@@ -130,7 +132,8 @@ void	Converter::print_values(void) const
 			else
 				std::cout << "\nint: impossible";
 		}
-		if (type_d < std::numeric_limits<float>::max() && type_d > std::numeric_limits<float>::min())
+		if ((type_d < std::numeric_limits<float>::max() && type_d > std::numeric_limits<float>::min())
+			|| type_d != type_d || type_d == std::numeric_limits<double>::infinity() || type_d == -std::numeric_limits<double>::infinity())
 			std::cout << "\nfloat: " << std::fixed << std::setprecision(1) << type_f << 'f';
 		else
 			std::cout << "\nfloat: impossible";
@@ -178,13 +181,14 @@ void	Converter::find_true_type(std::string &str)
 		type.assign("double");
 		if (str.compare("nan") == 0)
 			type_d = std::numeric_limits<double>::quiet_NaN();
-		else if (str.compare("+inf") == 0 || str.compare("-inf") == 0)
+		else if (str.find("inf", 1) == 0)
 		{
 			type_d = std::numeric_limits<double>::infinity();
 			if (str.compare("-inf") == 0)
 				type_d = type_d * -1;
 		}
-		ss >> type_d;
+		else
+			ss >> type_d;
 	}
 	else
 		type.assign("undefined");
