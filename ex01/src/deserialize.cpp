@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:44:58 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/23 12:47:13 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:48:10 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 Data	*deserialize(uintptr_t raw)
 {
-	Data	*test;
-	test = (Data *)raw;
-	return (test);
+	Data	*reasign_ptr;
+	reasign_ptr = reinterpret_cast<Data *>(raw);
+	return (reasign_ptr);
 }
