@@ -1,4 +1,4 @@
-NAME = Serialize
+NAME = Cast
 
 CC = c++
 
