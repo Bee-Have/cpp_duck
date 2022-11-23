@@ -1,19 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   deserialize.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 12:23:33 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/23 12:47:27 by amarini-         ###   ########.fr       */
+/*   Created: 2022/11/23 12:44:58 by amarini-          #+#    #+#             */
+/*   Updated: 2022/11/23 12:47:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Data.hpp"
+#include <stdint.h>
 
-struct Data
+Data	*deserialize(uintptr_t raw)
 {
-	unsigned int	u_test = 10;
-	int				i_test = 0;
-};
+	Data	*test;
+	test = (Data *)raw;
+	return (test);
+}

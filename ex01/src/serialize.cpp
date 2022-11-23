@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Data.hpp                                           :+:      :+:    :+:   */
+/*   serialize.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/23 12:23:33 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/23 12:47:27 by amarini-         ###   ########.fr       */
+/*   Created: 2022/11/23 12:28:14 by amarini-          #+#    #+#             */
+/*   Updated: 2022/11/23 12:44:54 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Data.hpp"
+#include <stdint.h>
 
-struct Data
+uintptr_t	serialize(Data *ptr)
 {
-	unsigned int	u_test = 10;
-	int				i_test = 0;
-};
+	uintptr_t	test;
+	// test = const_cast<uintptr_t>(*tr);
+	test = (uintptr_t)&ptr;
+	return (test);
+}
