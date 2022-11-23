@@ -6,14 +6,16 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:23:33 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/23 12:47:27 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:35:24 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include <string>
 
 struct Data
 {
-	unsigned int	u_test = 10;
-	int				i_test = 0;
+	unsigned int	u_test;
+	int				i_test;
+	std::string		str;
 };
