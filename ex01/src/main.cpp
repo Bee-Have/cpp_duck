@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:57:05 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/23 13:46:25 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/23 14:07:19 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,33 @@ Data	*deserialize(uintptr_t raw);
 
 int	main(void)
 {
-	Data		*test_d = new Data;
-	// uintptr_t	test_uint;
+	std::cout << "Step by step test :\n";
+	{
+		Data		*data = new Data;
+		uintptr_t	ptr_address;
 
-	test_d->u_test = 0;
-	test_d->i_test = 10;
-	test_d->str.assign("HEYYYY");
-	// std::cout << "Data: "<< test_d->i_test << " - " << test_d->u_test << "\n";
-	// test_uint = serialize(test_d);
-	// std::cout << "uintptr_t: " << test_uint << "\n";
-	// test_d = deserialize(test_uint);
-	// std::cout << "Data: "<< test_d->i_test << " - " << test_d->u_test << "\n";
-	// std::cout << "uintptr_t: " << test_uint << "\n";
+		data->u_test = 0;
+		data->i_test = 10;
+		data->str.assign("HEYYYY");
+		
+		std::cout << "Original address: " << data << "\n";
+		ptr_address = serialize(data);
+		std::cout << "Copy of address in uint: " << ptr_address << "\n";
+		data = NULL;
+		std::cout << "Assigning data to NULL\n";
+		std::cout << "NULL Data address: " << data << "\n";
+		std::cout << "Reasigning data with address ptr\n";
+		data = deserialize(ptr_address);
+		std::cout << "Checking address: " << data << "\n" << std::endl;
+	}
 
-	std::cout << test_d << "\n";
-	std::cout << "test: " << deserialize(serialize(test_d)) << "\n";
-	std::cout << test_d << "\n";
+	std::cout << "Test asked by 42 subject :\n";
+	{
+		Data		*data = new Data;
+
+		std::cout << "Original address: " << data << "\n";
+		std::cout << "Reassignment of address: " << deserialize(serialize(data)) << "\n";
+		std::cout << "Checking if address is still the same: " << data << "\n";
+	}
 	return (0);
 }
