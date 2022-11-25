@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 11:04:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/25 13:58:36 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:09:21 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "B.hpp"
 #include "C.hpp"
 
+#define BOLD "\033[1m"
 #define GB "\033[1;32m"
 #define YB "\033[1;33m"
 #define END "\33[0m"
@@ -26,8 +27,9 @@ void	identify(Base *p);
 
 int	main(void)
 {
-	std::cout << YB << "Simple pointer identify tests :\n";
+	std::cout << YB << "Simple pointer identify tests :\n" << END;
 	{
+		std::cout << BOLD << "Creating three polymorphic object pointers to object classes A-B-C\n";
 		Base	*type_a = new A();
 		Base	*type_b = new B();
 		Base	*type_c = new C();
@@ -44,8 +46,9 @@ int	main(void)
 		delete type_c;
 	}
 
-	std::cout << YB << "\nSimple reference identify tests :\n";
+	std::cout << YB << "\nSimple reference identify tests :\n" << END;
 	{
+		std::cout << BOLD << "Creating three polymorphic object reference to object classes A-B-C\n";
 		A		type_a;
 		B		type_b;
 		C		type_c;
