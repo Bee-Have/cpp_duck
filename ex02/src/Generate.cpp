@@ -6,11 +6,9 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:45:05 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/25 13:52:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:55:29 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <iostream>
 
 #include <cstdlib>
 #include <ctime>
@@ -30,6 +28,5 @@ Base	*generate(void)
 
 	std::srand(std::time(0) + rand());
 	random_class = rand() % 3;
-	std::cout << "random : " << random_class << "\n";
 	return (classes[random_class]);
 }
