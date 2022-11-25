@@ -10,7 +10,7 @@ CLFAGS += -g3 -fsanitize=address
 endif
 
 OBJ_DIR = objs
-SRC_DIR = $(shell find src type d)
+SRC_DIR = $(shell find src -type d)
 
 INC = -Isrc/Data.hpp
 
