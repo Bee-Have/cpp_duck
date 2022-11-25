@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/22 17:24:46 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:52:42 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ double	Converter::get_type_double(void) const
 **/
 void	Converter::print_values(void) const
 {
-	// std::cout << "inf: " << std::numeric_limits<double>::infinity() << "\n";
-	// std::cout << "nan: " << std::numeric_limits<double>::quiet_NaN() << "\n";
 	std::cout << "type: " << type << "\n";
 	if (type.compare("undefined") == 0)
 		std::cout << "char: impossible\nint: impossible\nfloat: impossible\ndouble: impossible";
@@ -167,14 +165,14 @@ void	Converter::find_true_type(std::string &str)
 	if (str.size() == 1 && std::isdigit(str[0]) == 0)
 	{
 		type.assign("char");
-		ss >> type_c;
+		type_c = str[0];
 	}
 	else if (((str[0] != '-' && str.find_first_not_of("0123456789", 0) == std::string::npos)
 		|| (str[0] == '-' && str.find_first_not_of("0123456789", 1) == std::string::npos))
 		&& ((str[0] != '-' && str.size() < 10) || (str[0] == '-' && str.size() < 11)))
 	{
 		type.assign("int");
-		type_i = str[0];
+		ss >> type_i;
 	}
 	else if (str.compare("-inff") == 0 || str.compare("+inff") == 0 || str.compare("nanf") == 0
 		|| ((((std::isdigit(str[0]) != 0 || str[0] == '.')
