@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 11:04:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/25 13:40:12 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:58:36 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,59 +16,66 @@
 #include "B.hpp"
 #include "C.hpp"
 
+#define GB "\033[1;32m"
+#define YB "\033[1;33m"
+#define END "\33[0m"
+
 Base	*generate(void);
 void	identify(Base &p);
 void	identify(Base *p);
 
 int	main(void)
 {
-	// THIS IS OK
-	// std::cout << "Simple pointer identify tests :\n";
-	// {
-	// 	Base	*type_a = new A();
-	// 	Base	*type_b = new B();
-	// 	Base	*type_c = new C();
+	std::cout << YB << "Simple pointer identify tests :\n";
+	{
+		Base	*type_a = new A();
+		Base	*type_b = new B();
+		Base	*type_c = new C();
 
-	// 	identify(type_a);
-	// 	identify(type_b);
-	// 	identify(type_c);
-	// 	delete type_a;
-	// 	delete type_b;
-	// 	delete type_c;
-	// }
+		std::cout << GB << "Identifying type A :\n" << END;
+		identify(type_a);
+		std::cout << GB << "Identifying type B :\n" << END;
+		identify(type_b);
+		std::cout << GB << "Identifying type b :\n" << END;
+		identify(type_c);
 
-	// std::cout << "\nSimple reference identify tests :\n";
-	// {
-	// 	A		type_a;
-	// 	B		type_b;
-	// 	C		type_c;
-	// 	Base	&test_a = type_a;
-	// 	Base	&test_b = type_b;
-	// 	Base	&test_c = type_c;
+		delete type_a;
+		delete type_b;
+		delete type_c;
+	}
 
-	// 	std::cout << "Reference type A :\n";
-	// 	identify(test_a);
+	std::cout << YB << "\nSimple reference identify tests :\n";
+	{
+		A		type_a;
+		B		type_b;
+		C		type_c;
+		Base	&test_a = type_a;
+		Base	&test_b = type_b;
+		Base	&test_c = type_c;
 
-	// 	std::cout << "Reference type B :\n";
-	// 	identify(test_b);
+		std::cout << GB << "Reference type A :\n" << END;
+		identify(test_a);
 
-	// 	std::cout << "Reference type C :\n";
-	// 	identify(test_c);
-	// }
+		std::cout << GB << "Reference type B :\n" << END;
+		identify(test_b);
 
-	std::cout << "\nRandom class identification :\n";
+		std::cout << GB << "Reference type C :\n" << END;
+		identify(test_c);
+	}
+
+	std::cout << YB << "\nRandom class identification :\n";
 	{
 		Base	*random;
 
-		std::cout << "First random generation :\n";
+		std::cout << GB << "First random generation :\n" << END;
 		random = generate();
 		identify(random);
 
-		std::cout << "Second random generation :\n";
+		std::cout << GB << "Second random generation :\n" << END;
 		random = generate();
 		identify(random);
 
-		std::cout << "Third random generation :\n";
+		std::cout << GB << "Third random generation :\n" << END;
 		random = generate();
 		identify(random);
 	}
