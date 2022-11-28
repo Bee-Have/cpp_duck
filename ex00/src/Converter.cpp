@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/28 13:18:36 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:52:05 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	Converter::print_values(void) const
 			<< std::fixed << std::setprecision(1) << type_f << "f\ndouble: " << std::setprecision(1) << type_d;
 	else if (type.compare("int") == 0)
 	{
-		if (std::isprint(type_i) == 0)
+		if (type_i > 127 || type_i < 0 || std::isprint(type_i) == 0)
 			std::cout << "char: non displayable";
 		else
 			std::cout << "char: \'" << type_c << "\'";
@@ -161,7 +161,11 @@ void	Converter::print_values(void) const
 void	Converter::find_true_type(std::string &str)
 {
 	std::stringstream	ss;
+	std::stringstream	ss_int_check;
+	long long int		int_check;
 	ss << str;
+	ss_int_check << str;
+	ss_int_check >> int_check;
 	if (str.size() == 1 && std::isdigit(str[0]) == 0)
 	{
 		type.assign("char");
@@ -169,7 +173,8 @@ void	Converter::find_true_type(std::string &str)
 	}
 	else if (((str[0] != '-' && str.find_first_not_of("0123456789", 0) == std::string::npos)
 		|| (str[0] == '-' && str.find_first_not_of("0123456789", 1) == std::string::npos))
-		&& ((str[0] != '-' && str.size() < 10) || (str[0] == '-' && str.size() < 11)))
+		&& ((str[0] != '-' && str.size() < 11 && int_check <= std::numeric_limits<int>::max())
+		|| (str[0] == '-' && str.size() < 12 && int_check >= std::numeric_limits<int>::min())))
 	{
 		type.assign("int");
 		ss >> type_i;
@@ -230,7 +235,7 @@ void	Converter::convert_to_all_types(void)
 	}
 	else if (type.compare("int") == 0)
 	{
-		if (std::isprint(type_i) != 0)
+		if (type_i < 127 && type_i >= 0 && std::isprint(type_i) != 0)
 			type_c = static_cast<char>(type_i);
 		type_f = static_cast<float>(type_i);
 		type_d = static_cast<double>(type_i);
