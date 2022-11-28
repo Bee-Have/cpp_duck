@@ -1,4 +1,4 @@
-NAME = Cast
+NAME = Template
 
 CC = c++
 
