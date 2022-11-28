@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/25 14:52:42 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/28 13:18:36 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,7 +142,7 @@ void	Converter::print_values(void) const
 		if (type_d != std::numeric_limits<double>::infinity()
 			&& type_d != -std::numeric_limits<double>::infinity()
 			&& (type_d > std::numeric_limits<float>::max()
-			|| type_d < std::numeric_limits<float>::min()) && type_d != 0.0)
+			|| (type_d > std::numeric_limits<float>::min() && type_d < 0.0)))
 			std::cout << "impossible";
 		else
 		{
@@ -256,8 +256,8 @@ void	Converter::convert_to_all_types(void)
 		if (type_d != type_d
 			|| type_d == std::numeric_limits<double>::infinity()
 			|| type_d == -std::numeric_limits<double>::infinity()
-			|| (type_d < std::numeric_limits<float>::max()
-			&& type_d > std::numeric_limits<float>::min()))
+			|| (type_d > 0.0 && type_d < std::numeric_limits<float>::max())
+			|| (type_d < 0.0 && type_d < std::numeric_limits<float>::min()))
 			type_f = static_cast<float>(type_d);
 	}
 }
