@@ -1,4 +1,4 @@
-NAME = Template
+NAME = Cast
 
 CC = c++
 
@@ -6,7 +6,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 DEBUG =
 ifdef DEBUG
-CFLAGS += -fsanitize=address -g3
+CFLAGS += -g3 -fsanitize=address
 endif
 
 OBJ_DIR = objs
@@ -32,7 +32,7 @@ $(OBJ_DIR)/%.o: %.cpp
 clean:
 	rm -rf $(OBJ_DIR)
 
-flcean: clean
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
