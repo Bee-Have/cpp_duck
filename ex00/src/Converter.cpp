@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 13:31:09 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/28 13:52:05 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/28 14:01:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,9 @@ void	Converter::print_values(void) const
 			std::cout << "char: impossible\nint: impossible";
 		else
 		{
-			if (type_f != std::numeric_limits<float>::infinity() &&
-				type_f != -std::numeric_limits<float>::infinity() && std::isprint(type_f) != 0)
+			if (type_f != std::numeric_limits<float>::infinity()
+				&& type_f != -std::numeric_limits<float>::infinity()
+				&& type_f < 127 && type_f > 0 && std::isprint(type_f) != 0)
 				std::cout << "char: \'" << type_c << "\'";
 			else
 				std::cout << "char: non displayable";
@@ -128,8 +129,9 @@ void	Converter::print_values(void) const
 			std::cout << "char: impossible\nint: impossible";
 		else
 		{
-			if (type_d != std::numeric_limits<double>::infinity() &&
-				type_d != -std::numeric_limits<double>::infinity() && std::isprint(type_d) != 0)
+			if (type_d != std::numeric_limits<double>::infinity()
+				&& type_d != -std::numeric_limits<double>::infinity()
+				&& type_d < 127 && type_d > 0 && std::isprint(type_d) != 0)
 				std::cout << "char: \'" << type_c << "\'";
 			else
 				std::cout << "char: non displayable";
@@ -244,7 +246,8 @@ void	Converter::convert_to_all_types(void)
 	{
 		if (type_f != std::numeric_limits<float>::infinity()
 			&& type_f != -std::numeric_limits<float>::infinity()
-			&& type_f == type_f && std::isprint(type_f) != 0)
+			&& type_f == type_f && type_f < 127 && type_f > 0
+			&& std::isprint(type_f) != 0)
 			type_c = static_cast<char>(type_f);
 		if (type_f < std::numeric_limits<int>::max() && type_f > std::numeric_limits<int>::min())
 			type_i = static_cast<int>(type_f);
@@ -254,7 +257,8 @@ void	Converter::convert_to_all_types(void)
 	{
 		if (type_d != std::numeric_limits<double>::infinity()
 			&& type_d != -std::numeric_limits<double>::infinity()
-			&& type_d == type_d && std::isprint(type_d) != 0)
+			&& type_d == type_d && type_d < 127 && type_d > 0
+			&& std::isprint(type_d) != 0)
 			type_c = static_cast<char>(type_d);
 		if (type_d < std::numeric_limits<int>::max() && type_d > std::numeric_limits<int>::min())
 			type_i = static_cast<int>(type_d);
