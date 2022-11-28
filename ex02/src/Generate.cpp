@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:45:05 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/25 13:55:29 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/28 14:27:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,10 @@ Base	*generate(void)
 
 	std::srand(std::time(0) + rand());
 	random_class = rand() % 3;
+	for (int i = 0; i < 3; ++i)
+	{
+		if (i != random_class)
+			delete classes[i];
+	}
 	return (classes[random_class]);
 }

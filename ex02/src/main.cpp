@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 11:04:16 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/25 15:09:21 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/28 14:28:42 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,14 +73,17 @@ int	main(void)
 		std::cout << GB << "First random generation :\n" << END;
 		random = generate();
 		identify(random);
+		delete random;
 
 		std::cout << GB << "Second random generation :\n" << END;
 		random = generate();
 		identify(random);
+		delete random;
 
 		std::cout << GB << "Third random generation :\n" << END;
 		random = generate();
 		identify(random);
+		delete random;
 	}
 	return (0);
 }
