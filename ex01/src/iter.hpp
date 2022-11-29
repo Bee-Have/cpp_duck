@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:53:51 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/28 19:05:12 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/11/29 12:12:14 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 template <typename T>
 void	To_Upper(T &arg)
 {
-	
+	arg -= 32;
+	return ;
 }
 
 template <typename T>
