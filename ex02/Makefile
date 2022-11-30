@@ -16,7 +16,7 @@ IFLAGS = $(foreach dir, $(SRC_DIR), -I$(dir))
 
 vpath %.cpp $(foreach dir, $(SRC_DIR), $(dir):)
 
-SRC = main.cpp Array.cpp
+SRC = main.cpp
 
 OBJ = $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
