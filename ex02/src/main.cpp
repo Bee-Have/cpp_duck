@@ -6,13 +6,16 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 16:01:48 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/30 16:10:40 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/01 17:24:48 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <vector>
 #include "Array.hpp"
+
+// if use of main given in subject, uncomment the next line
+// #include <cstdlib>
 
 #define BOLD "\033[1m"
 #define GB "\033[1;32m"
@@ -63,14 +66,18 @@ int	main(void)
 	std::cout << GB << "\nDefault values tests (implied by 42 subject) :\n";
 	{
 		int	size = 3;
-		std::cout << "Exemple with classic int array :\n" << END;
 		{
 			int	*int_array = new int[size];
-			std::cout << '[' << int_array[0] << "]";
-			for (int i = 1; i < size; ++i)
+			for (int i = 0; i < size; ++i)
 				std::cout << '[' << int_array[i] << "]";
-			std::cout << "\n";
 			delete[] int_array;
+		}
+		std::cout << "Exemple with classic vector array :\n" << END;
+		{
+			std::vector<int> vector_array(size);
+			for (int i = 0; i < size; ++i)
+				std::cout << '[' << vector_array[i] << "]";
+			std::cout << "\n";
 		}
 		std::cout << YB << "Result with my int array :\n" << END;
 		{
