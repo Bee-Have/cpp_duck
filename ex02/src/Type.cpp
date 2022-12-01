@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:58:06 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/01 15:21:44 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:26:13 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	identify(Base *p)
 
 void	identify(Base &p)
 {
-	// TODO: Delete (void)exceptions.
 	try
 	{
 		A	&type_a = dynamic_cast<A&>(p);
@@ -38,9 +37,7 @@ void	identify(Base &p)
 		return ;
 	}
 	catch(const std::exception& e)
-	{
-		(void)e;
-	}
+	{}
 	try
 	{
 		B	&type_b = dynamic_cast<B&>(p);
@@ -49,9 +46,7 @@ void	identify(Base &p)
 		return ;
 	}
 	catch(const std::exception& e)
-	{
-		(void)e;
-	}
+	{}
 	try
 	{
 		C	&type_c = dynamic_cast<C&>(p);
@@ -60,7 +55,5 @@ void	identify(Base &p)
 		return ;
 	}
 	catch(const std::exception& e)
-	{
-		(void)e;
-	}
+	{}
 }
