@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 12:57:05 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/25 15:02:51 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:40:52 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	main(void)
 		data->str.assign("HEYYYY");
 		
 		std::cout << "Original address: " << BOLD << data << "\n" << END;
+		std::cout << "data values : " << "[" << data->u_test << "] ["
+			<< data->i_test << "] [" << data->str << "]\n";
 		ptr_address = serialize(data);
 		std::cout << "Copy of address in uint: " << BOLD << ptr_address << "\n" << END;
 		data = NULL;
@@ -40,7 +42,11 @@ int	main(void)
 		std::cout << "NULL Data address: " << BOLD << data << "\n" << END;
 		std::cout << "Reasigning data with address ptr\n";
 		data = deserialize(ptr_address);
-		std::cout << "Checking address: " << BOLD << data << "\n" << END << std::endl;
+		std::cout << "Checking address: " << BOLD << data << "\n" << END;
+		std::cout << "Checking data values : " << "[" << data->u_test << "] ["
+			<< data->i_test << "] [" << data->str << "]\n" << std::endl;
+
+		delete data;
 	}
 
 	std::cout << YB << "Test asked by 42 subject :\n" << END;
@@ -49,7 +55,21 @@ int	main(void)
 
 		std::cout << "Original address: " << BOLD << data << "\n" << END;
 		std::cout << "Reassignment of address: "  << BOLD << deserialize(serialize(data)) << "\n" << END;
-		std::cout << "Checking if address is still the same: " << BOLD << data << "\n" << END;
+		std::cout << "Checking if address is still the same: " << BOLD << data << "\n" << END << std::endl;
+
+		delete data;
+	}
+
+	std::cout << YB << "\nTest without any allocation :\n" << END;
+	{
+		Data		data;
+		uintptr_t	ptr_address;
+
+		std::cout << "Original address: " << BOLD << &data << "\n" << END;
+		ptr_address = serialize(&data);
+		std::cout << "Reassignment of address\n" << END;
+		data = *deserialize(ptr_address);
+		std::cout << "Checking if address is still the same: " << BOLD << &data << "\n" << END;
 	}
 	return (0);
 }
