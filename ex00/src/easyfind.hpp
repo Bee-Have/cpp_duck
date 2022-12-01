@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 20:25:11 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/01 20:21:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/01 20:44:18 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	easyfind(T &type, int value)
 	std::ostringstream	ss;
 
 	ss << "::easyfind: value (which is " << value
-		<<  ") >= <typename T>type->size() (which is " << type.size() << ")\n";
+		<<  ") >= <typename T>type->size() (which is " << type.size() << ")";
 	throw std::out_of_range(ss.str());
 }
 
