@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 15:45:40 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/30 15:07:54 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/01 17:22:26 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Array
 			for (unsigned int i = 0; i < cpy._size; ++i)
 				_array[i] = cpy._array[i];
 		}
-		Array(unsigned int n): _size(n), _array(new T[n]) {}
+		Array(unsigned int n): _size(n), _array(new T[n]{0}) {}
 
 	// Destructor
 		~Array()
@@ -42,12 +42,12 @@ class Array
 		{
 			if (*this != assign)
 			{
-				_size = assign._size;
 				if (_size != 0)
 					delete[] _array;
-				_array = new T[assign.size()];
-				for (int i = 0; i < assign.size(); ++i)
-					_array[i] = assign[i];
+				_size = assign._size;
+				_array = new T[assign._size];
+				for (int i = 0; i < assign._size; ++i)
+					_array[i] = assign._array[i];
 			}
 			return (*this);
 		}
