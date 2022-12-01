@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 15:57:30 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/28 18:51:39 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:25:56 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int	main(void)
 		std::cout << "a = " << END << a << BOLD << ", b = " << END << b << "\n";
 
 		std::cout << BOLD << "min(a, b) = " << END << min(a, b) << "\n";
-		std::cout << BOLD << "mxn(a, b) = " << END << min(a, b) << "\n";
+		std::cout << BOLD << "max(a, b) = " << END << max(a, b) << "\n";
 
 		std::cout << YB << "\nTests with type DOUBLE :\n" << END;
 		std::cout << BOLD << "original double c:" << END << c << "\n";
@@ -76,7 +76,7 @@ int	main(void)
 		std::cout << "c = " << END << c << BOLD << ", d = " << END << d << "\n";
 
 		std::cout << BOLD << "min(c, d) = " << END << min(c, d) << "\n";
-		std::cout << BOLD << "mxn(c, d) = " << END << min(c, d) << "\n";
+		std::cout << BOLD << "max(c, d) = " << END << max(c, d) << "\n";
 	}
 	// this will not compile because types are not the same
 	{
