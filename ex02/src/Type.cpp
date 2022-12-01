@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:58:06 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/25 13:39:42 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:21:44 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	identify(Base *p)
 
 void	identify(Base &p)
 {
+	// TODO: Delete (void)exceptions.
 	try
 	{
 		A	&type_a = dynamic_cast<A&>(p);
