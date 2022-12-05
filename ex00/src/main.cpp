@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:30:03 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/04 13:28:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/05 14:10:04 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ int	main(void)
 		vector_int.push_back(4183);
 
 		// working simple test
-		easyfind(vector_int, -130);
+		integer::easyfind(vector_int, -130);
 		// working test mutiple occurences
-		easyfind(vector_int, 4183);
+		integer::easyfind(vector_int, 4183);
 		// try catch with non working test
 		try
 		{
-			easyfind(vector_int, -1);
+			integer::easyfind(vector_int, -1);
 		}
 		catch(const std::exception& e)
 		{
@@ -50,28 +50,28 @@ int	main(void)
 	// test with deque
 	std::cout << "\n";
 	{
-		std::deque<float>	deque_float(10);
+		std::deque<int>	deque_int(10);
 
 		// fill deque
-		deque_float.push_back(1.2);
-		deque_float.push_back(4183);
-		deque_float.push_back(4183);
-		deque_float.push_back(1.2);
-		deque_float.push_back(0);
-		deque_float.push_back(4.20);
-		deque_float.push_back(10.2333);
-		deque_float.push_back(1.2);
-		deque_float.push_back(42.1);
-		deque_float.push_back(-130.42);
+		deque_int.push_back(1);
+		deque_int.push_back(4183);
+		deque_int.push_back(4183);
+		deque_int.push_back(1);
+		deque_int.push_back(0);
+		deque_int.push_back(4);
+		deque_int.push_back(10);
+		deque_int.push_back(1);
+		deque_int.push_back(42);
+		deque_int.push_back(-130);
 		
 		// working simple test
-		easyfind(deque_float, 0);
+		iterator::easyfind(deque_int, 0);
 		// working test mutiple occurences
-		easyfind(deque_float, 1);
+		iterator::easyfind(deque_int, 1);
 		// try catch with non working test
 		try
 		{
-			easyfind(deque_float, -42);
+			iterator::easyfind(deque_int, -42);
 		}
 		catch(const std::exception& e)
 		{
@@ -81,30 +81,30 @@ int	main(void)
 	// test with list
 	std::cout << "\n";
 	{
-		std::list<char>	list_char(12);
+		std::list<int>	list_int(12);
 
 		// fill list
-		list_char.push_back('a');
-		list_char.push_back('|');
-		list_char.push_back('*');
-		list_char.push_back(' ');
-		list_char.push_back('|');
-		list_char.push_back('0');
-		list_char.push_back('|');
-		list_char.push_back('k');
-		list_char.push_back('*');
-		list_char.push_back('|');
-		list_char.push_back('.');
-		list_char.push_back('*');
+		list_int.push_back('a');
+		list_int.push_back('|');
+		list_int.push_back('*');
+		list_int.push_back(' ');
+		list_int.push_back('|');
+		list_int.push_back('0');
+		list_int.push_back('|');
+		list_int.push_back('k');
+		list_int.push_back('*');
+		list_int.push_back('|');
+		list_int.push_back('.');
+		list_int.push_back('*');
 
 		// working simple test
-		easyfind(list_char, 'a');
+		integer::easyfind(list_int, 'a');
 		// working test mutiple occurences
-		easyfind(list_char, '*');
+		iterator::easyfind(list_int, '*');
 		// try catch with non working test
 		try
 		{
-			easyfind(list_char, 'b');
+			integer::easyfind(list_int, 'b');
 		}
 		catch(const std::exception& e)
 		{
