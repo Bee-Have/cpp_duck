@@ -1,4 +1,4 @@
-NAME = Template_Containers
+NAME = Easyfind
 
 CC = c++
 
