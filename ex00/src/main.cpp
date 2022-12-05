@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 20:30:03 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/05 15:34:09 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/05 15:35:25 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	main(void)
 	}
 
 	// test with deque
-	std::cout << "Simple tests with container \'deque\' :\n";
+	std::cout << "\nSimple tests with container \'deque\' :\n";
 	{
 		std::deque<int>	deque_int;
 
@@ -111,7 +111,7 @@ int	main(void)
 	}
 
 	// test with list
-	std::cout << "Simple tests with container \'list\' :\n";
+	std::cout << "\nSimple tests with container \'list\' :\n";
 	{
 		std::list<int>	list_int;
 
