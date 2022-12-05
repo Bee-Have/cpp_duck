@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 20:25:11 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/01 20:44:18 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/04 17:31:43 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,12 @@
 template<typename T>
 int	easyfind(T &type, int value)
 {
-	for (int i = 0; type.size(); ++i)
+	// typename T::iterator	it = type.begin();
+	// int	i = 0;
+	// for (; it != type.back(); ++it && ++i)
+	// 	if (it == value)
+	// 		return (i);
+	for (int i = 0; i < type.size(); ++i)
 		if (type[i] == value)
 			return (i);
 
