@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:10:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/06 13:20:36 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:37:17 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,19 @@
 Span::Span(unsigned int N): _size(N), _pos_max(0)
 {
 	if (_size != 0)
-		_span = new int[_size]{0};
+	{
+		_span = new int[_size];
+		for (unsigned int i = 0; i < _size; ++i)
+			_span[i] = 0;
+	}
 }
 
 Span::Span(Span &cpy): _size(cpy._size), _pos_max(0)
 {
 	if (_size != 0)
 	{
-		_span = new int[_size]{0};
-		for (int i = 0; i < _size; ++i)
+		_span = new int[_size];
+		for (unsigned int i = 0; i < _size; ++i)
 			_span[i] = cpy._span[i];
 	}
 }
@@ -48,8 +52,8 @@ Span	Span::operator=(Span &assign)
 		_size = assign._size;
 		if (_size != 0)
 		{
-			_span = new int[_size]{0};
-			for (int i = 0; i < _size; ++i)
+			_span = new int[_size];
+			for (unsigned int i = 0; i < _size; ++i)
 				_span[i] = assign._span[i];
 		}
 	}
@@ -72,13 +76,14 @@ int		Span::operator[](size_t n) const
 
 void	Span::fill(int value)
 {
-	for (int i = 0; i < _size; ++i)
+	for (unsigned int i = 0; i < _size; ++i)
 		_span[i] = value;
 }
 
 void	Span::addRange(int min, int max)
 {
-	
+	(void)min;
+	(void)max;
 }
 
 void	Span::addNumber(int value)
@@ -100,7 +105,7 @@ void	Span::addNumber(int value)
 
 int		Span::shortestSpan(void) const
 {
-	int	shortest = std::numeric_limits<int>::max();
+	unsigned int	shortest = std::numeric_limits<int>::max();
 	std::ostringstream	ss;
 
 	ss << "Span::shortestSpan: number of element in _span (which is "
@@ -108,11 +113,11 @@ int		Span::shortestSpan(void) const
 	if (_pos_max < 2)
 		throw std::length_error(ss.str());
 
-	for (int i = 0; i < _size; ++i)
-		for (int j = 0; j < _size; ++j)
+	for (unsigned int i = 0; i < _size; ++i)
+		for (unsigned int j = 0; j < _size; ++j)
 			if (i != j
 				&& (((i - j) > 0 && (i - j) < shortest)
-				|| (j - i) > 0 && (j - i) < shortest))
+				|| ((j - i) > 0 && (j - i) < shortest)))
 			{
 				if ((i - j) > 0)
 					shortest = (i - j);
@@ -124,7 +129,7 @@ int		Span::shortestSpan(void) const
 
 int		Span::longestSpan(void) const
 {
-	int	longest = 0;
+	unsigned int	longest = 0;
 	std::ostringstream	ss;
 
 	ss << "Span::longestSpan: number of element in _span (which is "
@@ -132,8 +137,8 @@ int		Span::longestSpan(void) const
 	if (_pos_max < 2)
 		throw std::length_error(ss.str());
 
-	for (int i = 0; i < _size; ++i)
-		for (int j = 0; j < _size; ++j)
+	for (unsigned int i = 0; i < _size; ++i)
+		for (unsigned int j = 0; j < _size; ++j)
 			if (i != j && ((i - j) > longest || (j - i) > longest))
 			{
 				if ((i - j) > 0)

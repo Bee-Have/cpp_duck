@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:53:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/06 13:20:29 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:35:22 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ class Span
 
 	private:
 		unsigned int	_size;
-		int				_pos_max;
+		unsigned int	_pos_max;
 		int				*_span;
 };
