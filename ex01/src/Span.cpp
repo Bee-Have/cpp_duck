@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:10:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/06 16:27:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:50:20 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,7 +171,7 @@ int		Span::size(void) const
 
 void	Span::printSpan(void) const
 {
-	for (int i = 0; i < _pos_max; ++i)
+	for (unsigned int i = 0; i < _pos_max; ++i)
 		std::cout << '[' << _span[i] << ']';
 	std::cout << std::endl;
 }
