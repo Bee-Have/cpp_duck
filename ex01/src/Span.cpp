@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:10:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/06 17:54:56 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:11:34 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	Span::addRange(int min, int max)
 	static bool	seeded(false);
 	std::ostringstream	ss;
 
-	ss << "Span::addNumber: adding value (which is rand()) would exceed _size (which is "
+	ss << "Span::addRange: adding value (which is rand()) would exceed _size (which is "
 		<< _size << ")";
 	if (_pos_max == _size)
 		throw std::length_error(ss.str());
@@ -110,9 +110,12 @@ void	Span::addNumber(int value)
 
 	if (_pos_max > 0)
 	{
-		for (int i = _pos_max + 1; i >= 0; --i)
+		for (int i = _pos_max; i > 0; --i)
 			_span[i] = _span[i - 1];
+		_span[0] = value;
 	}
+	else
+		_span[_pos_max] = value;
 	++_pos_max;
 }
 
