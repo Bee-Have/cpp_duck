@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:20:53 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/06 14:34:52 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/06 16:53:05 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,52 +14,114 @@
 
 int	main(void)
 {
-	// TODO add printing method to span
 	// simple test
+	std::cout << "Simple tests :\n";
 	{
-		// create short span
-		// fill it with addNumber()
-		// find shortest span
-		// find longest span
-	}
-	// addRange tests
-	{
-		// create short span of 4
-		// call addRange (0 100)
-		
-		// create span of 10
-		// call addRange (10 15)
-		
-		// create big span of 1000
-		// call addRange (42 4183)
-	}
-	// range test
-	{
-		// create span 10
-		// call fill with 42
-		// call shortestSpan
+		Span	simple(5);
 
-		// create span 2
-		// add (1 10000)
-		// call shortest span
-		// call longest span
+		simple.addNumber(4183);
+		simple.addNumber(4);
+		simple.addNumber(10);
+		simple.addNumber(-42);
+		simple.addNumber(1032);
+
+		simple.printSpan();
+
+		simple.shortestSpan();
+		simple.longestSpan();
 	}
-	// error tests
+
+	// addRange tests
+	std::cout << "Range tests :\n";
 	{
-		// create span of 0
-		// try to add number
+		Span	simple_range(4);
+		simple_range.addRange(0, 100);
+		simple_range.printSpan();
 		
-		// create span of 3
-		// try accessing element 4
+		Span	short_range(10);
+		short_range.addRange(10, 15);
+		short_range.printSpan();
 		
-		// create span of 1000
-		// add 1 value
-		// call shortest span
-		// call longest span
+		Span	big_range(1000);
+		big_range.addRange(42, 4183);
+		big_range.printSpan();
+
+		Span	no_range(15);
+		no_range.addRange(42, 42);
+		no_range.printSpan();
+	}
+
+	// range test
+	std::cout << "shortestSpan() longestSpan() tests :\n";
+	{
+		Span	no_diff(10);
+		no_diff.fill(80);
+		no_diff.printSpan();
+		no_diff.shortestSpan();
+		no_diff.longestSpan();
+
+		Span	short_span(2);
+		short_span.addNumber(1);
+		short_span.addNumber(100);
+		short_span.shortestSpan();
+		short_span.longestSpan();
+	}
+
+	// error tests
+	std::cout << "Exception tests :\n";
+	{
+		Span	add_exception;
+		try
+		{
+			add_exception.addNumber(10);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+
+		Span	access_exception(3);
+		try
+		{
+			std::cout << access_exception[4] << '\n';
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+
+		Span	tiny_exception(1000);
+
+		tiny_exception.addNumber(9);
+		try
+		{
+			tiny_exception.shortestSpan();
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		try
+		{
+			tiny_exception.longestSpan();
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 		
-		// create span of 2
-		// fill span with addNumber
-		// try to addRange on top of it
+		Span	range_exception(2);
+
+		range_exception.addNumber(19);
+		range_exception.addNumber(2);
+		try
+		{
+			range_exception.addRange(11, 154);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 	}
 	return (0);
 }
