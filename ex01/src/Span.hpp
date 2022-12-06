@@ -6,12 +6,13 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:53:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/06 14:21:25 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/06 16:27:02 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include <iostream>
 #include <sstream>
 #include <stdexcept>
 #include <string>
@@ -39,6 +40,7 @@ class Span
 		int		longestSpan() const;
 	// Accesor
 		int		size() const;
+		void	printSpan(void) const;
 
 	private:
 		unsigned int	_size;
