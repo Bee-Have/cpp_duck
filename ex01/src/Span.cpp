@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:10:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/06 17:50:20 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/06 17:54:56 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int		Span::operator[](size_t n) const
 
 void	Span::fill(int value)
 {
-	for (unsigned int i = 0; i < _size; ++i)
-		_span[i] = value;
+	for (; _pos_max < _size; ++_pos_max)
+		_span[_pos_max] = value;
 }
 
 void	Span::addRange(int min, int max)
