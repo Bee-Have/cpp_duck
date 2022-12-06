@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:53:51 by amarini-          #+#    #+#             */
-/*   Updated: 2022/11/29 14:27:27 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/06 13:55:06 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,9 @@ void	To_Fourty_Two(T &arg)
 }
 
 template <typename T>
-void	print_array(T *array, int size)
+void	print(T const arg)
 {
-	for (int i = 0; i < size; ++i)
-		std::cout << "[" << array[i] << "]";
-	std::cout << "\n";
-	return ;
+	std::cout << arg;
 }
 
 template <typename T>
