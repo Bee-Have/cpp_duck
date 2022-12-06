@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:53:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/06 13:35:22 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/06 14:21:25 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include <string>
 #include <cstdlib>
 #include <limits>
+#include <ctime>
 
 class Span
 {
