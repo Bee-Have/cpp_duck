@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:10:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/06 18:22:45 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:50:52 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void	Span::addNumber(int value)
 
 int		Span::shortestSpan(void) const
 {
-	unsigned int	shortest = std::numeric_limits<int>::max();
+	int	shortest = std::numeric_limits<int>::max();
 	std::ostringstream	ss;
 
 	ss << "Span::shortestSpan: number of element in _span (which is "
@@ -130,15 +130,15 @@ int		Span::shortestSpan(void) const
 	if (_pos_max < 2)
 		throw std::length_error(ss.str());
 
-	for (unsigned int i = 0; i < _size; ++i)
-		for (unsigned int j = 0; j < _size; ++j)
+	for (int i = 0; (unsigned int)i < _pos_max; ++i)
+		for (int j = 0; (unsigned int)j < _pos_max; ++j)
 			if (i != j
 				&& (((i - j) > 0 && (i - j) < shortest)
 				|| ((j - i) > 0 && (j - i) < shortest)))
 			{
 				if ((i - j) > 0)
 					shortest = (i - j);
-				else
+				else if ((j - i) > 0)
 					shortest = (j - i);
 			}
 	return (shortest);
@@ -146,7 +146,7 @@ int		Span::shortestSpan(void) const
 
 int		Span::longestSpan(void) const
 {
-	unsigned int	longest = 0;
+	int	longest = 0;
 	std::ostringstream	ss;
 
 	ss << "Span::longestSpan: number of element in _span (which is "
@@ -154,13 +154,13 @@ int		Span::longestSpan(void) const
 	if (_pos_max < 2)
 		throw std::length_error(ss.str());
 
-	for (unsigned int i = 0; i < _size; ++i)
-		for (unsigned int j = 0; j < _size; ++j)
+	for (int i = 0; (unsigned int)i < _pos_max; ++i)
+		for (int j = 0; (unsigned int)j < _pos_max; ++j)
 			if (i != j && ((i - j) > longest || (j - i) > longest))
 			{
 				if ((i - j) > 0)
 					longest = (i - j);
-				else
+				else if ((j - i) > 0)
 					longest = (j - i);
 			}
 	return (longest);
