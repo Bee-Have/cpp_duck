@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:20:53 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/06 16:53:05 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:49:34 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(void)
 	{
 		Span	simple(5);
 
+		std::cout << "Adding numbers repeatedly with addNumber() :\n";
 		simple.addNumber(4183);
 		simple.addNumber(4);
 		simple.addNumber(10);
@@ -27,8 +28,8 @@ int	main(void)
 
 		simple.printSpan();
 
-		simple.shortestSpan();
-		simple.longestSpan();
+		std::cout << "Shortest span in _span variable : " << simple.shortestSpan() << '\n';
+		std::cout << "Biggest span in _span variable : " << simple.longestSpan() << '\n';
 	}
 
 	// addRange tests
@@ -42,7 +43,7 @@ int	main(void)
 		short_range.addRange(10, 15);
 		short_range.printSpan();
 		
-		Span	big_range(1000);
+		Span	big_range(100);
 		big_range.addRange(42, 4183);
 		big_range.printSpan();
 
@@ -57,14 +58,14 @@ int	main(void)
 		Span	no_diff(10);
 		no_diff.fill(80);
 		no_diff.printSpan();
-		no_diff.shortestSpan();
-		no_diff.longestSpan();
+		std::cout << "Shortest span in _span variable : " << no_diff.shortestSpan() << '\n';
+		std::cout << "Biggest span in _span variable : " << no_diff.longestSpan() << '\n';
 
 		Span	short_span(2);
 		short_span.addNumber(1);
 		short_span.addNumber(100);
-		short_span.shortestSpan();
-		short_span.longestSpan();
+		std::cout << "Shortest span in _span variable : " << short_span.shortestSpan() << '\n';
+		std::cout << "Biggest span in _span variable : " << short_span.longestSpan() << '\n';
 	}
 
 	// error tests
