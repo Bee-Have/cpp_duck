@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:10:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/06 18:11:34 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/06 18:22:45 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ Span::Span(Span &cpy): _size(cpy._size), _pos_max(0)
 
 Span::~Span(void)
 {
-	delete[] _span;
+	if (_size > 0)
+		delete[] _span;
 }
 
 // Assignment operator :
