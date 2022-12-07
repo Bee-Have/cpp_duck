@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:10:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/07 12:26:15 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:31:48 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,14 +109,7 @@ void	Span::addNumber(int value)
 	if (_pos_max == _size)
 		throw std::length_error(ss.str());
 
-	if (_pos_max > 0)
-	{
-		for (int i = _pos_max; i > 0; --i)
-			_span[i] = _span[i - 1];
-		_span[0] = value;
-	}
-	else
-		_span[_pos_max] = value;
+	_span[_pos_max] = value;
 	++_pos_max;
 }
 
