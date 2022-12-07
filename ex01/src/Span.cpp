@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:10:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/07 12:31:48 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:43:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,16 +81,22 @@ void	Span::fill(int value)
 		_span[_pos_max] = value;
 }
 
-void	Span::addRange(int min, int max)
+	void	Span::addRange(int min, int max)
 {
 	static bool	seeded(false);
-	std::ostringstream	ss;
+	std::ostringstream	length;
+	std::ostringstream	argument;
 
-	ss << "Span::addRange: adding value (which is rand()) would exceed _size (which is "
+	length << "Span::addRange: adding value (which is rand()) would exceed _size (which is "
 		<< _size << ")";
+	argument << "Span::addRange: min (which i " << min << ") > max (which is " << max << ")";
 	if (_pos_max == _size)
-		throw std::length_error(ss.str());
+		throw std::length_error(length.str());
+	if (min > max)
+		throw std::invalid_argument(argument.str());
 
+	if (min == max)
+		return (fill(min));
 	if (seeded == false)
 	{
 		std::srand(std::time(NULL));
