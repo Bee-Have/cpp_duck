@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:53:02 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/07 12:29:46 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:08:18 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ class Span
 {
 	public:
 	// Constructors
+		// Span();
 		Span(unsigned int N = 0);
 		Span(Span &cpy);
+		Span(Span const &cpy);
 	// Destructor
 		~Span();
 	// Assignment operator

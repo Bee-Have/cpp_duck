@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:10:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/07 12:43:11 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:10:33 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,19 @@ Span::Span(unsigned int N): _size(N), _pos_max(0)
 	}
 }
 
+// Copy constructor
 Span::Span(Span &cpy): _size(cpy._size), _pos_max(0)
+{
+	if (_size != 0)
+	{
+		_span = new int[_size];
+		for (unsigned int i = 0; i < _size; ++i)
+			_span[i] = cpy._span[i];
+	}
+}
+
+// Copy constructor with different cpy type variable
+Span::Span(Span const &cpy): _size(cpy._size), _pos_max(0)
 {
 	if (_size != 0)
 	{
