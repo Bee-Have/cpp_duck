@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:10:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/06 18:50:52 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/07 12:26:15 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,8 @@ void	Span::addNumber(int value)
 
 int		Span::shortestSpan(void) const
 {
-	int	shortest = std::numeric_limits<int>::max();
+	int					shortest;
+	int					*cpy;
 	std::ostringstream	ss;
 
 	ss << "Span::shortestSpan: number of element in _span (which is "
@@ -130,23 +131,20 @@ int		Span::shortestSpan(void) const
 	if (_pos_max < 2)
 		throw std::length_error(ss.str());
 
-	for (int i = 0; (unsigned int)i < _pos_max; ++i)
-		for (int j = 0; (unsigned int)j < _pos_max; ++j)
-			if (i != j
-				&& (((i - j) > 0 && (i - j) < shortest)
-				|| ((j - i) > 0 && (j - i) < shortest)))
-			{
-				if ((i - j) > 0)
-					shortest = (i - j);
-				else if ((j - i) > 0)
-					shortest = (j - i);
-			}
+	cpy = new int[_pos_max];
+	for (unsigned int i = 0; i < _pos_max; ++i)
+		cpy[i] = _span[i];
+	std::sort(cpy, cpy + _pos_max);
+	shortest = cpy[1] - cpy[0];
+
+	delete[] cpy;
 	return (shortest);
 }
 
 int		Span::longestSpan(void) const
 {
-	int	longest = 0;
+	int					longest;
+	int					*cpy;
 	std::ostringstream	ss;
 
 	ss << "Span::longestSpan: number of element in _span (which is "
@@ -154,15 +152,14 @@ int		Span::longestSpan(void) const
 	if (_pos_max < 2)
 		throw std::length_error(ss.str());
 
-	for (int i = 0; (unsigned int)i < _pos_max; ++i)
-		for (int j = 0; (unsigned int)j < _pos_max; ++j)
-			if (i != j && ((i - j) > longest || (j - i) > longest))
-			{
-				if ((i - j) > 0)
-					longest = (i - j);
-				else if ((j - i) > 0)
-					longest = (j - i);
-			}
+	cpy = new int[_pos_max];
+	for (unsigned int i = 0; i < _pos_max; ++i)
+		cpy[i] = _span[i];
+
+	std::sort(cpy, cpy + _pos_max);
+	longest = cpy[_pos_max - 1] - cpy[0];
+	
+	delete[] cpy;
 	return (longest);
 }
 
