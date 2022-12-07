@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 16:10:34 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/07 18:10:33 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:26:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,8 +146,12 @@ int		Span::shortestSpan(void) const
 	for (unsigned int i = 0; i < _pos_max; ++i)
 		cpy[i] = _span[i];
 	std::sort(cpy, cpy + _pos_max);
-	shortest = cpy[1] - cpy[0];
-
+	shortest = cpy[_pos_max - 1] - cpy[0];
+	for (unsigned int i = _pos_max - 1; i > 0; --i)
+	{
+		if ((cpy[i] - cpy[i - 1]) < shortest)
+			shortest = cpy[i] - cpy[i - 1];
+	}
 	delete[] cpy;
 	return (shortest);
 }
