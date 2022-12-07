@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 13:20:53 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/07 13:01:26 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/07 18:12:40 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,26 @@ int	main(void)
 			<< simple.shortestSpan() << '\n';
 		std::cout << BOLD << "Biggest span in _span variable : " << END
 			<< simple.longestSpan() << '\n';
+	}
+
+	// 42 tests
+	std::cout << GB << "\nTests given by the 42 subject :\n" << END;
+	{
+		Span sp = Span(5);
+		
+		std::cout << YB << "Adding numbers repeatedly with addNumber()\n" << END;
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+		
+		sp.printSpan();
+		
+		std::cout << BOLD << "Shortest span in _span variable : " << END
+			<< sp.shortestSpan() << std::endl;
+		std::cout << BOLD << "Biggest span in _span variable : " << END
+			<< sp.longestSpan() << std::endl;
 	}
 
 	// addRange tests
