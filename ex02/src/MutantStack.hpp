@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:46:37 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/15 13:03:43 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/15 13:21:08 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ class MutantStack : public std::stack<T>
 		MutantStack	operator=(const MutantStack &other) {this->c = other.c;}
 		MutantStack	operator=(MutantStack &&other) {this->c = std::move(other.c);}
 	// Operators : ==, !=, <, <=, >=
-		bool	operator==(const MutantStack &lhs, const MutantStack &rhs) {}
-		bool	operator!=(const MutantStack &lhs, const MutantStack &rhs) {}
-		bool	operator<(const MutantStack &lhs, const MutantStack &rhs) {}
-		bool	operator<=(const MutantStack &lhs, const MutantStack &rhs) {}
-		bool	operator>(const MutantStack &lhs, const MutantStack &rhs) {}
-		bool	operator>=(const MutantStack &lhs, const MutantStack &rhs) {}
+		bool	operator==(const MutantStack &rhs) {}
+		bool	operator!=(const MutantStack &rhs) {}
+		bool	operator<(const MutantStack &rhs) {}
+		bool	operator<=(const MutantStack &rhs) {}
+		bool	operator>(const MutantStack &rhs) {}
+		bool	operator>=(const MutantStack &rhs) {}
 
 	// Element access : top : returnthetop element of the stack (the most recently pushed)
 		MutantStack	top(void) {return (this->c.back());}
