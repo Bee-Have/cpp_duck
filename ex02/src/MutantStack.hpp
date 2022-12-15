@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:46:37 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/15 15:29:34 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/15 16:22:30 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ class MutantStack : public std::stack<T>
 
 	// Constructors
 		MutantStack(void): std::stack<T>() {}
-		MutantStack(const T& cont):std::stack<T>(cont) {}
-		// MutantStack( const Container& cont = Container() ); ?????
 		MutantStack(MutantStack &cpy): std::stack<T>() {this->c = cpy.c;}
 
 	// Destructor
@@ -73,8 +71,8 @@ class MutantStack : public std::stack<T>
 		}
 
 	// Element access
-		MutantStack	&top(void) const {return (this->c.back());}
-		MutantStack	top(void) {return (this->c.back());}
+		T	&top(void) const {return (this->c.back());}
+		T	top(void) {return (this->c.back());}
 
 	// Iterator methods : begin, end, rbegin, rend
 
