@@ -6,33 +6,47 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:46:37 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/07 16:30:36 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/15 13:03:43 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-// TODO understand wtf is the c type mentioned everywhere
+#include <stack>
+
+// 'c' is inherited from the std::stack container
 template <typename T>
-class MutantStack
+class MutantStack : public std::stack<T>
 {
 	public:
 	// Constructors
-		MutantStack();
-		MutantStack(MutantStack &cpy);
-		// constructor using iterator begin and end
-		// constructor taking container (kind of like copy constructor)
-		// constructor with allocator ?
+		MutantStack() {}
+
+		// MutantStack( const Container& cont = Container() ); ?????
+
+		MutantStack(MutantStack &cpy) {}
 	// Destructor
-		~MutantStack();
+		~MutantStack() {}
 	// Assignment operator
-		MutantStack	operator=(MutantStack &assign);
-	// Operators : ==, !=, <, <=, >=, <=>
+		MutantStack	operator=(const MutantStack &other) {this->c = other.c;}
+		MutantStack	operator=(MutantStack &&other) {this->c = std::move(other.c);}
+	// Operators : ==, !=, <, <=, >=
+		bool	operator==(const MutantStack &lhs, const MutantStack &rhs) {}
+		bool	operator!=(const MutantStack &lhs, const MutantStack &rhs) {}
+		bool	operator<(const MutantStack &lhs, const MutantStack &rhs) {}
+		bool	operator<=(const MutantStack &lhs, const MutantStack &rhs) {}
+		bool	operator>(const MutantStack &lhs, const MutantStack &rhs) {}
+		bool	operator>=(const MutantStack &lhs, const MutantStack &rhs) {}
 
-	// Element access : top
+	// Element access : top : returnthetop element of the stack (the most recently pushed)
+		MutantStack	top(void) {return (this->c.back());}
 	// Capacity : empty, size
-	// Modifiers : push, emplace, pop, swap
-
+		MutantStack	empty(void) const {this->c.empty;}
+		size_t		size(void) const {return (this->c.size());}
+	
+	// Modifiers : push, pop
+		MutantStack	push(const T &value) {this->c.push_back(value);}
+		MutantStack	push(T &&value) {this->c.push_back(std::move(value));}
+		void		pop(void) {this->c.pop_back();}
 	private:
-		// c ?
 };
