@@ -6,47 +6,77 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:46:37 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/15 13:21:08 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/15 13:48:39 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <stack>
+#include <cstdlib>
 
-// 'c' is inherited from the std::stack container
 template <typename T>
 class MutantStack : public std::stack<T>
 {
 	public:
 	// Constructors
-		MutantStack() {}
-
+		MutantStack(void): std::stack<T>() {}
 		// MutantStack( const Container& cont = Container() ); ?????
+		MutantStack(MutantStack &cpy): std::stack<T>() {this->c = cpy.c;}
 
-		MutantStack(MutantStack &cpy) {}
 	// Destructor
-		~MutantStack() {}
+		~MutantStack(void) {}
+
 	// Assignment operator
 		MutantStack	operator=(const MutantStack &other) {this->c = other.c;}
-		MutantStack	operator=(MutantStack &&other) {this->c = std::move(other.c);}
-	// Operators : ==, !=, <, <=, >=
-		bool	operator==(const MutantStack &rhs) {}
-		bool	operator!=(const MutantStack &rhs) {}
-		bool	operator<(const MutantStack &rhs) {}
-		bool	operator<=(const MutantStack &rhs) {}
-		bool	operator>(const MutantStack &rhs) {}
-		bool	operator>=(const MutantStack &rhs) {}
 
-	// Element access : top : returnthetop element of the stack (the most recently pushed)
+	// Operators
+		bool	operator==(const MutantStack &rhs)
+		{
+			if (this->c != rhs.c)
+				return (false);
+			return (true);
+		}
+		bool	operator!=(const MutantStack &rhs)
+		{
+			if (this->c != rhs.c)
+				return(true);
+			return (false);
+		}
+		bool	operator<(const MutantStack &rhs)
+		{
+			if (this->c < rhs.c)
+				return (true);
+			return (false);
+		}
+		bool	operator<=(const MutantStack &rhs)
+		{
+			if (this->c <= rhs.c)
+				return (true);
+			return (false);
+		}
+		bool	operator>(const MutantStack &rhs)
+		{
+			if (this->c > rhs.c)
+				return (true);
+			return (false);
+		}
+		bool	operator>=(const MutantStack &rhs)
+		{
+			if (this->c >= rhs.c)
+				return (true);
+			return (false);
+		}
+
+	// Element access
 		MutantStack	top(void) {return (this->c.back());}
-	// Capacity : empty, size
+
+	// Capacity
 		MutantStack	empty(void) const {this->c.empty;}
 		size_t		size(void) const {return (this->c.size());}
 	
-	// Modifiers : push, pop
+	// Modifiers
 		MutantStack	push(const T &value) {this->c.push_back(value);}
-		MutantStack	push(T &&value) {this->c.push_back(std::move(value));}
 		void		pop(void) {this->c.pop_back();}
 	private:
 };
