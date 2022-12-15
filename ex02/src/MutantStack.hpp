@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:46:37 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/15 13:52:54 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/15 15:29:34 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 #include <stack>
 #include <cstdlib>
+#include <iterator>
 
 template <typename T>
 class MutantStack : public std::stack<T>
 {
 	public:
+	// Iterator :declare iterator here ?
+
 	// Constructors
 		MutantStack(void): std::stack<T>() {}
 		MutantStack(const T& cont):std::stack<T>(cont) {}
@@ -70,14 +73,17 @@ class MutantStack : public std::stack<T>
 		}
 
 	// Element access
+		MutantStack	&top(void) const {return (this->c.back());}
 		MutantStack	top(void) {return (this->c.back());}
+
+	// Iterator methods : begin, end, rbegin, rend
 
 	// Capacity
 		MutantStack	empty(void) const {this->c.empty;}
 		size_t		size(void) const {return (this->c.size());}
 	
 	// Modifiers
-		MutantStack	push(const T &value) {this->c.push_back(value);}
+		void		push(const T &value) {this->c.push_back(value);}
 		void		pop(void) {this->c.pop_back();}
 	private:
 };
