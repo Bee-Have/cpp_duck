@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:46:37 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/15 13:48:39 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/15 13:52:54 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class MutantStack : public std::stack<T>
 	public:
 	// Constructors
 		MutantStack(void): std::stack<T>() {}
+		MutantStack(const T& cont):std::stack<T>(cont) {}
 		// MutantStack( const Container& cont = Container() ); ?????
 		MutantStack(MutantStack &cpy): std::stack<T>() {this->c = cpy.c;}
 
