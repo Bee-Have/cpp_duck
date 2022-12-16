@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:46:37 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/16 12:46:23 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/16 14:58:25 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,12 @@ class MutantStack : public std::stack<T>
 		~MutantStack(void) {}
 
 	// Assignment operator
-		MutantStack	operator=(const MutantStack &other) {this->c = other.c;}
+		MutantStack	&operator=(const MutantStack &other)
+		{
+			if (*this != other)
+				this->c = other.c;
+			return (*this);
+		}
 
 	// Operators
 		bool	operator==(const MutantStack &rhs)
