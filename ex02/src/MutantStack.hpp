@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:46:37 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/15 16:34:11 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/16 12:46:23 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,11 +87,10 @@ class MutantStack : public std::stack<T>
 	reverse_iterator	rend() const {return (this->c.rend());}
 
 	// Capacity
-		MutantStack	empty(void) const {this->c.empty;}
+		bool		empty(void) const {return (this->c.empty());}
 		size_t		size(void) const {return (this->c.size());}
 	
 	// Modifiers
 		void		push(const T &value) {this->c.push_back(value);}
 		void		pop(void) {this->c.pop_back();}
-	private:
 };
