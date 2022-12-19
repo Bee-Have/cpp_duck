@@ -6,13 +6,14 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 20:25:11 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/05 14:08:55 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/19 13:25:42 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EASYFIND_HPP
 # define EASYFIND_HPP
 
+# include <algorithm>
 # include <sstream>
 # include <stdexcept>
 
@@ -39,10 +40,10 @@ namespace iterator
 	template<typename T>
 	typename T::iterator	easyfind(T &type, int value)
 	{
-		typename T::iterator	it = type.begin();
-		for (; it != type.end(); ++it)
-			if (*it == value)
-				return (it);
+		typename T::iterator result;
+		result = std::find(type.begin(), type.end(), value);
+		if (*result == value)
+			return (result);
 
 		std::ostringstream	ss;
 
