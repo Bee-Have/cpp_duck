@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 20:25:11 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/19 13:25:42 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/19 14:25:07 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,31 @@
 namespace integer
 {
 	template<typename T>
-	int	easyfind(T &type, int value)
+	int	easyfind(T type, int value)
 	{
-		typename T::iterator	it = type.begin();
-		for (int	i = 0; it != type.end(); ++it, ++i)
-			if (*it == value)
-				return (i);
+		for (int result = 0; type.empty() == false; type.pop())
+		{
+			if (type.top() == value)
+				return (result);
+			++result;
+		}
+
+		std::ostringstream	ss;
+
+		ss << "integer::easyfind: value (which is " << value
+			<<  ") >= <typename T>type->size() (which is " << type.size() << ")";
+		throw std::out_of_range(ss.str());
+	}
+
+	template<>
+	int	easyfind(std::queue<int> type, int value)
+	{
+		for (int result = 0; type.empty() == false; type.pop())
+		{
+			if (type.front() == value)
+				return (result);
+			++result;
+		}
 
 		std::ostringstream	ss;
 
