@@ -6,11 +6,12 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 13:10:25 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/16 18:50:16 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/19 17:00:42 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <list>
 #include "MutantStack.hpp"
 
 #define BOLD "\033[1m"
@@ -228,7 +229,7 @@ int	main(void)
 		std::cout << "MutantStack size is : " << mutant.size() << '\n';
 	}
 	
-	std::cout << GB << "\nMandatory 42 tests :(unchanged)\n" << END;
+	std::cout << GB << "\nMandatory 42 tests :(MutantStack)\n" << END;
 	{
 		MutantStack<int> mstack;
 		mstack.push(5);
@@ -241,7 +242,7 @@ int	main(void)
 		mstack.push(737);
 		//[...]
 		mstack.push(0);
-		MutantStack<	int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator it = mstack.begin();
 		MutantStack<int>::iterator ite = mstack.end();
 		++it;
 		--it;
@@ -251,6 +252,30 @@ int	main(void)
 		++it;
 		}
 		std::stack<int> s(mstack);
+	}
+	std::cout << GB << "\nMandatory 42 tests :(std::list)\n" << END;
+	{
+		std::list<int> mstack;
+		mstack.push_back(5);
+		mstack.push_back(17);
+		std::cout << *mstack.rbegin() << std::endl;
+		mstack.pop_back();
+		std::cout << mstack.size() << std::endl;
+		mstack.push_back(3);
+		mstack.push_back(5);
+		mstack.push_back(737);
+		//[...]
+		mstack.push_back(0);
+		std::list<int>::iterator it = mstack.begin();
+		std::list<int>::iterator ite = mstack.end();
+		++it;
+		--it;
+		while (it != ite)
+		{
+		std::cout << *it << std::endl;
+		++it;
+		}
+		// std::stack<int> s(mstack);
 	}
 	return (0);
 }
