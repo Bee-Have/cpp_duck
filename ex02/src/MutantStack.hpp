@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/07 13:46:37 by amarini-          #+#    #+#             */
-/*   Updated: 2022/12/16 14:58:25 by amarini-         ###   ########.fr       */
+/*   Updated: 2022/12/19 16:33:14 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 	public:
-	// Iterator :declare iterator here ?
+	// Iterator : declare iterator & reverse iterator
 	typedef typename std::stack<T>::container_type::iterator iterator;
 	typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
 
