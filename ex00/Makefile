@@ -9,14 +9,14 @@ ifdef DEBUG
 CFLAGS += -fsanitize=address -g3
 endif
 
-SRCS_DIR = $(shell find srcs type d)
+SRCS_DIR = $(shell find srcs -type d)
 OBJS_DIR = objs
 
 vpath %.cpp $(foreach dir, $(SRCS_DIR), $(dir):)
 
 SRCS = main.cpp database.cpp
 
-OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:%.cpp=.o))
+OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
 all: $(NAME)
 
@@ -25,7 +25,7 @@ $(NAME): $(OBJS)
 
 $(OBJS_DIR)/%.o: %.cpp
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $< -c $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS_DIR)
