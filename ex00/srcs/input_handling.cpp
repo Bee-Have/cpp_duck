@@ -26,14 +26,21 @@ float	get_value(std::string line)
 	std::stringstream	ss;
 
 	tmp = line.substr(line.find('|', 0) + 2, line.size());
-	if (tmp.find_first_not_of("0123456789.", 0) != std::string::npos)
+	if (tmp.empty() == true || line.find('|', 0) == std::string::npos)
+		std::cerr << "Error: value is empty\n";
+	else if (tmp.find_first_not_of("0123456789.", 0) != std::string::npos)
 		std::cerr << "Error: value must be a NUMBER between 0 and 1000\n";
 	else
 	{
-		ss << tmp;
-		ss >> ret;
-		if (ret > 1000)
-			std::cerr << "Error: value must be a NUMBER between 0 and 1000\n";
+		if (tmp.find_first_of('.') != tmp.find_last_of('.'))
+			std::cerr << "Error: value contains multiple \'.\'\n";
+		else
+		{
+			ss << tmp;
+			ss >> ret;
+			if (ret > 1000)
+				std::cerr << "Error: value must be a NUMBER between 0 and 1000\n";
+		}
 	}
 	return (ret);
 }
@@ -46,6 +53,11 @@ void	input_handling(std::ifstream &input_file, std::map<std::string, float>db)
 
 	(void)db;
 	line = get_line(input_file);
+	if (line.empty() == true)
+	{
+		std::cerr << "Error: input file is EMPTY\n";
+		return ;
+	}
 	while (input_file)
 	{
 		line = get_line(input_file);
