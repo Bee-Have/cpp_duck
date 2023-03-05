@@ -1,3 +1,4 @@
+#include <iostream>
 #include <string>
 #include <map>
 
@@ -5,7 +6,6 @@ std::map<std::string, float>	setup_database(void);
 
 int	main(void)
 {
-	setup_database();
-
+	std::map<std::string, float> db = setup_database();
 	return (0);
 }
