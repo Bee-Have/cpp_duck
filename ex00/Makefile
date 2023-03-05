@@ -14,7 +14,7 @@ OBJS_DIR = objs
 
 vpath %.cpp $(foreach dir, $(SRCS_DIR), $(dir):)
 
-SRCS = main.cpp database.cpp
+SRCS = main.cpp database.cpp input_handling.cpp
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
