@@ -36,7 +36,7 @@ int	main(int ac, char **av)
 {
 	if (ac < 3)
 		std::cerr << "Error: not enough arguments\n";
-	if (parsing(av) == 0)
+	else if (parsing(av) == 0)
 	{
 		list_handling(av);
 		multiset_handling(av);
