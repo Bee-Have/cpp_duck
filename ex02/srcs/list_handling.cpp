@@ -1,6 +1,7 @@
 #include <list>
 #include <iostream>
 #include <sstream>
+#include <sys/time.h>
 
 void	print_list(std::list<int> container)
 {
@@ -26,9 +27,17 @@ void	fill_list(std::list<int> &container, char **av)
 void	list_handling(char **av)
 {
 	std::list<int>	container;
+	struct timeval	start_time;
+	struct timeval	end_time;
+	long			time;
 
 	fill_list(container, av);
 	print_list(container);
+	gettimeofday(&start_time, NULL);
 	container.sort();
+	gettimeofday(&end_time, NULL);
+	time = ((end_time.tv_sec - start_time.tv_sec) * 1000000L
+		+ (end_time.tv_usec - start_time.tv_usec));
+	std::cout << "TIME LIST : " << time << " nanoseconds\n";
 	print_list(container);
 }
