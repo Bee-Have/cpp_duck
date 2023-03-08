@@ -4,14 +4,15 @@
 
 void	print_list(std::list<int> container)
 {
+	std::cout << "list : ";
 	for (std::list<int>::iterator it = container.begin(); it != container.end(); ++it)
-		std::cout << *it << " ";
+		std::cout << *it << ' ';
 	std::cout << '\n';
 }
 
 void	fill_list(std::list<int> &container, char **av)
 {
-	long				tmp;
+	int	tmp;
 
 	for (int i = 1; av[i] != NULL; ++i)
 	{
