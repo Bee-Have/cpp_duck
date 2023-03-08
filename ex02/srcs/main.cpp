@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 
+void	list_handling(char **av);
+
 int	parsing(char **av)
 {
 	std::string	check;
@@ -10,7 +12,7 @@ int	parsing(char **av)
 		check.append(av[i]);
 		if (check.find_first_not_of("0123456789 ") != std::string::npos)
 		{
-			std::cerr << "Error: inputs must only be POSITIVE INTEGERS\n";
+			std::cerr << "Error: values must be POSITIVE INTEGERS\n";
 			return (1);
 		}
 		check.clear();
@@ -23,7 +25,6 @@ int	main(int ac, char **av)
 	if (ac < 3)
 		std::cerr << "Error: not enough arguments\n";
 	if (parsing(av) == 0)
-		return (0);
-		// rest of the behavior here
+		list_handling(av);
 	return (0);
 }
