@@ -3,6 +3,7 @@
 #include <limits>
 #include <string>
 
+void	multiset_handling(char **av);
 void	list_handling(char **av);
 
 int	parsing(char **av)
@@ -36,6 +37,9 @@ int	main(int ac, char **av)
 	if (ac < 3)
 		std::cerr << "Error: not enough arguments\n";
 	if (parsing(av) == 0)
+	{
 		list_handling(av);
+		multiset_handling(av);
+	}
 	return (0);
 }
