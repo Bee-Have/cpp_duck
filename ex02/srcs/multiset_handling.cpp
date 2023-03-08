@@ -1,4 +1,5 @@
 #include <set>
+#include <vector>
 #include <iostream>
 #include <sstream>
 
@@ -12,15 +13,18 @@ void	print_multiset(std::multiset<int> container)
 
 void	fill_multiset(std::multiset<int> &container, char **av)
 {
-	int	tmp;
+	std::vector<int>	tmp;
+	int	value;
 
 	for (int i = 1; av[i] != NULL; ++i)
 	{
 		std::stringstream	ss;
 		ss << av[i];
-		ss >> tmp;
-		container.insert(container.end(), tmp);
+		ss >> value;
+		tmp.insert(tmp.end(), value);
 	}
+	for (std::vector<int>::iterator it = tmp.begin(); it != tmp.end(); ++it)
+		container.insert(container.begin(), *it);
 }
 
 void	multiset_handling(char **av)
