@@ -38,6 +38,13 @@ int	main(int ac, char **av)
 		std::cerr << "Error: not enough arguments\n";
 	else if (parsing(av) == 0)
 	{
+		std::cout << "Before: ";
+		if (ac > 11)
+			std::cout << av[1] << ' ' << av[2] << ' ' << av[3] << ' ' << av[4] << " [...]";
+		else
+			for (int i = 1; av[i] != NULL; ++i)
+				std::cout << av[i] << ' ';
+		std::cout << '\n';
 		list_handling(av);
 		multiset_handling(av);
 	}

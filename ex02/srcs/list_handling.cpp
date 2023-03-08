@@ -3,11 +3,23 @@
 #include <sstream>
 #include <sys/time.h>
 
-void	print_list(std::list<int> container)
+void	print_sorted_list(std::list<int> container)
 {
-	std::cout << "list : ";
-	for (std::list<int>::iterator it = container.begin(); it != container.end(); ++it)
-		std::cout << *it << ' ';
+	std::cout << "After : ";
+
+	if (container.size() > 10)
+	{
+		std::list<int>::iterator it = container.begin();
+		for (int i = 0; i < 4; ++i)
+		{
+			std::cout << *it << ' ';
+			++it;
+		}
+		std::cout << "[...]";
+	}
+	else
+		for (std::list<int>::iterator it = container.begin(); it != container.end(); ++it)
+			std::cout << *it << ' ';
 	std::cout << '\n';
 }
 
@@ -32,12 +44,12 @@ void	list_handling(char **av)
 	long			time;
 
 	fill_list(container, av);
-	print_list(container);
 	gettimeofday(&start_time, NULL);
 	container.sort();
 	gettimeofday(&end_time, NULL);
 	time = ((end_time.tv_sec - start_time.tv_sec) * 1000000L
 		+ (end_time.tv_usec - start_time.tv_usec));
-	std::cout << "TIME LIST : " << time << " nanoseconds\n";
-	print_list(container);
+	print_sorted_list(container);
+	std::cout << "Time to process a range of " << container.size()
+		<< " elements with std::list<int> : " << time << " nanoseconds\n";
 }

@@ -4,14 +4,6 @@
 #include <sstream>
 #include <sys/time.h>
 
-void	print_multiset(std::multiset<int> container)
-{
-	std::cout << "multiset : ";
-	for (std::multiset<int>::iterator it = container.begin(); it != container.end(); ++it)
-		std::cout << *it << ' ';
-	std::cout << '\n';
-}
-
 std::vector<int>	fill_vector(char **av)
 {
 	std::vector<int>	container;
@@ -38,7 +30,8 @@ void	time_multiset(std::vector<int> tmp, std::multiset<int> &container)
 	gettimeofday(&end_time, NULL);
 	time = ((end_time.tv_sec - start_time.tv_sec) * 1000000L
 		+ (end_time.tv_usec - start_time.tv_usec));
-	std::cout << "TIME MULTISET : " << time << " nanoseconds\n";
+	std::cout << "Time to process a range of " << container.size()
+		<< " elements with std::multiset<int> : " << time << " nanoseconds\n";
 }
 
 void	multiset_handling(char **av)
@@ -48,5 +41,4 @@ void	multiset_handling(char **av)
 
 	tmp = fill_vector(av);
 	time_multiset(tmp, container);
-	print_multiset(container);
 }
