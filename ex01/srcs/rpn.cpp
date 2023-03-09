@@ -7,7 +7,9 @@ int	calculate(int first, int second, char sign)
 {
 	int	ret = -1;
 
-	if (sign == '+')
+	if (first == -1)
+		ret = second * -1;
+	else if (sign == '+')
 		ret = first + second;
 	else if (sign == '-')
 		ret = first - second;
@@ -41,9 +43,22 @@ void	rpn(std::string equation)
 			{
 				second = container.top();
 				container.pop();
-				top = container.top();
-				container.pop();
-				container.push(calculate(top, second, tmp));
+				if (container.size() == 0)
+				{
+					if (tmp == '-')
+						container.push(calculate(-1, second, tmp));
+					else
+					{
+						std::cerr << "Error: incomplete equation\n";
+						return ;
+					}
+				}
+				else
+				{
+					top = container.top();
+					container.pop();
+					container.push(calculate(top, second, tmp));
+				}
 			}
 		}
 	}
