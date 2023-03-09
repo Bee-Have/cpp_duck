@@ -41,18 +41,15 @@ void	rpn(std::string equation)
 			}
 			else
 			{
+				if (container.size() == 0 || (container.size() == 1 && tmp != '-'))
+				{
+					std::cerr << "Error: incomplete equation\n";
+					return ;
+				}
 				second = container.top();
 				container.pop();
-				if (container.size() == 0)
-				{
-					if (tmp == '-')
-						container.push(calculate(-1, second, tmp));
-					else
-					{
-						std::cerr << "Error: incomplete equation\n";
-						return ;
-					}
-				}
+				if (container.size() == 0 && tmp == '-')
+					container.push(calculate(-1, second, tmp));
 				else
 				{
 					top = container.top();
