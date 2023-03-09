@@ -62,5 +62,8 @@ void	rpn(std::string equation)
 			}
 		}
 	}
-	std::cout << container.top() << '\n';
+	if (container.size() > 1)
+		std::cerr << "Error: incomplete equation\n";
+	else
+		std::cout << container.top() << '\n';
 }
