@@ -26,7 +26,7 @@ std::pair<std::string, float>	create_pair(std::string line)
 std::map<std::string, float>	setup_database(void)
 {
 	std::map<std::string, float>	db;
-	std::ifstream					db_file("./srcs/BTC-db.csv");
+	std::ifstream					db_file("./srcs/data.csv");
 	std::string						line;
 
 	if (db_file.is_open())
