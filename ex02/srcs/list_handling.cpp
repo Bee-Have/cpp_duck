@@ -51,5 +51,5 @@ void	list_handling(char **av)
 		+ (end_time.tv_usec - start_time.tv_usec));
 	print_sorted_list(container);
 	std::cout << "Time to process a range of " << container.size()
-		<< " elements with std::list<int> : " << time << " nanoseconds\n";
+		<< " elements with std::list<int>::sort() : " << time << " nanoseconds\n";
 }
