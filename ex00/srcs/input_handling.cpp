@@ -4,21 +4,6 @@
 #include <string>
 #include <map>
 
-std::string	get_line(std::ifstream &input_file)
-{
-	std::string	line;
-	char		tmp;
-	while (input_file)
-	{
-		tmp = input_file.get();
-		if (tmp == '\n' || tmp == EOF)
-			return (line);
-		else
-			line.push_back(tmp);
-	}
-	return (line);
-}
-
 float	get_value(std::string line)
 {
 	float				ret = -1;
@@ -51,19 +36,13 @@ void	input_handling(std::ifstream &input_file, std::map<std::string, float>db)
 	std::string	date;
 	float		nbr;
 
-	(void)db;
-	line = get_line(input_file);
-	if (line.empty() == true)
+	while (input_file.eof() == false)
 	{
-		std::cerr << "Error: input file is EMPTY\n";
-		return ;
-	}
-	while (input_file)
-	{
-		line = get_line(input_file);
+		getline(input_file, line, '\n');
 		if (line.empty() == false)
 		{
 			date = line.substr(0, line.find_first_of(' '));
+
 			if (db.find(date) != db.end())
 			{
 				nbr = get_value(line);
