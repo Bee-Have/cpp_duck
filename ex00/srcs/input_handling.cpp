@@ -10,10 +10,18 @@ float	get_value(std::string line)
 	std::string			tmp;
 	std::stringstream	ss;
 
-	tmp = line.substr(line.find('|', 0) + 2, line.size());
-	if (tmp.empty() == true || line.find('|', 0) == std::string::npos)
+	if (line.find('|') + 1 == line.size() || line.find('|') == std::string::npos)
+	{
 		std::cerr << "Error: value is empty\n";
-	else if (tmp.find_first_not_of("0123456789.", 0) != std::string::npos)
+		return (ret);
+	}
+	tmp = line.substr(line.find('|') + 1, line.size());
+	if (tmp.empty() == true)
+	{
+		std::cerr << "Error: value is empty\n";
+		return (ret);
+	}
+	if (tmp.find_first_of("0123456789", 0) == std::string::npos || tmp.find_first_not_of("0123456789. ", 0) != std::string::npos)
 		std::cerr << "Error: value must be a NUMBER between 0 and 1000\n";
 	else
 	{
