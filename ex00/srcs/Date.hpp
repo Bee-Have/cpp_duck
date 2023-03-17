@@ -14,13 +14,11 @@ class Date
 
 		void	print_date() const;
 		bool	check_date(Date &cmp) const;
+		void	set_date(std::string date);
 
 		int		get_year() const;
-		void	set_year(int new_year);
 		int		get_month() const;
-		void	set_month(int new_month);
 		int		get_day() const;
-		void	set_day(int new_day);
 
 	private:
 		unsigned int	_year;

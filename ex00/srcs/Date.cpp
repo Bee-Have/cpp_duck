@@ -79,14 +79,34 @@ bool	Date::check_date(Date &cmp) const
 	return (true);
 }
 
+void	Date::set_date(std::string str_date)
+{
+	std::string			tmp;
+	std::stringstream	ss;
+	int					value;
+
+	tmp.assign(str_date.substr(0, str_date.find('-')));
+	ss << tmp;
+	ss >> value;
+	_year = value;
+	ss.clear();
+
+	str_date.assign(str_date.substr(str_date.find('-') + 1, str_date.size()));
+	tmp.assign(str_date.substr(0, str_date.find('-')));
+	ss << tmp;
+	ss >> value;
+	_month = value;
+	ss.clear();
+
+	str_date.assign(str_date.substr(str_date.find('-') + 1, str_date.size()));
+	ss << str_date;
+	ss >> value;
+	_day = value;
+}
+
 int	Date::get_year(void) const
 {
 	return (_year);
-}
-
-void	Date::set_year(int new_year)
-{
-	_year = new_year;
 }
 
 int	Date::get_month(void) const
@@ -94,17 +114,7 @@ int	Date::get_month(void) const
 	return (_month);
 }
 
-void	Date::set_month(int new_month)
-{
-	_month = new_month;
-}
-
 int	Date::get_day(void) const
 {
 	return (_day);
-}
-
-void	Date::set_day(int new_day)
-{
-	_day = new_day;
 }
