@@ -67,9 +67,14 @@ bool	operator<=(Date const &first, Date const &second)
 	return (!(first > second));
 }
 
-void	Date::print_date(void) const
+void	Date::print_date(int error) const
 {
-	std::cout << _year << '-' << _month << '-' << _day;
+	if (error == 0)
+		std::cout << _year << '-' << std::setfill('0') << std::setw(2) << _month
+			<< '-' << std::setfill('0') << std::setw(2) << _day;
+	else
+		std::cerr << _year << '-' << std::setfill('0') << std::setw(2) << _month
+			<< '-' << std::setfill('0') << std::setw(2) << _day;
 }
 
 bool	Date::check_date(Date &cmp) const

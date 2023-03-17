@@ -1,6 +1,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <iomanip>
 
 class Date
 {
@@ -12,7 +13,7 @@ class Date
 
 		Date	&operator=(Date const &assign);
 
-		void	print_date() const;
+		void	print_date(int error) const;
 		bool	check_date(Date &cmp) const;
 		void	set_date(std::string date);
 
