@@ -3,7 +3,9 @@
 #include <limits>
 #include <string>
 #include <vector>
+#include <algorithm>
 
+void	time_priority_queue(std::vector<int> vect);
 void	time_multiset(std::vector<int> vect);
 
 std::vector<int>	fill_vector(char **av)
@@ -47,6 +49,28 @@ int	parsing(char **av)
 	return (0);
 }
 
+void	print_sorted_list(std::vector<int> vect)
+{
+	std::vector<int>	copy(vect);
+
+	std::sort(copy.begin(), copy.end());
+	std::cout << "After : ";
+	if (copy.size() > 10)
+	{
+		std::vector<int>::iterator	it = copy.begin();
+		for (int i = 0; i < 4 ; ++i)
+		{
+			std::cout << *it << ' ';
+			++it;
+		}
+		std::cout << "[...]";
+	}
+	else
+		for (std::vector<int>::iterator	it = copy.begin(); it != copy.end(); ++it)
+			std::cout << *it << ' ';
+	std::cout << '\n';
+}
+
 int	main(int ac, char **av)
 {
 	std::vector<int>	vect;
@@ -63,7 +87,9 @@ int	main(int ac, char **av)
 				std::cout << av[i] << ' ';
 		std::cout << '\n';
 		vect = fill_vector(av);
-		multiset_handling(vect);
+		print_sorted_list(vect);
+		time_multiset(vect);
+		time_priority_queue(vect);
 	}
 	return (0);
 }
