@@ -17,5 +17,5 @@ void	time_multiset(std::vector<int> vect)
 	time = ((end_time.tv_sec - start_time.tv_sec) * 1000000L
 		+ (end_time.tv_usec - start_time.tv_usec));
 	std::cout << "Time to process a range of " << container.size()
-		<< " elements with std::multiset<int>::insert(begin(), end()) : " << time << " nanoseconds\n";
+		<< " elements with std::multiset<int> : " << time << " nanoseconds\n";
 }
