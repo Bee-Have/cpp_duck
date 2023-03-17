@@ -4,7 +4,6 @@
 #include <string>
 
 void	multiset_handling(char **av);
-void	list_handling(char **av);
 
 int	parsing(char **av)
 {
@@ -45,7 +44,6 @@ int	main(int ac, char **av)
 			for (int i = 1; av[i] != NULL; ++i)
 				std::cout << av[i] << ' ';
 		std::cout << '\n';
-		list_handling(av);
 		multiset_handling(av);
 	}
 	return (0);
