@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-void	multiset_handling(std::vector<int> vect);
+void	time_multiset(std::vector<int> vect);
 
 std::vector<int>	fill_vector(char **av)
 {

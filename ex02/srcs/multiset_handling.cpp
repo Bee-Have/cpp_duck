@@ -4,7 +4,7 @@
 #include <sstream>
 #include <sys/time.h>
 
-void	multiset_handling(std::vector<int> vect)
+void	time_multiset(std::vector<int> vect)
 {
 	std::multiset<int>	container;
 	struct timeval	start_time;
