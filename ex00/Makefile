@@ -11,10 +11,11 @@ endif
 
 SRCS_DIR = $(shell find srcs -type d)
 OBJS_DIR = objs
+IFALGS = $(foreach dir, $(SRCS_DIR), -I$(dir))
 
 vpath %.cpp $(foreach dir, $(SRCS_DIR), $(dir):)
 
-SRCS = main.cpp database.cpp input_handling.cpp
+SRCS = main.cpp database.cpp input_handling.cpp Date.cpp
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
@@ -25,7 +26,7 @@ $(NAME): $(OBJS)
 
 $(OBJS_DIR)/%.o: %.cpp
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(IFALGS) -c $< -o $@
 
 clean:
 	rm -rf $(OBJS_DIR)

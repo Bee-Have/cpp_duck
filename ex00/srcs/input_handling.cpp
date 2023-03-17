@@ -2,7 +2,9 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <limits>
 #include <map>
+#include "Date.hpp"
 
 float	get_value(std::string line)
 {
@@ -38,30 +40,63 @@ float	get_value(std::string line)
 	return (ret);
 }
 
-void	input_handling(std::ifstream &input_file, std::map<std::string, float>db)
+float	find_date(std::map<Date, float> db, Date date)
+{
+	if (db.find(date) != db.end())
+		return (db.find(date)->second);
+
+	db.insert(std::make_pair(date, 0));
+	std::map<Date, float>::iterator	it = db.find(date);
+	if (it == db.begin())
+	{
+		std::cerr << "Error: no data found for \"";
+		date.print_date(1);
+		std::cerr << "\"\n";
+		db.erase(it);
+		return (-1);
+	}
+	--it;
+	return ((*it).second);
+}
+
+void	input_handling(std::ifstream &input_file, std::map<Date, float> db)
 {
 	std::string	line;
-	std::string	date;
-	float		nbr;
+	Date		date;
+	float		bitcoin;
+	float		value;
 
+	getline(input_file, line, '\n');
+	if (line.compare("date | value") != 0)
+	{
+		date.set_date(line.substr(0, line.find_first_of(' ')));
+		bitcoin = find_date(db, date);
+		value = get_value(line);
+		if (bitcoin >= 0 && value >= 0 && value <= 1000)
+		{
+			date.print_date(0);
+			std::cout << " => " << value << " = ";
+			std::cout << (value * bitcoin) << '\n';
+		}
+	}
 	while (input_file.eof() == false)
 	{
 		getline(input_file, line, '\n');
 		if (line.empty() == false)
 		{
-			date = line.substr(0, line.find_first_of(' '));
-
-			if (db.find(date) != db.end())
+			date.set_date(line.substr(0, line.find_first_of(' ')));
+			bitcoin = find_date(db, date);
+			value = get_value(line);
+			if (bitcoin >= 0 && value >= 0 && value <= 1000)
 			{
-				nbr = get_value(line);
-				if (nbr >= 0 && nbr <= 1000)
-				{
-					std::cout << date << " => " << nbr << " = ";
-					std::cout << (nbr * db.find(date)->second) << '\n';
-				}
+				date.print_date(0);
+				if (value * bitcoin > 1000)
+					std::cout.precision(8);
+				else
+					std::cout.precision(5);
+				std::cout << " => " << value << " = ";
+				std::cout << (value * bitcoin) << '\n';
 			}
-			else
-				std::cout << "Error: could not find " << date << " in database\n";
 		}
 	}
 }
