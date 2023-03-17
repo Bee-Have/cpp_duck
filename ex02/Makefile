@@ -14,7 +14,7 @@ SRCS_DIR = $(shell find srcs -type d)
 
 vpath %.cpp $(foreach dir, $(SRCS_DIR), $(dir):)
 
-SRCS = main.cpp multiset_handling.cpp
+SRCS = main.cpp multiset_handling.cpp priority_queue_handling.cpp
 
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.cpp=.o))
 
