@@ -2,8 +2,24 @@
 #include <sstream>
 #include <limits>
 #include <string>
+#include <vector>
 
-void	multiset_handling(char **av);
+void	multiset_handling(std::vector<int> vect);
+
+std::vector<int>	fill_vector(char **av)
+{
+	std::vector<int>	container;
+	int	value;
+
+	for (int i = 1; av[i] != NULL; ++i)
+	{
+		std::stringstream	ss;
+		ss << av[i];
+		ss >> value;
+		container.insert(container.end(), value);
+	}
+	return (container);
+}
 
 int	parsing(char **av)
 {
@@ -33,6 +49,8 @@ int	parsing(char **av)
 
 int	main(int ac, char **av)
 {
+	std::vector<int>	vect;
+
 	if (ac < 3)
 		std::cerr << "Error: not enough arguments\n";
 	else if (parsing(av) == 0)
@@ -44,7 +62,8 @@ int	main(int ac, char **av)
 			for (int i = 1; av[i] != NULL; ++i)
 				std::cout << av[i] << ' ';
 		std::cout << '\n';
-		multiset_handling(av);
+		vect = fill_vector(av);
+		multiset_handling(vect);
 	}
 	return (0);
 }
