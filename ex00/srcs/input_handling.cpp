@@ -6,7 +6,7 @@
 #include <map>
 #include "Date.hpp"
 
-float	get_value(std::string line)
+float	get_value(std::string line, Date date)
 {
 	float				ret = -1;
 	std::string			tmp;
@@ -14,27 +14,36 @@ float	get_value(std::string line)
 
 	if (line.find('|') + 1 == line.size() || line.find('|') == std::string::npos)
 	{
-		std::cerr << "Error: value is empty\n";
+		std::cerr << "Error: bad input => ";
+		date.print_date(1);
+		std::cerr << '\n';
 		return (ret);
 	}
 	tmp = line.substr(line.find('|') + 1, line.size());
 	if (tmp.empty() == true)
 	{
-		std::cerr << "Error: value is empty\n";
+		std::cerr << "Error: bad input => ";
+		date.print_date(1);
+		std::cerr << '\n';
+		return (ret);
+	}
+	if (tmp.find('-') != std::string::npos)
+	{
+		std::cerr << "Error: not a positive number.\n";
 		return (ret);
 	}
 	if (tmp.find_first_of("0123456789", 0) == std::string::npos || tmp.find_first_not_of("0123456789. ", 0) != std::string::npos)
-		std::cerr << "Error: value must be a NUMBER between 0 and 1000\n";
+		std::cerr << "Error: value is not a number.\n";
 	else
 	{
 		if (tmp.find_first_of('.') != tmp.find_last_of('.'))
-			std::cerr << "Error: value contains multiple \'.\'\n";
+			std::cerr << "Error: number contains multiple \'.\'\n";
 		else
 		{
 			ss << tmp;
 			ss >> ret;
 			if (ret > 1000)
-				std::cerr << "Error: value must be a NUMBER between 0 and 1000\n";
+				std::cerr << "Error: too large a number.\n";
 		}
 	}
 	return (ret);
@@ -44,14 +53,25 @@ float	find_date(std::map<Date, float> db, Date date)
 {
 	if (db.find(date) != db.end())
 		return (db.find(date)->second);
-
+	if (date.get_year() == 0 && date.get_month() == 0 && date.get_day() == 0)
+	{
+		std::cerr << "Error: no date\n";
+		return (-1);
+	}
+	if (date.get_month() == 0 || date.get_day() == 0)
+	{
+		std::cerr << "Error: ";
+		date.print_date(1);
+		std::cerr << " => not a date \n";
+		return (-1);
+	}
 	db.insert(std::make_pair(date, 0));
 	std::map<Date, float>::iterator	it = db.find(date);
 	if (it == db.begin())
 	{
-		std::cerr << "Error: no data found for \"";
+		std::cerr << "Error: no data found for => ";
 		date.print_date(1);
-		std::cerr << "\"\n";
+		std::cerr << "\n";
 		db.erase(it);
 		return (-1);
 	}
@@ -70,24 +90,11 @@ void	input_handling(std::ifstream &input_file, std::map<Date, float> db)
 	if (line.compare("date | value") != 0)
 	{
 		date.set_date(line.substr(0, line.find_first_of(' ')));
-		bitcoin = find_date(db, date);
-		value = get_value(line);
-		if (bitcoin >= 0 && value >= 0 && value <= 1000)
+		value = get_value(line, date);
+		if (value >= 0 && value <= 1000)
 		{
-			date.print_date(0);
-			std::cout << " => " << value << " = ";
-			std::cout << (value * bitcoin) << '\n';
-		}
-	}
-	while (input_file.eof() == false)
-	{
-		getline(input_file, line, '\n');
-		if (line.empty() == false)
-		{
-			date.set_date(line.substr(0, line.find_first_of(' ')));
 			bitcoin = find_date(db, date);
-			value = get_value(line);
-			if (bitcoin >= 0 && value >= 0 && value <= 1000)
+			if (bitcoin >= 0)
 			{
 				date.print_date(0);
 				if (value * bitcoin > 1000)
@@ -96,6 +103,29 @@ void	input_handling(std::ifstream &input_file, std::map<Date, float> db)
 					std::cout.precision(5);
 				std::cout << " => " << value << " = ";
 				std::cout << (value * bitcoin) << '\n';
+			}
+		}
+	}
+	while (input_file.eof() == false)
+	{
+		getline(input_file, line, '\n');
+		if (line.empty() == false)
+		{
+			date.set_date(line.substr(0, line.find_first_of(' ')));
+			value = get_value(line, date);
+			if (value >= 0 && value <= 1000)
+			{
+				bitcoin = find_date(db, date);
+				if (bitcoin >= 0)
+				{
+					date.print_date(0);
+					if (value * bitcoin > 1000)
+						std::cout.precision(8);
+					else
+						std::cout.precision(5);
+					std::cout << " => " << value << " = ";
+					std::cout << (value * bitcoin) << '\n';
+				}
 			}
 		}
 	}

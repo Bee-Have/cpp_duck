@@ -91,22 +91,42 @@ void	Date::set_date(std::string str_date)
 	int					value;
 
 	tmp.assign(str_date.substr(0, str_date.find('-')));
+	if (tmp.empty() == true)
+	{
+		_year = 0;
+		_month = 0;
+		_day = 0;
+		return ;
+	}
 	ss << tmp;
 	ss >> value;
 	_year = value;
 	ss.clear();
 
-	str_date.assign(str_date.substr(str_date.find('-') + 1, str_date.size()));
-	tmp.assign(str_date.substr(0, str_date.find('-')));
-	ss << tmp;
-	ss >> value;
-	_month = value;
-	ss.clear();
+	if (str_date.find('-') == std::string::npos)
+	{
+		_month = 0;
+		_day = 0;
+	}
+	else
+	{
+		str_date.assign(str_date.substr(str_date.find('-') + 1, str_date.size()));
+		tmp.assign(str_date.substr(0, str_date.find('-')));
+		ss << tmp;
+		ss >> value;
+		_month = value;
+		ss.clear();
 
-	str_date.assign(str_date.substr(str_date.find('-') + 1, str_date.size()));
-	ss << str_date;
-	ss >> value;
-	_day = value;
+		if (str_date.find('-') == std::string::npos)
+			_day = 0;
+		else
+		{
+			str_date.assign(str_date.substr(str_date.find('-') + 1, str_date.size()));
+			ss << str_date;
+			ss >> value;
+			_day = value;
+		}
+	}
 }
 
 int	Date::get_year(void) const
