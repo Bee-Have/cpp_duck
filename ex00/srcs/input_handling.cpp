@@ -32,11 +32,12 @@ float	get_value(std::string line, Date date)
 		std::cerr << "Error: not a positive number.\n";
 		return (ret);
 	}
-	if (tmp.find_first_of("0123456789", 0) == std::string::npos || tmp.find_first_not_of("0123456789. ", 0) != std::string::npos)
+	if (tmp.find_first_of("0123456789", 0) == std::string::npos || tmp.find_first_not_of("0123456789,. ", 0) != std::string::npos)
 		std::cerr << "Error: value is not a number.\n";
 	else
 	{
-		if (tmp.find_first_of('.') != tmp.find_last_of('.'))
+		if (tmp.find_first_of('.') != tmp.find_last_of('.')
+			&& tmp.find_first_of(',') != tmp.find_last_of(','))
 			std::cerr << "Error: number contains multiple \'.\'\n";
 		else
 		{
@@ -119,11 +120,8 @@ void	input_handling(std::ifstream &input_file, std::map<Date, float> db)
 				if (bitcoin >= 0)
 				{
 					date.print_date(0);
-					if (value * bitcoin > 1000)
-						std::cout.precision(8);
-					else
-						std::cout.precision(5);
 					std::cout << " => " << value << " = ";
+					std::cout.precision(8);
 					std::cout << (value * bitcoin) << '\n';
 				}
 			}
