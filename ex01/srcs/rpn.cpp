@@ -54,6 +54,11 @@ void	rpn(std::string equation)
 				{
 					top = container.top();
 					container.pop();
+					if (tmp == '/' && second == 0)
+					{
+						std::cerr << "Error: cannot divide by 0\n";
+						return ;
+					}
 					container.push(calculate(top, second, tmp));
 				}
 			}
