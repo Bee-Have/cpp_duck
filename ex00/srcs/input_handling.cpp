@@ -41,6 +41,7 @@ float	get_value(std::string line, Date date)
 			std::cerr << "Error: number contains multiple \'.\'\n";
 		else
 		{
+			tmp.replace(tmp.find(','), 1, ".");
 			ss << tmp;
 			ss >> ret;
 			if (ret > 1000)
