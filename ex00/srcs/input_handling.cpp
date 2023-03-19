@@ -87,30 +87,17 @@ void	input_handling(std::ifstream &input_file, std::map<Date, float> db)
 	Date		date;
 	float		bitcoin;
 	float		value;
+	bool		first = true;
 
-	getline(input_file, line, '\n');
-	if (line.compare("date | value") != 0)
-	{
-		date.set_date(line.substr(0, line.find_first_of(' ')));
-		value = get_value(line, date);
-		if (value >= 0 && value <= 1000)
-		{
-			bitcoin = find_date(db, date);
-			if (bitcoin >= 0)
-			{
-				date.print_date(0);
-				if (value * bitcoin > 1000)
-					std::cout.precision(8);
-				else
-					std::cout.precision(5);
-				std::cout << " => " << value << " = ";
-				std::cout << (value * bitcoin) << '\n';
-			}
-		}
-	}
 	while (input_file.eof() == false)
 	{
 		getline(input_file, line, '\n');
+		if (first == true)
+		{
+			first = false;
+			if (line.compare("date | value") == 0)
+				line.erase(0, line.size());
+		}
 		if (line.empty() == false)
 		{
 			date.set_date(line.substr(0, line.find_first_of(' ')));
